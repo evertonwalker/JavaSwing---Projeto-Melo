@@ -5,7 +5,7 @@
  */
 package estoque.dao;
 
-import estoque.modelos.Cliente;
+import estoque.modelos.ClienteFisico;
 import estoque.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ import java.util.ArrayList;
 public class ClienteDAO extends ConnectionFactory {
     
     
-    public void cadastrar(Cliente a) throws Exception {
+    public void cadastrar(ClienteFisico a) throws Exception {
         //abrindo a conexão
         Connection conn = conectarPrepareStatment();
         //instrução sql correspondente a inserção do aluno
@@ -36,14 +36,14 @@ public class ClienteDAO extends ConnectionFactory {
         desconectar();
     }
 
-    public void atualizar(Cliente a) throws Exception {
+    public void atualizar(ClienteFisico a) throws Exception {
     }
 
-    public void remover(Cliente filtro) throws Exception {
+    public void remover(ClienteFisico filtro) throws Exception {
     }
 
-    public ArrayList<Cliente> listar(Cliente a) throws Exception {
-        ArrayList<Cliente> retorno = new ArrayList<>();
+    public ArrayList<ClienteFisico> listar(ClienteFisico a) throws Exception {
+        ArrayList<ClienteFisico> retorno = new ArrayList<>();
 
         //abrindo a conexão
         Connection conn = conectarPrepareStatment();
@@ -55,7 +55,7 @@ public class ClienteDAO extends ConnectionFactory {
         //executando a instrução sql
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
-            Cliente al = new Cliente();
+            ClienteFisico al = new ClienteFisico();
            // al.setMatricula(rs.getInt("matricula"));
            // al.setNome(rs.getString("nome"));
             retorno.add(al);

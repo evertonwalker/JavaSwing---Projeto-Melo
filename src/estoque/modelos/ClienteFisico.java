@@ -9,6 +9,7 @@ package estoque.modelos;
  *
  * @author Walker
  */
-public class Cliente {
+public class ClienteFisico {
+    
     private String nome;
 }

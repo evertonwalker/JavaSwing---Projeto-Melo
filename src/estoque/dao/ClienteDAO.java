@@ -3,10 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package conexaocombanco.dao;
+package estoque.dao;
 
-import conexaocombanco.modelos.Cliente;
-import conexaocombanco.util.ConnectionFactory;
+import estoque.modelos.Cliente;
+import estoque.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

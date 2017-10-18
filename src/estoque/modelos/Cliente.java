@@ -10,5 +10,5 @@ package estoque.modelos;
  * @author Walker
  */
 public class Cliente {
-    
+    private String nome;
 }

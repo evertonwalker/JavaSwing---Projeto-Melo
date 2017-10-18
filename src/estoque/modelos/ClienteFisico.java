@@ -12,4 +12,5 @@ package estoque.modelos;
 public class ClienteFisico {
     
     private String nome;
+    private String cpf;
 }

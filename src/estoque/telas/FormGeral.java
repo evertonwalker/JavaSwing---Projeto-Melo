@@ -5,9 +5,13 @@
  */
 package estoque.telas;
 
+import java.awt.Color;
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
+
 /**
  *
- * @author Walker
+ * @author EWalker
  */
 public class FormGeral extends javax.swing.JFrame {
 
@@ -16,6 +20,35 @@ public class FormGeral extends javax.swing.JFrame {
      */
     public FormGeral() {
         initComponents();
+    }
+
+    private void colocarMascara() {
+        if (clienteFisicoButton.isSelected()) {
+            
+            nomeClienteFisicoPessoaJuridico.setText("Nome do Cliente");
+            cpfOrCnpjFormattedField.setEnabled(false);
+
+        } else if (juridicoFisicoButton.isSelected()) {
+
+            cpfOrCnpjFormattedField.setVisible(false);
+            nomeClienteFisicoPessoaJuridico.setText(("Nome Fantasia"));
+            cpfOrCnpjFormattedField.setText("");
+            cpfOrCnpjFormattedField = new javax.swing.JFormattedTextField(mascara("##.###.#"
+                    + "##/####-##"));
+        }
+    }
+
+    public MaskFormatter mascara(String mascaraValue) {
+
+        MaskFormatter mascaraObject = new MaskFormatter();
+        try {
+            mascaraObject.setMask(mascaraValue);
+            mascaraObject.setPlaceholderCharacter(' ');
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return mascaraObject;
+
     }
 
     /**
@@ -27,21 +60,105 @@ public class FormGeral extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        tipoClienteButton = new javax.swing.ButtonGroup();
+        jLabel1 = new javax.swing.JLabel();
+        clienteFisicoButton = new javax.swing.JRadioButton();
+        juridicoFisicoButton = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        nomeTextField = new javax.swing.JTextField();
+        nomeClienteFisicoPessoaJuridico = new javax.swing.JLabel();
+        cpfOrCnpjFormattedField = new javax.swing.JFormattedTextField(mascara("###.###."
+            + "###-##"));
+    cpfOrCnpj = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        pack();
+    jLabel1.setText("Tipo do Cliente");
+
+    tipoClienteButton.add(clienteFisicoButton);
+    clienteFisicoButton.setLabel("Físico");
+    clienteFisicoButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            clienteFisicoButtonActionPerformed(evt);
+        }
+    });
+
+    tipoClienteButton.add(juridicoFisicoButton);
+    juridicoFisicoButton.setText("Jurídico");
+    juridicoFisicoButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            juridicoFisicoButtonActionPerformed(evt);
+        }
+    });
+
+    jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    jLabel2.setText("Cadastrar Cliente");
+
+    nomeClienteFisicoPessoaJuridico.setText("Nome do Cliente");
+
+    cpfOrCnpj.setText("Cpf");
+
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(clienteFisicoButton)
+                            .addGap(18, 18, 18)
+                            .addComponent(juridicoFisicoButton))
+                        .addComponent(jLabel1)
+                        .addComponent(nomeClienteFisicoPessoaJuridico)
+                        .addComponent(cpfOrCnpj)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(cpfOrCnpjFormattedField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                            .addComponent(nomeTextField, javax.swing.GroupLayout.Alignment.LEADING))))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(280, 280, 280)
+                    .addComponent(jLabel2)))
+            .addContainerGap(316, Short.MAX_VALUE))
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGap(21, 21, 21)
+            .addComponent(jLabel2)
+            .addGap(38, 38, 38)
+            .addComponent(jLabel1)
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(clienteFisicoButton)
+                .addComponent(juridicoFisicoButton))
+            .addGap(14, 14, 14)
+            .addComponent(nomeClienteFisicoPessoaJuridico)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(nomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(cpfOrCnpj)
+            .addGap(18, 18, 18)
+            .addComponent(cpfOrCnpjFormattedField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addContainerGap(200, Short.MAX_VALUE))
+    );
+
+    pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void clienteFisicoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clienteFisicoButtonActionPerformed
+        // TODO add your handling code here:
+        colocarMascara();
+
+    }//GEN-LAST:event_clienteFisicoButtonActionPerformed
+
+    private void juridicoFisicoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_juridicoFisicoButtonActionPerformed
+        // TODO add your handling code here:
+
+        colocarMascara();
+
+    }//GEN-LAST:event_juridicoFisicoButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -57,16 +174,24 @@ public class FormGeral extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FormGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGeral.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FormGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGeral.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FormGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGeral.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FormGeral.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FormGeral.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -79,5 +204,14 @@ public class FormGeral extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JRadioButton clienteFisicoButton;
+    private javax.swing.JLabel cpfOrCnpj;
+    private javax.swing.JFormattedTextField cpfOrCnpjFormattedField;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JRadioButton juridicoFisicoButton;
+    private javax.swing.JLabel nomeClienteFisicoPessoaJuridico;
+    private javax.swing.JTextField nomeTextField;
+    private javax.swing.ButtonGroup tipoClienteButton;
     // End of variables declaration//GEN-END:variables
 }

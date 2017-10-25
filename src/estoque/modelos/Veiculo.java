@@ -13,8 +13,8 @@ public class Veiculo {
     
     private String placa;
     private String modelo;
-    
     private Fabricante fabricante;
+    private Cliente cliente;
 
     /**
      * @return the placa
@@ -57,6 +57,21 @@ public class Veiculo {
     public void setFabricante(Fabricante fabricante) {
         this.fabricante = fabricante;
     }
+
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    /**
+     * @param cliente the cliente to set
+     */
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+    
     
     
 }

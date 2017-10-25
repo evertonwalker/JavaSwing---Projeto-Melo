@@ -5,9 +5,11 @@
  */
 package estoque.telas;
 
-import java.awt.Color;
+import estoque.util.Util;
 import java.text.ParseException;
+import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
+import org.json.JSONObject;
 
 /**
  *
@@ -140,7 +142,7 @@ public class FormGeral extends javax.swing.JFrame {
     estadoTextField = new javax.swing.JTextField();
     cidadeLabel = new javax.swing.JLabel();
     cidadeTextField = new javax.swing.JTextField();
-    jTextField4 = new javax.swing.JTextField();
+    bairroTextField = new javax.swing.JTextField();
     bairroLabel = new javax.swing.JLabel();
     jToggleButton1 = new javax.swing.JToggleButton();
     jToggleButton2 = new javax.swing.JToggleButton();
@@ -192,6 +194,12 @@ public class FormGeral extends javax.swing.JFrame {
 
     cepLabel.setText("Cep");
 
+    cepFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            cepFormattedTextFieldFocusLost(evt);
+        }
+    });
+
     logradouroTextField.setEnabled(false);
 
     logradouroLabel.setText("Logradouro");
@@ -204,71 +212,77 @@ public class FormGeral extends javax.swing.JFrame {
 
     cidadeTextField.setEnabled(false);
 
-    jTextField4.setEnabled(false);
+    bairroTextField.setEnabled(false);
 
     bairroLabel.setText("Bairro");
 
     jToggleButton1.setText("Cadastrar Cliente");
 
     jToggleButton2.setText("Limpar Formulário");
+    jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jToggleButton2ActionPerformed(evt);
+        }
+    });
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jToggleButton1))
-                .addGroup(layout.createSequentialGroup()
+                    .addGap(24, 24, 24)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(24, 24, 24)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(nomeClienteLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(nomeClienteTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(cpfFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                            .addComponent(emailTextField))
-                                        .addGap(8, 8, 8))
-                                    .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addComponent(telefonePrincipalLabel)
-                                .addComponent(clienteFisicoButton)
-                                .addComponent(emailLabel))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(juridicoFisicoButton)
-                                .addComponent(telefoneOpcionalLabel)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(razaoSocialLabel)
-                                    .addComponent(jLabel3)
-                                    .addComponent(nomeFantasiaLabel)
-                                    .addComponent(nomeFantasiaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                                    .addComponent(cnpjFormattedTextField)
-                                    .addComponent(razaoSocialTextField)
-                                    .addComponent(telefoneOpcionalTextField))))
-                        .addGroup(layout.createSequentialGroup()
-                            .addGap(280, 280, 280)
-                            .addComponent(jLabel2)))
-                    .addGap(88, 88, 88)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(nomeClienteLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(cpfFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
+                                    .addComponent(emailTextField))
+                                .addGap(8, 8, 8))
+                            .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addComponent(telefonePrincipalLabel)
+                        .addComponent(clienteFisicoButton)
+                        .addComponent(emailLabel)
+                        .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(juridicoFisicoButton)
+                        .addComponent(telefoneOpcionalLabel)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(razaoSocialLabel)
+                            .addComponent(jLabel3)
+                            .addComponent(nomeFantasiaLabel)
+                            .addComponent(nomeFantasiaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(cnpjFormattedTextField)
+                            .addComponent(razaoSocialTextField)
+                            .addComponent(telefoneOpcionalTextField))))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(280, 280, 280)
+                    .addComponent(jLabel2)))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(41, 41, 41)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(cepLabel)
                         .addComponent(logradouroLabel)
                         .addComponent(estadoLabel)
                         .addComponent(cidadeLabel)
                         .addComponent(bairroLabel)
-                        .addComponent(estadoTextField)
-                        .addComponent(cepFormattedTextField)
-                        .addComponent(logradouroTextField)
-                        .addComponent(jTextField4, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                        .addComponent(cidadeTextField))
-                    .addGap(22, 22, 22)))
-            .addGap(37, 37, 37))
+                        .addComponent(cepFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(bairroTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                            .addComponent(cidadeTextField, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(estadoTextField, javax.swing.GroupLayout.Alignment.LEADING)))
+                    .addContainerGap())
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(jToggleButton1)
+                    .addGap(35, 35, 35))))
         .addGroup(layout.createSequentialGroup()
             .addGap(161, 161, 161)
             .addComponent(jLabel1)
@@ -330,7 +344,7 @@ public class FormGeral extends javax.swing.JFrame {
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(telefoneOpcionalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(bairroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(jToggleButton1)
@@ -353,6 +367,47 @@ public class FormGeral extends javax.swing.JFrame {
         selecionarTipoCliente();
 
     }//GEN-LAST:event_juridicoFisicoButtonActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+        nomeClienteTextField.setText("");
+        cpfFormattedTextField.setText("");
+        nomeFantasiaTextField.setText("");
+        razaoSocialTextField.setText("");
+        cnpjFormattedTextField.setText("");
+        cepFormattedTextField.setText("");
+        logradouroTextField.setText("");
+        estadoTextField.setText("");
+        cidadeTextField.setText("");
+        bairroTextField.setText("");
+        emailTextField.setText("");
+        telefonePrincipalTextField.setText("");
+        telefoneOpcionalTextField.setText("");
+        
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
+
+    private void cepFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cepFormattedTextFieldFocusLost
+        // TODO add your handling code here:
+        
+        
+        String cepTratado = cepFormattedTextField.getText().replace("-","");
+        String url = "http://viacep.com.br/ws/" + cepTratado + "/json/";
+        
+        
+        Util e = new Util();
+        try {
+            JSONObject obj = new JSONObject(e.getHttpGET(url));
+            logradouroTextField.setText(obj.getString("logradouro"));
+            estadoTextField.setText(obj.getString("uf"));
+            cidadeTextField.setText(obj.getString("localidade"));
+            bairroTextField.setText((obj.getString("bairro")));
+            
+        } catch (Exception ex) {
+           ex.getMessage();
+        }
+        
+        
+    }//GEN-LAST:event_cepFormattedTextFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -399,6 +454,7 @@ public class FormGeral extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel bairroLabel;
+    private javax.swing.JTextField bairroTextField;
     private javax.swing.JFormattedTextField cepFormattedTextField;
     private javax.swing.JLabel cepLabel;
     private javax.swing.JLabel cidadeLabel;
@@ -414,7 +470,6 @@ public class FormGeral extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JTextField jTextField4;
     private javax.swing.JToggleButton jToggleButton1;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JRadioButton juridicoFisicoButton;

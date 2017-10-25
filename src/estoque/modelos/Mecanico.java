@@ -9,11 +9,7 @@ package estoque.modelos;
  *
  * @author FHC
  */
-public class Funcionario {
-    
-    private String cpf;
-    private String nome;
-    
-    
-    
+public class Mecanico extends ClienteFisico {
+
+
 }

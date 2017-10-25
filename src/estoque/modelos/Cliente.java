@@ -5,6 +5,8 @@
  */
 package estoque.modelos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author FHC
@@ -20,7 +22,14 @@ public abstract class Cliente {
     private String estado;
     private String telefone;
     private String email;
+    
+    private ArrayList <Veiculo> veiculo;
+    
+    public Cliente (){
+        ArrayList<Veiculo> veiculos = new ArrayList<>();
+    }
 
+    
     /**
      * @return the logradouro
      */
@@ -145,6 +154,20 @@ public abstract class Cliente {
      */
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    /**
+     * @return the veiculo
+     */
+    public ArrayList <Veiculo> getVeiculo() {
+        return veiculo;
+    }
+
+    /**
+     * @param veiculo the veiculo to set
+     */
+    public void setVeiculo(ArrayList <Veiculo> veiculo) {
+        this.veiculo = veiculo;
     }
 
 }

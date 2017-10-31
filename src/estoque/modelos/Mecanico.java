@@ -13,12 +13,26 @@ import java.util.ArrayList;
  */
 public class Mecanico extends ClienteFisico {
     
-    private ArrayList <Veiculo> veiculo;
+    private ArrayList <OrdemServico> ordemServico;
     
     public Mecanico (){
-        ArrayList<Veiculo> veiculos = new ArrayList<>();
+        ArrayList<OrdemServico> ordemServico = new ArrayList<>();
 
 }
+
+    /**
+     * @return the ordemServico
+     */
+    public ArrayList <OrdemServico> getOrdemServico() {
+        return ordemServico;
+    }
+
+    /**
+     * @param ordemServico the ordemServico to set
+     */
+    public void setOrdemServico(ArrayList <OrdemServico> ordemServico) {
+        this.ordemServico = ordemServico;
+    }
 
 
 } 

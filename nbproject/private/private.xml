@@ -3,20 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-<<<<<<< HEAD
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/Pagamento.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/dao/ClienteDAO.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/Veiculo.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/ClientePessoaJuridica.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/Mecanico.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/ClienteFisico.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/Fabricante.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/Cliente.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/modelos/OrdemServico.java</file>
-=======
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/telas/ok.java</file>
-            <file>file:/C:/Users/aluno/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/telas/FormGeral.java</file>
->>>>>>> 69713baed3635fad123153eaf63436a9641bb217
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/ClienteFisico.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/clientesForm.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/Cliente.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/util/ConnectionFactory.java</file>
         </group>
     </open-files>
 </project-private>

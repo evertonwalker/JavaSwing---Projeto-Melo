@@ -9,8 +9,6 @@ import estoque.controladores.ControladorClienteFisico;
 import estoque.modelos.ClienteFisico;
 import estoque.util.Util;
 import java.text.ParseException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.text.MaskFormatter;
 import org.json.JSONObject;
@@ -42,6 +40,7 @@ public class clientesForm extends javax.swing.JFrame {
         emailTextField.setText("");
         telefonePrincipalTextField.setText("");
         telefoneOpcionalTextField.setText("");
+        numeroTextField.setText("");
     }
     
     public void buscarCep(String cep) {

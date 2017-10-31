@@ -16,19 +16,30 @@ import java.util.ArrayList;
  *
  * @author EWalker
  */
-public class ClienteDAO extends ConnectionFactory {
-    
-    
-    public void cadastrar(ClienteFisico a) throws Exception {
+public class ClienteFisicoDao extends ConnectionFactory {
+        
+    public void cadastrar(ClienteFisico c) throws Exception {
         //abrindo a conexão
         Connection conn = conectarPrepareStatment();
         //instrução sql correspondente a inserção do aluno
-        String sql = "INSERT INTO aluno (matricula, nome)";
-        sql += "VALUES (?,?)";
+        String sql = "INSERT INTO CLIENTE_FISICO (cpf, nome, email,"
+                + " telefonePrinc, telefoneOpc, cep, logradouro, estado,"
+                + "cidade, bairro, numero)";
+        sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?)";
+        
         PreparedStatement stmt = conn.prepareStatement(sql);
         // preenche os valores
-      //  stmt.setInt(1, a.getMatricula());
-       // stmt.setString(2, a.getNome());
+         stmt.setString(1, c.getCpf());
+         stmt.setString(2, c.getNome());
+         stmt.setString(3, c.getEmail());
+         stmt.setString(4, c.getTelefonePrinc());
+         stmt.setString(5, c.getTelefoneOpc());
+         stmt.setString(6, c.getCep());
+         stmt.setString(7, c.getLogradouro());
+         stmt.setString(8, c.getEstado());
+         stmt.setString(9, c.getCidade());
+         stmt.setString(10, c.getBairro());
+         stmt.setString(11, c.getNumero());
         // executa
         stmt.execute();
         stmt.close();
@@ -36,13 +47,13 @@ public class ClienteDAO extends ConnectionFactory {
         desconectar();
     }
 
-    public void atualizar(ClienteFisico a) throws Exception {
+    public void atualizar(ClienteFisico c) throws Exception {
     }
 
     public void remover(ClienteFisico filtro) throws Exception {
     }
 
-    public ArrayList<ClienteFisico> listar(ClienteFisico a) throws Exception {
+    public ArrayList<ClienteFisico> listar(ClienteFisico c) throws Exception {
         ArrayList<ClienteFisico> retorno = new ArrayList<>();
 
         //abrindo a conexão

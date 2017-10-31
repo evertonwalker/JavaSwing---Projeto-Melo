@@ -16,6 +16,12 @@ public class OrdemServico {
     private int numero;
     private String descricao;
     private Date date;
+    
+    private Veiculo veiculo;
+    private ClienteFisico clienteFisico;
+    private ClientePessoaJuridica clientePessoaJuridica;
+    private Mecanico mecanico;
+    private Pagamento pagamento;
 
     /**
      * @return the numero
@@ -58,11 +64,75 @@ public class OrdemServico {
     public void setDate(Date date) {
         this.date = date;
     }
-    
-    
-    
-    
-    
-    
-    
+
+    /**
+     * @return the veiculo
+     */
+    public Veiculo getVeiculo() {
+        return veiculo;
+    }
+
+    /**
+     * @param veiculo the veiculo to set
+     */
+    public void setVeiculo(Veiculo veiculo) {
+        this.veiculo = veiculo;
+    }
+
+    /**
+     * @return the clienteFisico
+     */
+    public ClienteFisico getClienteFisico() {
+        return clienteFisico;
+    }
+
+    /**
+     * @param clienteFisico the clienteFisico to set
+     */
+    public void setClienteFisico(ClienteFisico clienteFisico) {
+        this.clienteFisico = clienteFisico;
+    }
+
+    /**
+     * @return the clientePessoaJuridica
+     */
+    public ClientePessoaJuridica getClientePessoaJuridica() {
+        return clientePessoaJuridica;
+    }
+
+    /**
+     * @param clientePessoaJuridica the clientePessoaJuridica to set
+     */
+    public void setClientePessoaJuridica(ClientePessoaJuridica clientePessoaJuridica) {
+        this.clientePessoaJuridica = clientePessoaJuridica;
+    }
+
+    /**
+     * @return the mecanico
+     */
+    public Mecanico getMecanico() {
+        return mecanico;
+    }
+
+    /**
+     * @param mecanico the mecanico to set
+     */
+    public void setMecanico(Mecanico mecanico) {
+        this.mecanico = mecanico;
+    }
+
+    /**
+     * @return the pagamento
+     */
+    public Pagamento getPagamento() {
+        return pagamento;
+    }
+
+    /**
+     * @param pagamento the pagamento to set
+     */
+    public void setPagamento(Pagamento pagamento) {
+        this.pagamento = pagamento;
+    }   
+        
 }

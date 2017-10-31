@@ -20,7 +20,8 @@ public abstract class Cliente {
     private String bairro;
     private String cidade;
     private String estado;
-    private String telefone;
+    private String telefonePrinc;
+    private String telefoneOpc;
     private String email;
     
     private ArrayList <Veiculo> veiculo;
@@ -127,19 +128,33 @@ public abstract class Cliente {
     public void setEstado(String estado) {
         this.estado = estado;
     }
-
-    /**
-     * @return the telefone
+    
+      /**
+     * @return the telefonePrinc
      */
-    public String getTelefone() {
-        return telefone;
+    public String getTelefonePrinc() {
+        return telefonePrinc;
     }
 
     /**
-     * @param telefone the telefone to set
+     * @param telefonePrinc the telefonePrinc to set
      */
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
+    public void setTelefonePrinc(String telefonePrinc) {
+        this.telefonePrinc = telefonePrinc;
+    }
+
+    /**
+     * @return the telefoneOpc
+     */
+    public String getTelefoneOpc() {
+        return telefoneOpc;
+    }
+
+    /**
+     * @param telefoneOpc the telefoneOpc to set
+     */
+    public void setTelefoneOpc(String telefoneOpc) {
+        this.telefoneOpc = telefoneOpc;
     }
 
     /**
@@ -169,6 +184,7 @@ public abstract class Cliente {
     public void setVeiculo(ArrayList <Veiculo> veiculo) {
         this.veiculo = veiculo;
     }
+
 
 }
 

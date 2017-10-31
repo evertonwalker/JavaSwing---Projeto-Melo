@@ -5,11 +5,20 @@
  */
 package estoque.modelos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author FHC
  */
 public class Mecanico extends ClienteFisico {
-
+    
+    private ArrayList <Veiculo> veiculo;
+    
+    public Mecanico (){
+        ArrayList<Veiculo> veiculos = new ArrayList<>();
 
 }
+
+
+} 

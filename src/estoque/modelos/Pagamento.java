@@ -11,6 +11,11 @@ package estoque.modelos;
  */
 public class Pagamento {
     
-
+    private String numeroPagamento;
+    private String descricaoPagamento;
+    private float valorPagamento;
+    
+    private OrdemServico ordemServico;
     
 }
+

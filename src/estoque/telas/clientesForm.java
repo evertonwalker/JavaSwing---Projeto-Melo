@@ -459,7 +459,7 @@ public class clientesForm extends javax.swing.JFrame {
         
         ControladorClienteFisico ccf = new ControladorClienteFisico();
         try {
-            ccf.cadastrarFisico(c);
+            ccf.cadastrar(c);
             JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
             limparCampos();
         } catch (Exception ex) {

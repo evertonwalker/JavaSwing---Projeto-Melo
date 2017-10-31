@@ -47,13 +47,13 @@ public class ClienteFisicoDao extends ConnectionFactory {
         desconectar();
     }
 
-    public void atualizar(ClienteFisico a) throws Exception {
+    public void atualizar(ClienteFisico c) throws Exception {
     }
 
     public void remover(ClienteFisico filtro) throws Exception {
     }
 
-    public ArrayList<ClienteFisico> listar(ClienteFisico a) throws Exception {
+    public ArrayList<ClienteFisico> listar(ClienteFisico c) throws Exception {
         ArrayList<ClienteFisico> retorno = new ArrayList<>();
 
         //abrindo a conexão

@@ -36,7 +36,7 @@ public class ConnectionFactory {
         String local = "localhost";
         String bancoDeDados = "controle";
         String url = "jdbc:sqlserver://" + local + ":1433;DatabaseName=" + bancoDeDados;
-        String usuario = "root";
+        String usuario = "controle";
         String senha = "1234";
         Class.forName(driver);
         conn = DriverManager.getConnection(url, usuario, senha);

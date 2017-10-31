@@ -3,12 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package estoque.controladores;
+package estoque.dao;
 
 /**
  *
- * @author EWalker
+ * @author aluno
  */
-public class ControladorCliente {
+public class ClientePessoaJuridicaDao {
     
 }

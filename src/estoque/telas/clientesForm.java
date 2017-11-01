@@ -6,7 +6,9 @@
 package estoque.telas;
 
 import estoque.controladores.ControladorClienteFisico;
+import estoque.controladores.ControladorClientePessoaJuridica;
 import estoque.modelos.ClienteFisico;
+import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
 import java.text.ParseException;
 import java.util.logging.Level;
@@ -442,7 +444,9 @@ public class clientesForm extends javax.swing.JFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-             
+        
+        if (clienteFisicoButton.isSelected()){
+        
         ClienteFisico c = new ClienteFisico();
         
         c.setNome(nomeClienteTextField.getText());
@@ -465,7 +469,35 @@ public class clientesForm extends javax.swing.JFrame {
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
-
+        } else {
+            
+            ClientePessoaJuridica c = new ClientePessoaJuridica();
+        
+        c.setCnpf(cnpjFormattedTextField.getText());
+        c.setNomeFantasia(nomeFantasiaTextField.getText());
+        c.setRazaoSocial(razaoSocialTextField.getText());
+        c.setEmail(emailTextField.getText());
+        c.setTelefonePrinc(telefonePrincipalTextField.getText());
+        c.setTelefoneOpc(telefoneOpcionalTextField.getText());
+        c.setCep(cepFormattedTextField.getText());
+        c.setLogradouro(logradouroTextField.getText());
+        c.setEstado(estadoTextField.getText());
+        c.setCidade(cidadeTextField.getText());
+        c.setBairro(bairroTextField.getText());
+        c.setNumero(numeroTextField.getText());
+        
+            ControladorClientePessoaJuridica ccpj = new ControladorClientePessoaJuridica();
+        try {
+            ccpj.cadastrar(c);
+            JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
+            limparCampos();
+        } catch (Exception ex) {
+          JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+        }    
+            
+            
+            
+        }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
     /**

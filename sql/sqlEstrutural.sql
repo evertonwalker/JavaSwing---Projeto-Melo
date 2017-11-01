@@ -65,4 +65,15 @@
 --)
 
 --#############################################
-SELECT * FROM CLIENTE_JURIDICO
+SELECT * FROM MECANICO
+
+
+--#########CRIAÇÃO TABELA DE MECANICOS############
+
+--CREATE TABLE MECANICO (
+ 
+--cpf VARCHAR(14) PRIMARY KEY,
+
+--nome VARCHAR(150) NOT NULL)
+
+--################################################

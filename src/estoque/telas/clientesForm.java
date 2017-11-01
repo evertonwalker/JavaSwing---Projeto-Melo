@@ -504,14 +504,14 @@ public class clientesForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
-<<<<<<< HEAD
+
     private void emailTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusLost
         // TODO add your handling code here:
         String email  =  emailTextField.getText().toLowerCase();
         emailTextField.setText(email);
         
     }//GEN-LAST:event_emailTextFieldFocusLost
-=======
+
     private void nomeClienteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeClienteTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeClienteTextFieldActionPerformed
@@ -519,7 +519,6 @@ public class clientesForm extends javax.swing.JFrame {
     private void cpfFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfFormattedTextFieldActionPerformed
->>>>>>> bb58f54ecca05ea5d8cbb2e2f6b3536fa870ecf2
 
     /**
      * @param args the command line arguments

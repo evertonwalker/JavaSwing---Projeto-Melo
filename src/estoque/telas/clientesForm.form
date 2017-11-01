@@ -48,9 +48,9 @@
                           <Component id="telefonePrincipalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="clienteFisicoButton" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Component id="emailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nomeClienteTextField" min="-2" pref="193" max="-2" attributes="0"/>
+                          <Component id="nomeClienteTextField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="70" max="32767" attributes="0"/>
+                      <EmptySpace pref="63" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="juridicoFisicoButton" min="-2" max="-2" attributes="0"/>
                           <Component id="telefoneOpcionalLabel" min="-2" max="-2" attributes="0"/>
@@ -238,6 +238,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeClienteTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeClienteTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nomeClienteLabel">
       <Properties>
@@ -265,8 +268,11 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="cpfFormattedTextField">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfFormattedTextFieldActionPerformed"/>
+      </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(mascara(&quot;###.###.###-##&quot;))"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Util().mascara(&quot;###.###.###-##&quot;))"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="cnpjFormattedTextField">
@@ -274,7 +280,7 @@
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(mascara(&quot;##.###.##&quot;&#xa;+ &quot;#/####-##&quot;))"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Util().mascara(&quot;##.###.##&quot;&#xa;    + &quot;#/####-##&quot;))"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="razaoSocialLabel">
@@ -318,7 +324,7 @@
         <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cepFormattedTextFieldFocusLost"/>
       </Events>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(mascara(&quot;#####-###&quot;))"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Util().mascara(&quot;#####-###&quot;))"/>
       </AuxValues>
     </Component>
     <Component class="javax.swing.JTextField" name="logradouroTextField">

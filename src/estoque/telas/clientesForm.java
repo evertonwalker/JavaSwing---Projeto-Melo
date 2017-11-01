@@ -10,9 +10,7 @@ import estoque.controladores.ControladorClientePessoaJuridica;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
-import java.text.ParseException;
 import javax.swing.JOptionPane;
-import javax.swing.text.MaskFormatter;
 import org.json.JSONObject;
 
 /**
@@ -29,7 +27,7 @@ public class clientesForm extends javax.swing.JFrame {
     }
 
     private void limparCampos(){
-         nomeClienteTextField.setText("");
+        nomeClienteTextField.setText("");
         cpfFormattedTextField.setText("");
         nomeFantasiaTextField.setText("");
         razaoSocialTextField.setText("");
@@ -110,20 +108,6 @@ public class clientesForm extends javax.swing.JFrame {
                     + "##/####-##"));*/
         }
     }
-
-    public MaskFormatter mascara(String mascaraValue) {
-
-        MaskFormatter mascaraObject = new MaskFormatter();
-        try {
-            mascaraObject.setMask(mascaraValue);
-            mascaraObject.setPlaceholderCharacter(' ');
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        return mascaraObject;
-
-    }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -144,8 +128,8 @@ public class clientesForm extends javax.swing.JFrame {
         nomeFantasiaLabel = new javax.swing.JLabel();
         nomeFantasiaTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        cpfFormattedTextField = new javax.swing.JFormattedTextField(mascara("###.###.###-##"));
-        cnpjFormattedTextField = new javax.swing.JFormattedTextField(mascara("##.###.##"
+        cpfFormattedTextField = new javax.swing.JFormattedTextField(new Util().mascara("###.###.###-##"));
+        cnpjFormattedTextField = new javax.swing.JFormattedTextField(new Util().mascara("##.###.##"
             + "#/####-##"));
     razaoSocialLabel = new javax.swing.JLabel();
     razaoSocialTextField = new javax.swing.JTextField();
@@ -156,7 +140,7 @@ public class clientesForm extends javax.swing.JFrame {
     telefoneOpcionalTextField = new javax.swing.JTextField();
     telefoneOpcionalLabel = new javax.swing.JLabel();
     cepLabel = new javax.swing.JLabel();
-    cepFormattedTextField = new javax.swing.JFormattedTextField(mascara("#####-###"));
+    cepFormattedTextField = new javax.swing.JFormattedTextField(new Util().mascara("#####-###"));
     logradouroTextField = new javax.swing.JTextField();
     logradouroLabel = new javax.swing.JLabel();
     estadoLabel = new javax.swing.JLabel();
@@ -193,6 +177,12 @@ public class clientesForm extends javax.swing.JFrame {
     jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
     jLabel2.setText("Cadastrar Cliente");
 
+    nomeClienteTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            nomeClienteTextFieldActionPerformed(evt);
+        }
+    });
+
     nomeClienteLabel.setText("Nome do Cliente");
 
     cpfLabel.setText("Cpf");
@@ -202,6 +192,12 @@ public class clientesForm extends javax.swing.JFrame {
     nomeFantasiaTextField.setEnabled(false);
 
     jLabel3.setText("Cnpj");
+
+    cpfFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cpfFormattedTextFieldActionPerformed(evt);
+        }
+    });
 
     cnpjFormattedTextField.setEnabled(false);
 
@@ -277,8 +273,8 @@ public class clientesForm extends javax.swing.JFrame {
                         .addComponent(telefonePrincipalLabel)
                         .addComponent(clienteFisicoButton)
                         .addComponent(emailLabel)
-                        .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 70, Short.MAX_VALUE)
+                        .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(juridicoFisicoButton)
                         .addComponent(telefoneOpcionalLabel)
@@ -468,7 +464,7 @@ public class clientesForm extends javax.swing.JFrame {
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
-        } else {
+        } else if (juridicoFisicoButton.isSelected()){
             
             ClientePessoaJuridica c = new ClientePessoaJuridica();
         
@@ -498,6 +494,14 @@ public class clientesForm extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
+
+    private void nomeClienteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeClienteTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeClienteTextFieldActionPerformed
+
+    private void cpfFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpfFormattedTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

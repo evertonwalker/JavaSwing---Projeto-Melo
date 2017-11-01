@@ -10,6 +10,8 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import javax.swing.text.MaskFormatter;
 
 /**
  *
@@ -37,6 +39,19 @@ public class Util {
        }
  
         return result.toString();
+    }
+    
+    public MaskFormatter mascara(String mascaraValue) {
+
+        MaskFormatter mascaraObject = new MaskFormatter();
+        try {
+            mascaraObject.setMask(mascaraValue);
+            mascaraObject.setPlaceholderCharacter(' ');
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return mascaraObject;
+
     }
 
 }

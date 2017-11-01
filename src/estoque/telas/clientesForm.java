@@ -26,6 +26,8 @@ public class clientesForm extends javax.swing.JFrame {
      */
     public clientesForm() {
         initComponents();
+        this.setLocationRelativeTo(null);
+        
     }
 
     private void limparCampos(){
@@ -175,6 +177,7 @@ public class clientesForm extends javax.swing.JFrame {
     jLabel1.setText("Tipo do Cliente");
 
     tipoClienteButton.add(clienteFisicoButton);
+    clienteFisicoButton.setSelected(true);
     clienteFisicoButton.setLabel("Físico");
     clienteFisicoButton.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -210,6 +213,12 @@ public class clientesForm extends javax.swing.JFrame {
     razaoSocialTextField.setEnabled(false);
 
     emailLabel.setText("Email");
+
+    emailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            emailTextFieldFocusLost(evt);
+        }
+    });
 
     telefonePrincipalLabel.setText("Telefone Principal");
 
@@ -498,6 +507,13 @@ public class clientesForm extends javax.swing.JFrame {
             
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
+
+    private void emailTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusLost
+        // TODO add your handling code here:
+        String email  =  emailTextField.getText().toLowerCase();
+        emailTextField.setText(email);
+        
+    }//GEN-LAST:event_emailTextFieldFocusLost
 
     /**
      * @param args the command line arguments

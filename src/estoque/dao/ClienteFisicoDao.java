@@ -53,23 +53,29 @@ public class ClienteFisicoDao extends ConnectionFactory {
     public void remover(ClienteFisico filtro) throws Exception {
     }
 
-    public ArrayList<ClienteFisico> listar(ClienteFisico c) throws Exception {
+    public ArrayList<ClienteFisico> listar() throws Exception {
+       
         ArrayList<ClienteFisico> retorno = new ArrayList<>();
 
         //abrindo a conexão
         Connection conn = conectarPrepareStatment();
         //instrução sql correspondente a seleção dos alunos
-        String sql = "SELECT matricula, nome ";
-        sql += "FROM aluno order by nome ";
+        String sql = "SELECT nome, cpf, email, telefonePrinc, telefoneOpc ";
+        sql += "FROM CLIENTE_FISICO order by nome ";
         PreparedStatement stmt = conn.prepareStatement(sql);
 
         //executando a instrução sql
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
-            ClienteFisico al = new ClienteFisico();
-           // al.setMatricula(rs.getInt("matricula"));
-           // al.setNome(rs.getString("nome"));
-            retorno.add(al);
+           ClienteFisico cf = new ClienteFisico();
+           
+           cf.setNome(rs.getString("nome"));
+           cf.setCpf(rs.getString("cpf"));
+           cf.setEmail(rs.getString("email"));
+           cf.setTelefonePrinc(rs.getString("telefonePrinc"));
+           cf.setTelefonePrinc(rs.getString("telefoneOpc"));
+           
+            retorno.add(cf);
         }
         //fechando a conexão com o banco de dados
         desconectar();

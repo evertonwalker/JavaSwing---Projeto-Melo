@@ -212,6 +212,7 @@
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="tipoClienteButton"/>
         </Property>
+        <Property name="selected" type="boolean" value="true"/>
         <Property name="label" type="java.lang.String" value="F&#xed;sico"/>
       </Properties>
       <Events>
@@ -293,6 +294,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTextField">
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailTextFieldFocusLost"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="telefonePrincipalLabel">
       <Properties>

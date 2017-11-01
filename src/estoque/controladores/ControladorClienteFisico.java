@@ -16,9 +16,9 @@ import java.util.logging.Logger;
  *
  * @author EWalker
  */
-public class ControladorClienteFisico implements ClienteFisicoInterface{
+public class ControladorClienteFisico {
     
-     @Override
+     
     public void cadastrar(ClienteFisico c) {
         
         ClienteFisicoDao dao = new ClienteFisicoDao();
@@ -29,23 +29,23 @@ public class ControladorClienteFisico implements ClienteFisicoInterface{
          }
     }
     
-    @Override
+
     public void atualizar(ClienteFisico c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
+   
     public void remover(ClienteFisico filtro) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    @Override
-    public ArrayList<ClienteFisico> listar(ClienteFisico c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    
+    public ArrayList<ClienteFisico> listar() throws Exception {
+           
+        ClienteFisicoDao dao = new ClienteFisicoDao();  
+        return dao.listar();
+                
     }
-
-   
-    
-    
+          
     
 }

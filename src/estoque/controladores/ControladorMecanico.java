@@ -36,9 +36,7 @@ public class ControladorMecanico implements MecanicoInterface {
              dao.cadastrar(m);
          } catch (Exception ex) {
              Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
-         }    
- 
-        
+         }        
     }
 
     @Override

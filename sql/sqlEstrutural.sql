@@ -65,7 +65,7 @@
 --)
 
 --#############################################
-SELECT * FROM MECANICO
+SELECT * FROM CLIENTE_JURIDICO
 
 
 --#########CRIAÇÃO TABELA DE MECANICOS############

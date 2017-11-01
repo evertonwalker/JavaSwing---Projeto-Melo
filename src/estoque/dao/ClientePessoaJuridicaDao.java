@@ -5,6 +5,7 @@
  */
 package estoque.dao;
 
+import estoque.controladores.ControladorClientePessoaJuridica;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.ConnectionFactory;
 import java.sql.Connection;

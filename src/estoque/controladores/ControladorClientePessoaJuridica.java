@@ -9,8 +9,8 @@ import estoque.dao.ClientePessoaJuridicaDao;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.modelos.ClientePessoaJuridicaInterface;
 import java.util.ArrayList;
-//import java.util.logging.Level;
-//import java.util.logging.Logger;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,14 +19,23 @@ import java.util.ArrayList;
 public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaInterface{
     
     @Override
-    public void cadastrar(ClientePessoaJuridica c) {
+    public void cadastrar(ClientePessoaJuridica c) throws Exception{
+        
+        if (c.getCnpf().isEmpty()){
+        throw new Exception("Informe o CNPJ do cliente");
+    }
+        if ("".equals(c.getNomeFantasia().trim())){
+        throw new Exception("Informe o Nome Fantasia do Cliente");
+    }
+        if ("".equals(c.getRazaoSocial().trim())){
+        throw new Exception("Informe a Razão Social do Cliente");
+    }
         
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
          try {
              dao.cadastrar(c);
          } catch (Exception ex) {
-             ex.getMessage();
-             //Logger.getLogger(ControladorClientePessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
+             Logger.getLogger(ControladorClientePessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
          }
     }
 

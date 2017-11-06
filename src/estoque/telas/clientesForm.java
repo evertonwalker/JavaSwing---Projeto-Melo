@@ -25,10 +25,10 @@ public class clientesForm extends javax.swing.JFrame {
     public clientesForm() {
         initComponents();
         this.setLocationRelativeTo(null);
-        
+
     }
 
-    private void limparCampos(){
+    private void limparCampos() {
         nomeClienteTextField.setText("");
         cpfFormattedTextField.setText("");
         nomeFantasiaTextField.setText("");
@@ -44,14 +44,13 @@ public class clientesForm extends javax.swing.JFrame {
         telefoneOpcionalTextField.setText("");
         numeroTextField.setText("");
     }
-    
+
     public void buscarCep(String cep) {
 
         //Definindo a url 
         String url = "http://viacep.com.br/ws/" + cep + "/json/";
 
         //Criando o objeto Json para receber os dados
-        
     }
 
     private void camposClientesAtivarLimparClienteJuridico() {
@@ -110,6 +109,7 @@ public class clientesForm extends javax.swing.JFrame {
                     + "##/####-##"));*/
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -193,6 +193,11 @@ public class clientesForm extends javax.swing.JFrame {
     nomeFantasiaLabel.setText("Nome Fantasia");
 
     nomeFantasiaTextField.setEnabled(false);
+    nomeFantasiaTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            nomeFantasiaTextFieldActionPerformed(evt);
+        }
+    });
 
     jLabel3.setText("Cnpj");
 
@@ -203,6 +208,11 @@ public class clientesForm extends javax.swing.JFrame {
     });
 
     cnpjFormattedTextField.setEnabled(false);
+    cnpjFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cnpjFormattedTextFieldActionPerformed(evt);
+        }
+    });
 
     razaoSocialLabel.setText("Razão Social");
 
@@ -420,17 +430,15 @@ public class clientesForm extends javax.swing.JFrame {
     private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
         // TODO add your handling code here:
         limparCampos();
-        
+
     }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     private void cepFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cepFormattedTextFieldFocusLost
         // TODO add your handling code here:
-        
-        
-        String cepTratado = cepFormattedTextField.getText().replace("-","");
+
+        String cepTratado = cepFormattedTextField.getText().replace("-", "");
         String url = "http://viacep.com.br/ws/" + cepTratado + "/json/";
-        
-        
+
         Util e = new Util();
         try {
             JSONObject obj = new JSONObject(e.getHttpGET(url));
@@ -438,78 +446,76 @@ public class clientesForm extends javax.swing.JFrame {
             estadoTextField.setText(obj.getString("uf"));
             cidadeTextField.setText(obj.getString("localidade"));
             bairroTextField.setText((obj.getString("bairro")));
-            
+
         } catch (Exception ex) {
-           ex.getMessage();
+            ex.getMessage();
         }
-        
-        
+
+
     }//GEN-LAST:event_cepFormattedTextFieldFocusLost
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-        
-        if (clienteFisicoButton.isSelected()){
-        
-        ClienteFisico c = new ClienteFisico();
-        
-        c.setNome(nomeClienteTextField.getText());
-        c.setCpf(cpfFormattedTextField.getText());
-        c.setEmail(emailTextField.getText());
-        c.setTelefonePrinc(telefonePrincipalTextField.getText());
-        c.setTelefoneOpc(telefoneOpcionalTextField.getText());
-        c.setCep(cepFormattedTextField.getText());
-        c.setLogradouro(logradouroTextField.getText());
-        c.setEstado(estadoTextField.getText());
-        c.setCidade(cidadeTextField.getText());
-        c.setBairro(bairroTextField.getText());
-        c.setNumero(numeroTextField.getText());
-        
-        ControladorClienteFisico ccf = new ControladorClienteFisico();
-        try {
-            ccf.cadastrar(c);
-            JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
-            limparCampos();
-        } catch (Exception ex) {
-          JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-        }
-        } else if (juridicoFisicoButton.isSelected()){
-            
+
+        if (clienteFisicoButton.isSelected()) {
+
+            ClienteFisico c = new ClienteFisico();
+
+            c.setNome(nomeClienteTextField.getText());
+            c.setCpf(cpfFormattedTextField.getText());
+            c.setEmail(emailTextField.getText());
+            c.setTelefonePrinc(telefonePrincipalTextField.getText());
+            c.setTelefoneOpc(telefoneOpcionalTextField.getText());
+            c.setCep(cepFormattedTextField.getText());
+            c.setLogradouro(logradouroTextField.getText());
+            c.setEstado(estadoTextField.getText());
+            c.setCidade(cidadeTextField.getText());
+            c.setBairro(bairroTextField.getText());
+            c.setNumero(numeroTextField.getText());
+
+            ControladorClienteFisico ccf = new ControladorClienteFisico();
+            try {
+                ccf.cadastrar(c);
+                JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
+                limparCampos();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            }
+        } else if(juridicoFisicoButton.isSelected()) {
+
             ClientePessoaJuridica c = new ClientePessoaJuridica();
-        
-        c.setCnpf(cnpjFormattedTextField.getText());
-        c.setNomeFantasia(nomeFantasiaTextField.getText());
-        c.setRazaoSocial(razaoSocialTextField.getText());
-        c.setEmail(emailTextField.getText());
-        c.setTelefonePrinc(telefonePrincipalTextField.getText());
-        c.setTelefoneOpc(telefoneOpcionalTextField.getText());
-        c.setCep(cepFormattedTextField.getText());
-        c.setLogradouro(logradouroTextField.getText());
-        c.setEstado(estadoTextField.getText());
-        c.setCidade(cidadeTextField.getText());
-        c.setBairro(bairroTextField.getText());
-        c.setNumero(numeroTextField.getText());
-        
+
+            c.setCnpf(cnpjFormattedTextField.getText());
+            c.setNomeFantasia(nomeFantasiaTextField.getText());
+            c.setRazaoSocial(razaoSocialTextField.getText());
+            c.setEmail(emailTextField.getText());
+            c.setTelefonePrinc(telefonePrincipalTextField.getText());
+            c.setTelefoneOpc(telefoneOpcionalTextField.getText());
+            c.setCep(cepFormattedTextField.getText());
+            c.setLogradouro(logradouroTextField.getText());
+            c.setEstado(estadoTextField.getText());
+            c.setCidade(cidadeTextField.getText());
+            c.setBairro(bairroTextField.getText());
+            c.setNumero(numeroTextField.getText());
+
             ControladorClientePessoaJuridica ccpj = new ControladorClientePessoaJuridica();
-        try {
-            ccpj.cadastrar(c);
-            JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
-            limparCampos();
-        } catch (Exception ex) {
-          JOptionPane.showMessageDialog(rootPane, ex.getMessage());
-        }    
-            
-            
-            
+            try {
+                ccpj.cadastrar(c);
+                JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
+                limparCampos();
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            }
+
         }
     }//GEN-LAST:event_cadastrarButtonActionPerformed
 
 
     private void emailTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailTextFieldFocusLost
         // TODO add your handling code here:
-        String email  =  emailTextField.getText().toLowerCase();
+        String email = emailTextField.getText().toLowerCase();
         emailTextField.setText(email);
-        
+
     }//GEN-LAST:event_emailTextFieldFocusLost
 
     private void nomeClienteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeClienteTextFieldActionPerformed
@@ -519,6 +525,14 @@ public class clientesForm extends javax.swing.JFrame {
     private void cpfFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfFormattedTextFieldActionPerformed
+
+    private void cnpjFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cnpjFormattedTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cnpjFormattedTextFieldActionPerformed
+
+    private void nomeFantasiaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFantasiaTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_nomeFantasiaTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

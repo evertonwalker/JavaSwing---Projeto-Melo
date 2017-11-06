@@ -24,8 +24,8 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory{
         Connection conn = conectarPrepareStatment();
         //instrução sql correspondente a inserção do aluno
         String sql = "INSERT INTO CLIENTE_JURIDICO (cnpj, nomeFantasia,"
-                + " razaoSocial, email,telefonePrinc, telefoneOpc, cep,"
-                + " logradouro, estado,cidade, bairro, numero)";
+                + " razaoSocial, email, telefonePrinc, telefoneOpc, cep,"
+                + " logradouro, estado, cidade, bairro, numero)";
         sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
         
         PreparedStatement stmt = conn.prepareStatement(sql);

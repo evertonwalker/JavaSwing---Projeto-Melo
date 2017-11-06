@@ -16,27 +16,27 @@ import java.util.logging.Logger;
  *
  * @author FHC
  */
-public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaInterface{
-    
+public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaInterface {
+
     @Override
-    public void cadastrar(ClientePessoaJuridica c) throws Exception{
-        
-        if (c.getCnpf().isEmpty()){
-        throw new Exception("Informe o CNPJ do cliente");
-    }
-        if ("".equals(c.getNomeFantasia().trim())){
-        throw new Exception("Informe o Nome Fantasia do Cliente");
-    }
-        if ("".equals(c.getRazaoSocial().trim())){
-        throw new Exception("Informe a Razão Social do Cliente");
-    }
-        
+    public void cadastrar(ClientePessoaJuridica c) throws Exception {
+
+        if (c.getCnpf().isEmpty()) {
+            throw new Exception("Informe o CNPJ do cliente");
+        }
+        if ("".equals(c.getNomeFantasia().trim())) {
+            throw new Exception("Informe o Nome Fantasia do Cliente");
+        }
+        if ("".equals(c.getRazaoSocial().trim())) {
+            throw new Exception("Informe a Razão Social do Cliente");
+        }
+
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
-         try {
-             dao.cadastrar(c);
-         } catch (Exception ex) {
-             Logger.getLogger(ControladorClientePessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
-         }
+        try {
+            dao.cadastrar(c);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorClientePessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     @Override
@@ -53,5 +53,5 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica c) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
+
 }

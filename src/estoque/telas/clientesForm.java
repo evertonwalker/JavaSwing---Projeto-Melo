@@ -239,16 +239,31 @@ public class clientesForm extends javax.swing.JFrame {
     });
 
     logradouroTextField.setEnabled(false);
+    logradouroTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            logradouroTextFieldActionPerformed(evt);
+        }
+    });
 
     logradouroLabel.setText("Logradouro");
 
     estadoLabel.setText("Estado");
 
     estadoTextField.setEnabled(false);
+    estadoTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            estadoTextFieldActionPerformed(evt);
+        }
+    });
 
     cidadeLabel.setText("Cidade");
 
     cidadeTextField.setEnabled(false);
+    cidadeTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cidadeTextFieldActionPerformed(evt);
+        }
+    });
 
     bairroTextField.setEnabled(false);
 
@@ -451,7 +466,6 @@ public class clientesForm extends javax.swing.JFrame {
             ex.getMessage();
         }
 
-
     }//GEN-LAST:event_cepFormattedTextFieldFocusLost
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
@@ -533,6 +547,18 @@ public class clientesForm extends javax.swing.JFrame {
     private void nomeFantasiaTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeFantasiaTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeFantasiaTextFieldActionPerformed
+
+    private void logradouroTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logradouroTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_logradouroTextFieldActionPerformed
+
+    private void estadoTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estadoTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_estadoTextFieldActionPerformed
+
+    private void cidadeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cidadeTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cidadeTextFieldActionPerformed
 
     /**
      * @param args the command line arguments

@@ -17,35 +17,47 @@ import java.util.logging.Logger;
  * @author EWalker
  */
 public class ControladorClienteFisico {
-    
-     
+
     public void cadastrar(ClienteFisico c) {
+
+        ClienteFisicoDao dao = new ClienteFisicoDao();
+        try {
+            dao.cadastrar(c);
+        } catch (Exception ex) {
+            Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void atualizar(ClienteFisico cf) {
         
         ClienteFisicoDao dao = new ClienteFisicoDao();
-         try {
-             dao.cadastrar(c);
-         } catch (Exception ex) {
-             Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
-         }
-    }
-    
-
-    public void atualizar(ClienteFisico c) {
+        try {
+            dao.atualizar(cf);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+        
+        
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-   
-    public void remover(ClienteFisico filtro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(ClienteFisico cf) throws Exception {
+
+        ClienteFisicoDao dao = new ClienteFisicoDao();
+
+        try {
+            dao.remover(cf);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+
     }
 
-    
     public ArrayList<ClienteFisico> listar() throws Exception {
-           
-        ClienteFisicoDao dao = new ClienteFisicoDao();  
+
+        ClienteFisicoDao dao = new ClienteFisicoDao();
         return dao.listar();
-                
+
     }
-          
-    
+
 }

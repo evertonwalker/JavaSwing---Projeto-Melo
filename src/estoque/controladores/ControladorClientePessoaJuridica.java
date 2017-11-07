@@ -35,7 +35,7 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         try {
             dao.cadastrar(c);
         } catch (Exception ex) {
-            Logger.getLogger(ControladorClientePessoaJuridica.class.getName()).log(Level.SEVERE, null, ex);
+            ex.getMessage();
         }
     }
 

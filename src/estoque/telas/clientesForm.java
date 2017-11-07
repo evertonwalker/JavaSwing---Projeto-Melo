@@ -490,7 +490,8 @@ public class clientesForm extends javax.swing.JFrame {
             ControladorClienteFisico ccf = new ControladorClienteFisico();
             try {
                 ccf.cadastrar(c);
-                JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
+                JOptionPane.showMessageDialog(rootPane, "Cliente Cliente "
+                        + "Cadastrado");
                 limparCampos();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());
@@ -517,7 +518,8 @@ public class clientesForm extends javax.swing.JFrame {
             ControladorClientePessoaJuridica ccpj = new ControladorClientePessoaJuridica();
             try {
                 ccpj.cadastrar(c);
-                JOptionPane.showMessageDialog(rootPane, "Cliente Cadastrado");
+                JOptionPane.showMessageDialog(rootPane, "Cliente Juridico"
+                        + " Cadastrado");
                 limparCampos();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());

@@ -261,9 +261,9 @@ public class AlterarClienteForm extends javax.swing.JFrame {
                 .addGap(4, 4, 4)
                 .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel5)
-                    .addComponent(jLabel6))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -352,10 +352,9 @@ public class AlterarClienteForm extends javax.swing.JFrame {
             ccf.atualizar(cf);
             JOptionPane.showMessageDialog(rootPane, "Cliente Atualizado com"
                     + " Sucesso");
-        } catch (Exception e) {
+        } catch (Exception ex) {
             
-            System.out.print(e.getMessage());
-            JOptionPane.showMessageDialog(rootPane, "Falha ao Atualizar");
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
 
 

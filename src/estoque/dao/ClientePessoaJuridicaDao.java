@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 /**
  *
- * @author aluno
+ * @author Flávio
  */
 public class ClientePessoaJuridicaDao extends ConnectionFactory {
 
@@ -44,10 +44,15 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
         stmt.setString(11, c.getBairro());
         stmt.setString(12, c.getNumero());
         // executa
-        stmt.execute();
-        stmt.close();
-        //fechando a conexão com o banco de dados
-        desconectar();
+        try {
+            stmt.execute();
+            stmt.close();
+            //fechando a conexão com o banco de dados
+            desconectar();
+        } catch (Exception e) {
+            e.getMessage();
+        }   
+
     }
 
     public void atualizar(ClientePessoaJuridica cpj) throws Exception {
@@ -123,16 +128,15 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
         ResultSet rs = stmt.executeQuery();
         while (rs.next()) {
             ClientePessoaJuridica cpj = new ClientePessoaJuridica();
-           
-           cpj.setNomeFantasia(rs.getString("nomeFantasia"));
-           cpj.setCnpj(rs.getString("cnpj"));
-           cpj.setEmail(rs.getString("email"));
-           cpj.setTelefonePrinc(rs.getString("telefonePrinc"));
-           cpj.setTelefoneOpc(rs.getString("telefoneOpc"));
-           cpj.setCep(rs.getString("cep"));
-           cpj.setNumero((rs.getString("numero")));
-            
-            
+
+            cpj.setNomeFantasia(rs.getString("nomeFantasia"));
+            cpj.setCnpj(rs.getString("cnpj"));
+            cpj.setEmail(rs.getString("email"));
+            cpj.setTelefonePrinc(rs.getString("telefonePrinc"));
+            cpj.setTelefoneOpc(rs.getString("telefoneOpc"));
+            cpj.setCep(rs.getString("cep"));
+            cpj.setNumero((rs.getString("numero")));
+
             retorno.add(cpj);
         }
         //fechando a conexão com o banco de dados

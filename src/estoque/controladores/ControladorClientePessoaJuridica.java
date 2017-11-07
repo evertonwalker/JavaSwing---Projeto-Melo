@@ -21,8 +21,8 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     @Override
     public void cadastrar(ClientePessoaJuridica c) throws Exception {
 
-        if (c.getCnpf().isEmpty()) {
-            throw new Exception("Informe o CNPJ do cliente");
+        if (c.getCnpf().replace(" ", "").length() < 14) {
+            throw new Exception("Informe o CNPJ do cliente com 14 dígitos");
         }
         if ("".equals(c.getNomeFantasia().trim())) {
             throw new Exception("Informe o Nome Fantasia do Cliente");

@@ -89,4 +89,4 @@
 
 --###############################################
 
-SELECT * FROM Usuario
+SELECT * FROM CLIENTE_JURIDICO

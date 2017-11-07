@@ -495,11 +495,13 @@ public class clientesForm extends javax.swing.JFrame {
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());
             }
-        } else if(juridicoFisicoButton.isSelected()) {
+        } 
+        
+        if(juridicoFisicoButton.isSelected()) {
 
             ClientePessoaJuridica c = new ClientePessoaJuridica();
 
-            c.setCnpf(cnpjFormattedTextField.getText());
+            c.setCnpj(cnpjFormattedTextField.getText());
             c.setNomeFantasia(nomeFantasiaTextField.getText());
             c.setRazaoSocial(razaoSocialTextField.getText());
             c.setEmail(emailTextField.getText());

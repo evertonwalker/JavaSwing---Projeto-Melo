@@ -133,7 +133,7 @@ public class ClienteFisicoDao extends ConnectionFactory {
             cf.setTelefoneOpc(rs.getString("telefoneOpc"));
             cf.setCep(rs.getString("cep"));
             cf.setNumero((rs.getString("numero")));
-;
+           
             retorno.add(cf);
         }
         //fechando a conexão com o banco de dados

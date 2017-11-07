@@ -10,23 +10,23 @@ package estoque.modelos;
  * @author FHC
  */
 public class ClientePessoaJuridica extends Cliente {
-    
+
     private String cnpj;
     private String nomeFantasia;
     private String razaoSocial;
 
     /**
-     * @return the cnpf
+     * @return the cnpj
      */
-    public String getCnpf() {
+    public String getCnpj() {
         return cnpj;
     }
 
     /**
-     * @param cnpf the cnpf to set
+     * @param cnpj the cnpj to set
      */
-    public void setCnpf(String cnpf) {
-        this.cnpj = cnpf;
+    public void setCnpj(String cnpj) {
+        this.cnpj = cnpj;
     }
 
     /**
@@ -56,7 +56,5 @@ public class ClientePessoaJuridica extends Cliente {
     public void setRazaoSocial(String razaoSocial) {
         this.razaoSocial = razaoSocial;
     }
-    
-    
-    
+
 }

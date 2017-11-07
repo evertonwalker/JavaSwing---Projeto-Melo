@@ -5,9 +5,7 @@
  */
 package estoque.telas;
 
-import estoque.controladores.ControladorClienteFisico;
 import estoque.controladores.ControladorMecanico;
-import estoque.modelos.ClienteFisico;
 import estoque.modelos.Mecanico;
 import estoque.util.Util;
 import javax.swing.JOptionPane;

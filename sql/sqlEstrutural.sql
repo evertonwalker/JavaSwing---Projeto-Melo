@@ -65,7 +65,7 @@
 --)
 
 --#############################################
-SELECT * FROM Mecanico
+
 
 
 --#########CRIAÇÃO TABELA DE MECANICOS############
@@ -77,3 +77,16 @@ SELECT * FROM Mecanico
 --nome VARCHAR(150) NOT NULL)
 
 --################################################
+
+
+--########CRIAÇÃO TABELA DE USUÁRIOS#############
+
+--CREATE TABLE USUARIO (id INT Identity Primary Key,
+ 
+--nome VARCHAR(60) NOT NULL,
+
+--senha VARCHAR(60) NOT NULL)
+
+--###############################################
+
+SELECT * FROM Usuario

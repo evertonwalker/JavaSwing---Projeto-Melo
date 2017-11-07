@@ -24,11 +24,11 @@ public class ControladorMecanico implements MecanicoInterface {
         if (m.getNome().isEmpty()) {
             throw new Exception("Informe o Nome do Mecânico");
         }
-        if (m.getCpf().isEmpty()) {
-            throw new Exception("O Cpf deverá conter 11 dígitos");
-        }
         if ("".equals(m.getNome().trim())) {
             throw new Exception("Informar o nome do Mecânico");
+        }
+        if (m.getCpf().replace(" ", "").length() < 11) {
+            throw new Exception("O Cpf deverá conter 11 dígitos");
         }
 
         MecanicoDao dao = new MecanicoDao();

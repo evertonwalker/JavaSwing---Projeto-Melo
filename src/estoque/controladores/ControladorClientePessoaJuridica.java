@@ -64,14 +64,13 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
             ex.getMessage();
         }
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<ClientePessoaJuridica> listar() throws Exception {
+    public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception {
         
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
-        return dao.listar();
+        return dao.listarPessoaJuridica();
         
     }
 

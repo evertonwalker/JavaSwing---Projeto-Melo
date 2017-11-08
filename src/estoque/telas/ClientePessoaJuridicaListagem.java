@@ -39,7 +39,7 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
         try {
             ControladorClientePessoaJuridica cpj = new ControladorClientePessoaJuridica();
-            this.listaClientePessoaJuridicaGlobal = cpj.listar();
+            this.listaClientePessoaJuridicaGlobal = cpj.listarPessoaJuridica();
             for (ClientePessoaJuridica cj : listaClientePessoaJuridicaGlobal) {
                 modelo.addRow(new String[]{"" + cj.getNomeFantasia(), cj.getCnpj(),
                     cj.getRazaoSocial(), cj.getEmail(), cj.getTelefonePrinc(),
@@ -171,20 +171,46 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
     private void tabelaClientePJTableMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabelaClientePJTableMouseClicked
         // TODO add your handling code here:
-        int index = tabelaClientePJTable.getSelectedRow();
-        if (index >= 0) {
-            ClientePessoaJuridica cf = this.listaClientePessoaJuridicaGlobal.get(index);
+        try {
+            int index = tabelaClientePJTable.getSelectedRow();
+            if (index >= 0) {
+                ClientePessoaJuridica cpj = this.listaClientePessoaJuridicaGlobal.get(index);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
+
     }//GEN-LAST:event_tabelaClientePJTableMouseClicked
 
     private void removerClientePJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerClientePJButtonActionPerformed
         // TODO add your handling code here:
         try {
-         ControladorClientePessoaJuridica cpj = new ControladorClientePessoaJuridica();
-           
+            ControladorClientePessoaJuridica cpj = new ControladorClientePessoaJuridica();
+            //Seleciona a linha da coluna.
+            int index = tabelaClientePJTable.getSelectedRow();
+
+            if (index >= 0) {
+                ClientePessoaJuridica pj = this.listaClientePessoaJuridicaGlobal.get(index);
+
+                try {
+                    cpj.remover(pj);
+                    JOptionPane.showMessageDialog(rootPane, "Cliente Removido com "
+                            + "Sucesso");
+                    listar();
+                } catch (Exception ex) {
+                    System.out.println();
+                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+                }
+
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+                        + " Remover");
+            }
+
         } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
-        
+
     }//GEN-LAST:event_removerClientePJButtonActionPerformed
 
     /**

@@ -95,7 +95,7 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
 
     public void remover(ClientePessoaJuridica cpj) throws Exception {
         Connection conn = conectarPrepareStatment();
-        String sql = "Delete from CLIENTE_JURIDICA where cnpj = ?";
+        String sql = "Delete from CLIENTE_JURIDICO where cnpj = ?";
 
         try {
 
@@ -113,7 +113,7 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
         }
     }
 
-    public ArrayList<ClientePessoaJuridica> listar() throws Exception {
+    public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception {
         
         ArrayList<ClientePessoaJuridica> retorno = new ArrayList<>();
 

@@ -50,7 +50,7 @@ public class mecanicoForm extends javax.swing.JFrame {
         cadastrarMecanicoButton = new javax.swing.JButton();
         cpfMecanicoFormattedTextField = new javax.swing.JFormattedTextField(new Util().mascara("###.###.###-##"));
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         nomeMecanicoLabel.setText("Nome do Mecânico:");
 

@@ -31,11 +31,12 @@ public class ClienteListagem extends javax.swing.JFrame {
 
         this.setLocationRelativeTo(null);
 
-        listar();
+        listarClientes();
 
     }
-
-    private void listar() {
+    
+     
+    public void listarClientes() {
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
         modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
@@ -71,7 +72,7 @@ public class ClienteListagem extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         alterarButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -181,7 +182,7 @@ public class ClienteListagem extends javax.swing.JFrame {
                 ccf.remover(cf);
                 JOptionPane.showMessageDialog(rootPane, "Cliente Removido com "
                         + "Sucesso");
-                listar();
+                listarClientes();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(rootPane, "Falha ao remover");
@@ -202,8 +203,8 @@ public class ClienteListagem extends javax.swing.JFrame {
 
         if (index >= 0) {
             ClienteFisico cf = this.listaClienteGlobal.get(index);
-            AlterarClienteForm acf = new AlterarClienteForm();
-            acf.carregarCampos(cf);
+            AlterarClienteForm acf = new AlterarClienteForm(cf,this);
+            
             acf.setVisible(true);
             
         } else {

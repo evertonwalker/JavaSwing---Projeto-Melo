@@ -156,7 +156,7 @@ public class clientesForm extends javax.swing.JFrame {
     numeroLabel = new javax.swing.JLabel();
     numeroTextField = new javax.swing.JTextField();
 
-    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
     jLabel1.setText("Tipo do Cliente");
 
@@ -463,7 +463,7 @@ public class clientesForm extends javax.swing.JFrame {
             bairroTextField.setText((obj.getString("bairro")));
 
         } catch (Exception ex) {
-            ex.getMessage();
+            JOptionPane.showMessageDialog(rootPane,ex.getMessage());
         }
 
     }//GEN-LAST:event_cepFormattedTextFieldFocusLost

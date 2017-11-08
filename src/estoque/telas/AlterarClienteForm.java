@@ -20,18 +20,26 @@ public class AlterarClienteForm extends javax.swing.JFrame {
     /**
      * Creates new form AlterarClienteForm
      */
-    
     private String oldCpf;
-    
+    ClienteFisico cf;
+    ClienteListagem formPai;
+
     public AlterarClienteForm() {
         initComponents();
         this.setLocationRelativeTo(null);
 
     }
-    
-    
+
+    public AlterarClienteForm(ClienteFisico cf, ClienteListagem formPai) {
+        initComponents();
+        this.setLocationRelativeTo(null);
+        this.cf = cf;
+        this.formPai = formPai;
+        this.carregarCampos(this.cf);
+    }
+
     private void buscarCep(String cep) {
-        
+
         String cepTratado = cep.replace("-", "");
         String url = "http://viacep.com.br/ws/" + cepTratado + "/json/";
 
@@ -44,36 +52,44 @@ public class AlterarClienteForm extends javax.swing.JFrame {
             bairroTextField.setText((obj.getString("bairro")));
 
         } catch (Exception ex) {
-            ex.getMessage();
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
     }
 
-    public void carregarCampos(ClienteFisico cf) {
-        
-        this.oldCpf = cf.getCpf();
-        cpfFormattedTextField1.setText(cf.getCpf());
-        nomeClienteTextField.setText(cf.getNome());
-        emailTextField.setText(cf.getEmail());
-        telefonePrincipalTextField.setText(cf.getTelefonePrinc());
-        telefoneOpcionalTextField.setText(cf.getTelefoneOpc());
-        cepFormattedTextField.setText(cf.getCep());
-        buscarCep(cf.getCep());
-        numeroTextField.setText(cf.getNumero());
+    private void carregarCampos(ClienteFisico cf) {
+        try {
+            this.oldCpf = cf.getCpf();
+            cpfFormattedTextField1.setText(cf.getCpf());
+            nomeClienteTextField.setText(cf.getNome());
+            emailTextField.setText(cf.getEmail());
+            telefonePrincipalTextField.setText(cf.getTelefonePrinc());
+            telefoneOpcionalTextField.setText(cf.getTelefoneOpc());
+            cepFormattedTextField.setText(cf.getCep());
+            buscarCep(cf.getCep());
+            numeroTextField.setText(cf.getNumero());
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
 
     }
 
     private void limparCampos() {
-        nomeClienteTextField.setText("");
-        cpfFormattedTextField1.setText("");
-        cepFormattedTextField.setText("");
-        logradouroTextField.setText("");
-        estadoTextField.setText("");
-        cidadeTextField.setText("");
-        bairroTextField.setText("");
-        emailTextField.setText("");
-        telefonePrincipalTextField.setText("");
-        telefoneOpcionalTextField.setText("");
-        numeroTextField.setText("");
+        try {
+            nomeClienteTextField.setText("");
+            cpfFormattedTextField1.setText("");
+            cepFormattedTextField.setText("");
+            logradouroTextField.setText("");
+            estadoTextField.setText("");
+            cidadeTextField.setText("");
+            bairroTextField.setText("");
+            emailTextField.setText("");
+            telefonePrincipalTextField.setText("");
+            telefoneOpcionalTextField.setText("");
+            numeroTextField.setText("");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        }
+
     }
 
     /**
@@ -332,32 +348,34 @@ public class AlterarClienteForm extends javax.swing.JFrame {
     private void cepFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cepFormattedTextFieldFocusLost
         // TODO add your handling code here:
 
-      buscarCep(cepFormattedTextField.getText());
+        buscarCep(cepFormattedTextField.getText());
 
     }//GEN-LAST:event_cepFormattedTextFieldFocusLost
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        ControladorClienteFisico ccf = new ControladorClienteFisico();
-
-        ClienteFisico cf = new ClienteFisico();
-
-        cf.setCpf(cpfFormattedTextField1.getText());
-        cf.setNome(nomeClienteTextField.getText());
-        cf.setEmail(emailTextField.getText());
-        cf.setTelefonePrinc(telefonePrincipalTextField.getText());
-        cf.setTelefoneOpc(telefoneOpcionalTextField.getText());
-        cf.setCep(cepFormattedTextField.getText());
-        cf.setLogradouro(logradouroTextField.getText());
-        cf.setEstado(estadoTextField.getText());
-        cf.setCidade(cidadeTextField.getText());
-        cf.setBairro(bairroTextField.getText());
-        cf.setNumero(numeroTextField.getText());
-
         try {
+            ControladorClienteFisico ccf = new ControladorClienteFisico();
+
+            ClienteFisico cf = new ClienteFisico();
+
+            cf.setCpf(cpfFormattedTextField1.getText());
+            cf.setNome(nomeClienteTextField.getText());
+            cf.setEmail(emailTextField.getText());
+            cf.setTelefonePrinc(telefonePrincipalTextField.getText());
+            cf.setTelefoneOpc(telefoneOpcionalTextField.getText());
+            cf.setCep(cepFormattedTextField.getText());
+            cf.setLogradouro(logradouroTextField.getText());
+            cf.setEstado(estadoTextField.getText());
+            cf.setCidade(cidadeTextField.getText());
+            cf.setBairro(bairroTextField.getText());
+            cf.setNumero(numeroTextField.getText());
+
             ccf.atualizar(cf, this.oldCpf);
             JOptionPane.showMessageDialog(rootPane, "Cliente Atualizado com"
                     + " Sucesso");
+            this.formPai.listarClientes();
+            this.dispose();
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }

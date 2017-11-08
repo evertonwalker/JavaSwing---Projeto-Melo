@@ -20,12 +20,16 @@ public class AlterarClienteForm extends javax.swing.JFrame {
     /**
      * Creates new form AlterarClienteForm
      */
+    
+    private String oldCpf;
+    
     public AlterarClienteForm() {
         initComponents();
         this.setLocationRelativeTo(null);
 
     }
-
+    
+    
     private void buscarCep(String cep) {
         
         String cepTratado = cep.replace("-", "");
@@ -45,6 +49,8 @@ public class AlterarClienteForm extends javax.swing.JFrame {
     }
 
     public void carregarCampos(ClienteFisico cf) {
+        
+        this.oldCpf = cf.getCpf();
         cpfFormattedTextField1.setText(cf.getCpf());
         nomeClienteTextField.setText(cf.getNome());
         emailTextField.setText(cf.getEmail());
@@ -349,11 +355,10 @@ public class AlterarClienteForm extends javax.swing.JFrame {
         cf.setNumero(numeroTextField.getText());
 
         try {
-            ccf.atualizar(cf);
+            ccf.atualizar(cf, this.oldCpf);
             JOptionPane.showMessageDialog(rootPane, "Cliente Atualizado com"
                     + " Sucesso");
         } catch (Exception ex) {
-            
             JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
 

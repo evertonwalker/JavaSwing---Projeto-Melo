@@ -28,17 +28,15 @@ public class ControladorClienteFisico {
         }
     }
 
-    public void atualizar(ClienteFisico cf) {
+    public void atualizar(ClienteFisico cf, String oldCpf) {
         
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
-            dao.atualizar(cf);
+            dao.atualizar(cf, oldCpf);
         } catch (Exception ex) {
             ex.getMessage();
-        }
-        
-        
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        } 
+     
     }
 
     public void remover(ClienteFisico cf) throws Exception {

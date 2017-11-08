@@ -48,7 +48,7 @@ public class ClienteFisicoDao extends ConnectionFactory {
         desconectar();
     }
 
-    public void atualizar(ClienteFisico cf) throws Exception {
+    public void atualizar(ClienteFisico cf, String oldCpf) throws Exception {
         
         Connection conn = conectarPrepareStatment();
         
@@ -72,7 +72,7 @@ public class ClienteFisicoDao extends ConnectionFactory {
             stmt.setString(9, cf.getCidade());
             stmt.setString(10,cf.getBairro());
             stmt.setString(11,cf.getNumero());
-            stmt.setString(12, cf.getCpf());
+            stmt.setString(12, oldCpf);
 
             stmt.execute();
             stmt.close();

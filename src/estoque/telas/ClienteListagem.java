@@ -67,9 +67,9 @@ public class ClienteListagem extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         filtroCliente = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        removerButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        jButton2 = new javax.swing.JButton();
+        alterarButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -94,19 +94,19 @@ public class ClienteListagem extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Listar Clientes");
 
-        jButton1.setText("Remover");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        removerButton.setText("Remover");
+        removerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                removerButtonActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Filtre por nome");
 
-        jButton2.setText("Alterar");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        alterarButton.setText("Alterar");
+        alterarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                alterarButtonActionPerformed(evt);
             }
         });
 
@@ -123,9 +123,9 @@ public class ClienteListagem extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(9, 9, 9)
-                                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton1))))
+                                .addComponent(removerButton))))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(224, 224, 224)
                         .addComponent(filtroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -148,8 +148,8 @@ public class ClienteListagem extends javax.swing.JFrame {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(28, 28, 28)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(removerButton)
+                    .addComponent(alterarButton))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
 
@@ -167,7 +167,7 @@ public class ClienteListagem extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jTable1MouseClicked
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
         // TODO add your handling code here:
         ControladorClienteFisico ccf = new ControladorClienteFisico();
 
@@ -181,6 +181,7 @@ public class ClienteListagem extends javax.swing.JFrame {
                 ccf.remover(cf);
                 JOptionPane.showMessageDialog(rootPane, "Cliente Removido com "
                         + "Sucesso");
+                listar();
             } catch (Exception ex) {
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(rootPane, "Falha ao remover");
@@ -192,9 +193,9 @@ public class ClienteListagem extends javax.swing.JFrame {
         }
 
 
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_removerButtonActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void alterarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarButtonActionPerformed
         // TODO add your handling code here:
 
         int index = jTable1.getSelectedRow();
@@ -210,7 +211,7 @@ public class ClienteListagem extends javax.swing.JFrame {
                     + " Alterar");
         }
 
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_alterarButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -248,12 +249,12 @@ public class ClienteListagem extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton alterarButton;
     private javax.swing.JTextField filtroCliente;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JButton removerButton;
     // End of variables declaration//GEN-END:variables
 }

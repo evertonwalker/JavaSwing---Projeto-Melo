@@ -113,14 +113,15 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
         }
     }
 
-    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica a) throws Exception {
+    public ArrayList<ClientePessoaJuridica> listar() throws Exception {
+        
         ArrayList<ClientePessoaJuridica> retorno = new ArrayList<>();
 
         //abrindo a conexão
         Connection conn = conectarPrepareStatment();
         //instrução sql correspondente a seleção dos alunos
-        String sql = "SELECT nomeFantasia, cnpj, email, telefonePrinc, telefoneOpc,"
-                + " cep";
+        String sql = "SELECT cnpj, nomeFantasia, razaoSocial, email,"
+                + " telefonePrinc, telefoneOpc, cep, numero ";
         sql += "FROM CLIENTE_JURIDICO order by nomeFantasia ";
         PreparedStatement stmt = conn.prepareStatement(sql);
 
@@ -131,6 +132,7 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
 
             cpj.setNomeFantasia(rs.getString("nomeFantasia"));
             cpj.setCnpj(rs.getString("cnpj"));
+            cpj.setRazaoSocial(rs.getString("razaoSocial"));
             cpj.setEmail(rs.getString("email"));
             cpj.setTelefonePrinc(rs.getString("telefonePrinc"));
             cpj.setTelefoneOpc(rs.getString("telefoneOpc"));

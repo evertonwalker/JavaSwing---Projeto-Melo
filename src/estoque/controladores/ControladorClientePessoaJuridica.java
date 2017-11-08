@@ -68,10 +68,10 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
 
     @Override
-    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica cpj) throws Exception {
+    public ArrayList<ClientePessoaJuridica> listar() throws Exception {
         
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
-        return dao.listar(cpj);
+        return dao.listar();
         
     }
 

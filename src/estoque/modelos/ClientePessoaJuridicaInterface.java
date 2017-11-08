@@ -19,6 +19,6 @@ public interface ClientePessoaJuridicaInterface {
     
     public void remover(ClientePessoaJuridica filtro) throws Exception;
     
-    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica c) throws Exception;
+    public ArrayList<ClientePessoaJuridica> listar() throws Exception;
     
 }

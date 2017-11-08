@@ -17,8 +17,8 @@ public interface ClientePessoaJuridicaInterface {
     
     public void atualizar(ClientePessoaJuridica c);
     
-    public void remover(ClientePessoaJuridica filtro);
+    public void remover(ClientePessoaJuridica filtro) throws Exception;
     
-    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica c);
+    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica c) throws Exception;
     
 }

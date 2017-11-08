@@ -36,22 +36,43 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
             dao.cadastrar(c);
         } catch (Exception ex) {
             ex.getMessage();
+            Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public void atualizar(ClientePessoaJuridica c) {
+    public void atualizar(ClientePessoaJuridica cpj) {
+
+        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        try {
+            dao.atualizar(cpj);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remover(ClientePessoaJuridica filtro) {
+    public void remover(ClientePessoaJuridica cpj) throws Exception {
+
+        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+
+        try {
+            dao.remover(cpj);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica c) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<ClientePessoaJuridica> listar(ClientePessoaJuridica cpj) throws Exception {
+        
+        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        return dao.listar(cpj);
+        
     }
 
 }

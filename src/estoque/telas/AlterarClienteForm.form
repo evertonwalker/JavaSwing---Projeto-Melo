@@ -207,6 +207,9 @@
       </AuxValues>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="cpfFormattedTextField1">
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfFormattedTextField1ActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Util().mascara(&quot;###.###.###-##&quot;))"/>
       </AuxValues>

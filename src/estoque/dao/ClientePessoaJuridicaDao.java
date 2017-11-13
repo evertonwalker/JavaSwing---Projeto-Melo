@@ -55,14 +55,14 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
 
     }
 
-    public void atualizar(ClientePessoaJuridica cpj) throws Exception {
+    public void atualizar(ClientePessoaJuridica cpj, String oldCnpj) throws Exception {
 
         Connection conn = conectarPrepareStatment();
 
         String sql = "Update CLIENTE_JURIDICO  set cnpj = ?, nomeFantasia = ?, razaoSocial = ? "
                 + " email = ?, telefonePrinc = ?, telefoneOpc = ?, cep = ?,"
                 + "logradouro = ?, estado = ?, cidade = ?, bairro = ?,"
-                + "numero = ? where cpf = ?";
+                + "numero = ? where cnpj = ?";
 
         try {
 
@@ -80,7 +80,7 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
             stmt.setString(10, cpj.getCidade());
             stmt.setString(11, cpj.getBairro());
             stmt.setString(12, cpj.getNumero());
-            stmt.setString(13, cpj.getCnpj());
+            stmt.setString(13, oldCnpj);
 
             stmt.execute();
             stmt.close();

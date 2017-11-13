@@ -41,16 +41,15 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
 
     @Override
-    public void atualizar(ClientePessoaJuridica cpj) {
+    public void atualizar(ClientePessoaJuridica cpj, String oldCnpj) {
 
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
         try {
-            dao.atualizar(cpj);
+            dao.atualizar(cpj, oldCnpj);
         } catch (Exception ex) {
             ex.getMessage();
         }
 
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override

@@ -135,6 +135,12 @@ public class AlterarClienteForm extends javax.swing.JFrame {
 
         jLabel2.setText("Cpf");
 
+        cpfFormattedTextField1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cpfFormattedTextField1ActionPerformed(evt);
+            }
+        });
+
         nomeClienteTextField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 nomeClienteTextFieldActionPerformed(evt);
@@ -382,6 +388,10 @@ public class AlterarClienteForm extends javax.swing.JFrame {
 
 
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void cpfFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFormattedTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cpfFormattedTextField1ActionPerformed
 
     /**
      * @param args the command line arguments

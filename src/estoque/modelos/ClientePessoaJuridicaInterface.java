@@ -15,7 +15,7 @@ public interface ClientePessoaJuridicaInterface {
     
     public void cadastrar(ClientePessoaJuridica c) throws Exception;
     
-    public void atualizar(ClientePessoaJuridica c);
+    public void atualizar(ClientePessoaJuridica c, String oldCnpj);
     
     public void remover(ClientePessoaJuridica filtro) throws Exception;
     

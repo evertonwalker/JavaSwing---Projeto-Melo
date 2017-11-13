@@ -30,7 +30,7 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
     }
 
-    private void listar() {
+    public void listar() {
 
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
@@ -110,6 +110,11 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
         });
 
         alterarClientePJButton.setText("Alterar");
+        alterarClientePJButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                alterarClientePJButtonActionPerformed(evt);
+            }
+        });
 
         removerClientePJButton.setText("Remover");
         removerClientePJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -212,6 +217,24 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_removerClientePJButtonActionPerformed
+
+    private void alterarClientePJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarClientePJButtonActionPerformed
+        // TODO add your handling code here:
+        
+                int index = tabelaClientePJTable.getSelectedRow();
+
+        if (index >= 0) {
+            ClientePessoaJuridica cpj = this.listaClientePessoaJuridicaGlobal.get(index);
+            AlterarClientePessoaJuridicaForm acpj = new AlterarClientePessoaJuridicaForm(cpj,this);
+            
+            acpj.setVisible(true);
+            
+        } else {
+             JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+                    + " Alterar");
+        }
+
+    }//GEN-LAST:event_alterarClientePJButtonActionPerformed
 
     /**
      * @param args the command line arguments

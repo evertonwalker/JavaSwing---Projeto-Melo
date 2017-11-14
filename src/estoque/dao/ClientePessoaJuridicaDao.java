@@ -179,5 +179,39 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
         
         return verificador;
     }
+    
+    public ArrayList<ClientePessoaJuridica> filtragem(String filtro) throws Exception {
+
+        ArrayList<ClientePessoaJuridica> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT cnpj, nomeFantasia, razaoSocial, email,"
+                + " telefonePrinc, telefoneOpc, cep, numero ";
+                sql += "FROM CLIENTE_JURIDICO where nomeFantasia like ? order by nomeFantasia";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setString(1, "%"+filtro+"%");
+        //executando a instrução sql
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            ClientePessoaJuridica cpj = new ClientePessoaJuridica();
+
+            cpj.setNomeFantasia(rs.getString("nomeFantasia"));
+            cpj.setCnpj(rs.getString("cnpj"));
+            cpj.setRazaoSocial(rs.getString("razaoSocial"));
+            cpj.setEmail(rs.getString("email"));
+            cpj.setTelefonePrinc(rs.getString("telefonePrinc"));
+            cpj.setTelefoneOpc(rs.getString("telefoneOpc"));
+            cpj.setCep(rs.getString("cep"));
+            cpj.setNumero((rs.getString("numero")));
+
+            retorno.add(cpj);
+        }
+        //fechando a conexão com o banco de dados
+        desconectar();
+        return retorno;
+    }
 
 }

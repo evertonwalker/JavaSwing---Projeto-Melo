@@ -23,4 +23,6 @@ public interface ClientePessoaJuridicaInterface {
     
     public boolean verificarCnpj(String cnpj) throws Exception;
     
+    public ArrayList<ClientePessoaJuridica> filtragem(String filtro) throws Exception;
+    
 }

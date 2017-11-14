@@ -106,6 +106,11 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
                 filtroPessoaJuridicaTextFieldActionPerformed(evt);
             }
         });
+        filtroPessoaJuridicaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                filtroPessoaJuridicaTextFieldKeyPressed(evt);
+            }
+        });
 
         alterarClientePJButton.setText("Alterar");
         alterarClientePJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -234,10 +239,40 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
     }//GEN-LAST:event_alterarClientePJButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+    private void filtroPessoaJuridicaTextFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroPessoaJuridicaTextFieldKeyPressed
+        // TODO add your handling code here:
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        //atribuindo as colunas da tabela
+        modelo.setColumnIdentifiers(new String[]{"Nome Fantasia", "CNPJ",
+            "Razão Social", "Email", "Telefone Principal", "Telefone Opicional"});
+
+        if (filtroPessoaJuridicaTextField.getText().length() > 0) {
+
+            ControladorClientePessoaJuridica ccf = new ControladorClientePessoaJuridica();
+
+            try {
+                this.listaClientePessoaJuridicaGlobal = ccf.filtragem(filtroPessoaJuridicaTextField.getText());
+                 for (ClientePessoaJuridica cj : listaClientePessoaJuridicaGlobal) {
+                modelo.addRow(new String[]{"" + cj.getNomeFantasia(), cj.getCnpj(),
+                    cj.getRazaoSocial(), cj.getEmail(), cj.getTelefonePrinc(),
+                    cj.getTelefoneOpc()});
+            }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, "Cliente não encontrado!");
+            }
+
+            tabelaClientePJTable.setModel(modelo);
+
+        } else {
+            listar();
+        }
+    }//GEN-LAST:event_filtroPessoaJuridicaTextFieldKeyPressed
+
+/**
+ * @param args the command line arguments
+ */
+public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -248,16 +283,28 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                }
+                
+
+}
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        
+
+} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
+.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

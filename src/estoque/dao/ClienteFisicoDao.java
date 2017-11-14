@@ -115,7 +115,7 @@ public class ClienteFisicoDao extends ConnectionFactory {
         Connection conn = conectarPrepareStatment();
         //instrução sql correspondente a seleção dos alunos
         String sql = "SELECT nome, cpf, email, telefonePrinc, telefoneOpc, cep,"
-                + "numero FROM CLIENTE_FISICO where nome like ? ";
+                + "numero FROM CLIENTE_FISICO where nome like ? order by nome";
         PreparedStatement stmt = conn.prepareStatement(sql);
 
         stmt.setString(1, "%"+filtro+"%");

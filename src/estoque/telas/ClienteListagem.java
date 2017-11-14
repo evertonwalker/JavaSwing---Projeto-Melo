@@ -234,7 +234,7 @@ public class ClienteListagem extends javax.swing.JFrame {
                         cfs.getEmail(), cfs.getTelefonePrinc(), cfs.getTelefoneOpc()});
                 }
             } catch (Exception ex) {
-                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+                JOptionPane.showMessageDialog(rootPane, "Cliente não encontrado!");
             }
 
             jTable1.setModel(modelo);

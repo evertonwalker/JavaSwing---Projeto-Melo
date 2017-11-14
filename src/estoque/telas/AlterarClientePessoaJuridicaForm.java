@@ -51,7 +51,8 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
             bairroAlterarPJLabel.setText((obj.getString("bairro")));
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Cep inválido, informe CEP com 8 dígitos");
+            System.out.println(ex.getMessage());
         }
     }
 

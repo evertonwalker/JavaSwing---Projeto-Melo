@@ -45,13 +45,24 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         if ("".equals(c.getRazaoSocial().trim())) {
             throw new Exception("Informe a Razão Social do Cliente");
         }
+        
+        if ("".equals(c.getEmail().trim())) {
+            throw new Exception("Informe o email do Cliente");
+        }
+        
+        if (c.getTelefonePrinc().replace(" ", "").length() < 11) {
+            throw new Exception("Informe o Telefone Principal do cliente com DDD e 9 números");
+        }
+        
+        if (c.getCep().replace(" ", "").length() < 8) {
+            throw new Exception("Informe o CEP do cliente com 8 dígitos");
+        }
 
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
         try {
             dao.cadastrar(c);
         } catch (Exception ex) {
             ex.getMessage();
-            Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -67,6 +78,18 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         if ("".equals(cpj.getRazaoSocial().trim())) {
             throw new Exception("Informe a Razão Social do Cliente");
         }
+        
+        if ("".equals(cpj.getEmail().trim())) {
+            throw new Exception("Informe o email do Cliente");
+        }
+        
+        if (cpj.getTelefonePrinc().replace(" ", "").length() < 11) {
+            throw new Exception("Informe o Telefone Principal do cliente com DDD e 9 números");
+        }
+        
+        if (cpj.getCep().replace(" ", "").length() < 8) {
+            throw new Exception("Informe o CEP do cliente com 8 dígitos");
+        }
 
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
         try {
@@ -74,7 +97,6 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         } catch (Exception ex) {
             ex.getMessage();
         }
-
     }
 
     @Override

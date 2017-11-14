@@ -7,7 +7,6 @@ package estoque.controladores;
 
 import estoque.dao.ClienteFisicoDao;
 import estoque.modelos.ClienteFisico;
-import estoque.modelos.ClienteFisicoInterface;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -21,10 +20,10 @@ public class ControladorClienteFisico {
     public boolean verificarCpf(String cpf) throws Exception {
 
         boolean verificador = false;
-        
+
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
-        verificador = dao.verificarCpf(cpf);   
+            verificador = dao.verificarCpf(cpf);
         } catch (Exception ex) {
             ex.getMessage();
         }
@@ -32,8 +31,36 @@ public class ControladorClienteFisico {
         return verificador;
     }
 
-    public void cadastrar(ClienteFisico c) {
+    public void cadastrar(ClienteFisico c) throws Exception {
 
+      /*  boolean verificar = false;
+
+        ControladorClienteFisico ccf = new ControladorClienteFisico();
+        try {
+            verificar = ccf.verificarCpf(c.getCpf());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            throw new Exception("Cliente já Cadastrado, insira outro Cpf.");
+        }
+
+        if (verificar) {
+            JOptionPane.showMessageDialog(rootPane, "Cliente já existente,"
+                    + " Digite outro Cpf");
+        } */
+      
+        if (c.getCpf().replace(" ", "").length() < 14) {
+            throw new Exception("Informe o Cpf do cliente com 14 dígitos");
+        }
+        if ("".equals(c.getNome().trim())) {
+            throw new Exception("Informe o Nome do Cliente");
+        }
+        
+        if("".equals(c.getEmail().trim())){
+            throw new Exception("Informe o e-mail do Cliente");
+        }
+        
+        
+       
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
             dao.cadastrar(c);

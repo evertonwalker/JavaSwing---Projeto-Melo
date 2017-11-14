@@ -95,6 +95,12 @@ public class ClienteListagem extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel1.setText("Listar Clientes");
 
+        filtroCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                filtroClienteKeyPressed(evt);
+            }
+        });
+
         removerButton.setText("Remover");
         removerButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -213,6 +219,13 @@ public class ClienteListagem extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_alterarButtonActionPerformed
+
+    private void filtroClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroClienteKeyPressed
+        // TODO add your handling code here:
+        JOptionPane.showMessageDialog(rootPane, filtroCliente.getText());
+        
+        
+    }//GEN-LAST:event_filtroClienteKeyPressed
 
     /**
      * @param args the command line arguments

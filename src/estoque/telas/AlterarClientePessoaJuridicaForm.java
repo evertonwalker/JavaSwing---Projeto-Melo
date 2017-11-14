@@ -104,207 +104,213 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
         nomeFantasiaAlterarPJLabel = new javax.swing.JLabel();
         nomeFantasiaAlterarPJTextField = new javax.swing.JTextField();
         cnpjAlterarPJLabel = new javax.swing.JLabel();
-        cnpjAlterarPJTextField = new javax.swing.JTextField();
-        razaoSocialAlterarPJLabel = new javax.swing.JLabel();
-        emailAlterarPJLabel = new javax.swing.JLabel();
-        emailAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
-        razaoSocialAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
-        telefonePrincAlterarPJLabel = new javax.swing.JLabel();
-        telefonePrincAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
-        jLabel2 = new javax.swing.JLabel();
-        telefoneOpcionalAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
-        cepAlterarPJLabel = new javax.swing.JLabel();
-        cepAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
-        logradouroAlterarPJLabel = new javax.swing.JLabel();
-        logradouroAlterarPJTextField = new javax.swing.JTextField();
-        cidadeAlterarPJLabel = new javax.swing.JLabel();
-        cidadeAlterarPJTextField = new javax.swing.JTextField();
-        bairroAlterarPJLabel = new javax.swing.JLabel();
-        bairroAlterarPJTextField = new javax.swing.JTextField();
-        estadoAlterarPJLabel = new javax.swing.JLabel();
-        estadoAlterarPJTextField = new javax.swing.JTextField();
-        jLabel3 = new javax.swing.JLabel();
-        numeroAlterarPJTextField = new javax.swing.JTextField();
-        limparFormularioAlterarPJButton = new javax.swing.JButton();
-        alterarPJButton = new javax.swing.JButton();
+        cnpjAlterarPJTextField = new javax.swing.JFormattedTextField(new Util().mascara("##.###.##"
+            + "#/####-##"));
+    razaoSocialAlterarPJLabel = new javax.swing.JLabel();
+    emailAlterarPJLabel = new javax.swing.JLabel();
+    emailAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
+    razaoSocialAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
+    telefonePrincAlterarPJLabel = new javax.swing.JLabel();
+    telefonePrincAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
+    jLabel2 = new javax.swing.JLabel();
+    telefoneOpcionalAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
+    cepAlterarPJLabel = new javax.swing.JLabel();
+    cepAlterarPJFormattedTextField = new javax.swing.JFormattedTextField();
+    logradouroAlterarPJLabel = new javax.swing.JLabel();
+    logradouroAlterarPJTextField = new javax.swing.JTextField();
+    cidadeAlterarPJLabel = new javax.swing.JLabel();
+    cidadeAlterarPJTextField = new javax.swing.JTextField();
+    bairroAlterarPJLabel = new javax.swing.JLabel();
+    bairroAlterarPJTextField = new javax.swing.JTextField();
+    estadoAlterarPJLabel = new javax.swing.JLabel();
+    estadoAlterarPJTextField = new javax.swing.JTextField();
+    jLabel3 = new javax.swing.JLabel();
+    numeroAlterarPJTextField = new javax.swing.JTextField();
+    limparFormularioAlterarPJButton = new javax.swing.JButton();
+    alterarPJButton = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+    setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Alterar Cliente Pessoa Jurídica");
+    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+    jLabel1.setText("Alterar Cliente Pessoa Jurídica");
 
-        nomeFantasiaAlterarPJLabel.setText("Nome Fantasia");
+    nomeFantasiaAlterarPJLabel.setText("Nome Fantasia");
 
-        cnpjAlterarPJLabel.setText("Cnpj");
+    cnpjAlterarPJLabel.setText("Cnpj");
 
-        cnpjAlterarPJTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cnpjAlterarPJTextFieldActionPerformed(evt);
-            }
-        });
+    cnpjAlterarPJTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            cnpjAlterarPJTextFieldActionPerformed(evt);
+        }
+    });
 
-        razaoSocialAlterarPJLabel.setText("Razão Social");
+    razaoSocialAlterarPJLabel.setText("Razão Social");
 
-        emailAlterarPJLabel.setText("Email");
+    emailAlterarPJLabel.setText("Email");
 
-        emailAlterarPJFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                emailAlterarPJFormattedTextFieldActionPerformed(evt);
-            }
-        });
+    emailAlterarPJFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            emailAlterarPJFormattedTextFieldFocusLost(evt);
+        }
+    });
+    emailAlterarPJFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            emailAlterarPJFormattedTextFieldActionPerformed(evt);
+        }
+    });
 
-        telefonePrincAlterarPJLabel.setText("Telefone Principal");
+    telefonePrincAlterarPJLabel.setText("Telefone Principal");
 
-        jLabel2.setText("Telefone Opicional");
+    jLabel2.setText("Telefone Opicional");
 
-        cepAlterarPJLabel.setText("Cep");
+    cepAlterarPJLabel.setText("Cep");
 
-        cepAlterarPJFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                cepAlterarPJFormattedTextFieldFocusLost(evt);
-            }
-        });
+    cepAlterarPJFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            cepAlterarPJFormattedTextFieldFocusLost(evt);
+        }
+    });
 
-        logradouroAlterarPJLabel.setText("Logradouro");
+    logradouroAlterarPJLabel.setText("Logradouro");
 
-        logradouroAlterarPJTextField.setEnabled(false);
+    logradouroAlterarPJTextField.setEnabled(false);
 
-        cidadeAlterarPJLabel.setText("Cidade");
+    cidadeAlterarPJLabel.setText("Cidade");
 
-        cidadeAlterarPJTextField.setEnabled(false);
+    cidadeAlterarPJTextField.setEnabled(false);
 
-        bairroAlterarPJLabel.setText("Bairro");
+    bairroAlterarPJLabel.setText("Bairro");
 
-        bairroAlterarPJTextField.setEnabled(false);
+    bairroAlterarPJTextField.setEnabled(false);
 
-        estadoAlterarPJLabel.setText("Estado");
+    estadoAlterarPJLabel.setText("Estado");
 
-        estadoAlterarPJTextField.setEnabled(false);
+    estadoAlterarPJTextField.setEnabled(false);
 
-        jLabel3.setText("Número");
+    jLabel3.setText("Número");
 
-        limparFormularioAlterarPJButton.setText("Limpar Formúlario");
-        limparFormularioAlterarPJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                limparFormularioAlterarPJButtonActionPerformed(evt);
-            }
-        });
+    limparFormularioAlterarPJButton.setText("Limpar Formúlario");
+    limparFormularioAlterarPJButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            limparFormularioAlterarPJButtonActionPerformed(evt);
+        }
+    });
 
-        alterarPJButton.setText("Alterar");
-        alterarPJButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alterarPJButtonActionPerformed(evt);
-            }
-        });
+    alterarPJButton.setText("Alterar");
+    alterarPJButton.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            alterarPJButtonActionPerformed(evt);
+        }
+    });
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cepAlterarPJLabel)
-                            .addComponent(cepAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(logradouroAlterarPJLabel)
-                            .addComponent(logradouroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(estadoAlterarPJLabel)
-                            .addComponent(limparFormularioAlterarPJButton)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(telefonePrincAlterarPJLabel)
-                                    .addComponent(telefonePrincAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(nomeFantasiaAlterarPJLabel)
-                                    .addComponent(nomeFantasiaAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(razaoSocialAlterarPJLabel)
-                                    .addComponent(razaoSocialAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(cidadeAlterarPJLabel)
+    javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+    getContentPane().setLayout(layout);
+    layout.setHorizontalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addContainerGap()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(cepAlterarPJLabel)
+                        .addComponent(cepAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(logradouroAlterarPJLabel)
+                        .addComponent(logradouroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(estadoAlterarPJLabel)
+                        .addComponent(limparFormularioAlterarPJButton)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(telefonePrincAlterarPJLabel)
+                                .addComponent(telefonePrincAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(nomeFantasiaAlterarPJLabel)
+                                .addComponent(nomeFantasiaAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(razaoSocialAlterarPJLabel)
+                                .addComponent(razaoSocialAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(cidadeAlterarPJLabel)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cidadeAlterarPJTextField)
+                                    .addComponent(estadoAlterarPJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
+                            .addGap(44, 44, 44)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(alterarPJButton)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(cidadeAlterarPJTextField)
-                                        .addComponent(estadoAlterarPJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(alterarPJButton)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(bairroAlterarPJLabel)
-                                            .addComponent(cnpjAlterarPJTextField)
-                                            .addComponent(jLabel2)
-                                            .addComponent(telefoneOpcionalAlterarPJFormattedTextField)
-                                            .addComponent(bairroAlterarPJTextField)
-                                            .addComponent(emailAlterarPJLabel)
-                                            .addComponent(cnpjAlterarPJLabel)
-                                            .addComponent(jLabel3)
-                                            .addComponent(numeroAlterarPJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
-                                    .addComponent(emailAlterarPJFormattedTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(jLabel1)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeFantasiaAlterarPJLabel)
-                    .addComponent(cnpjAlterarPJLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(nomeFantasiaAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cnpjAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(razaoSocialAlterarPJLabel)
-                    .addComponent(emailAlterarPJLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(razaoSocialAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(emailAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefonePrincAlterarPJLabel)
-                    .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(telefonePrincAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(telefoneOpcionalAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(cepAlterarPJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(cepAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(logradouroAlterarPJLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(logradouroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cidadeAlterarPJLabel)
-                    .addComponent(bairroAlterarPJLabel))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cidadeAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(bairroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(estadoAlterarPJLabel)
-                    .addComponent(jLabel3))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(estadoAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(numeroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(limparFormularioAlterarPJButton)
-                    .addComponent(alterarPJButton))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+                                        .addComponent(bairroAlterarPJLabel)
+                                        .addComponent(cnpjAlterarPJTextField)
+                                        .addComponent(jLabel2)
+                                        .addComponent(telefoneOpcionalAlterarPJFormattedTextField)
+                                        .addComponent(bairroAlterarPJTextField)
+                                        .addComponent(emailAlterarPJLabel)
+                                        .addComponent(cnpjAlterarPJLabel)
+                                        .addComponent(jLabel3)
+                                        .addComponent(numeroAlterarPJTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)))
+                                .addComponent(emailAlterarPJFormattedTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(21, 21, 21)
+                    .addComponent(jLabel1)))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
+    layout.setVerticalGroup(
+        layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        .addGroup(layout.createSequentialGroup()
+            .addGap(24, 24, 24)
+            .addComponent(jLabel1)
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(nomeFantasiaAlterarPJLabel)
+                .addComponent(cnpjAlterarPJLabel))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(nomeFantasiaAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(cnpjAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(razaoSocialAlterarPJLabel)
+                .addComponent(emailAlterarPJLabel))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(razaoSocialAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(emailAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(telefonePrincAlterarPJLabel)
+                .addComponent(jLabel2))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(telefonePrincAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(telefoneOpcionalAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(18, 18, 18)
+            .addComponent(cepAlterarPJLabel)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(cepAlterarPJFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addComponent(logradouroAlterarPJLabel)
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addComponent(logradouroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(cidadeAlterarPJLabel)
+                .addComponent(bairroAlterarPJLabel))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(cidadeAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(bairroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(estadoAlterarPJLabel)
+                .addComponent(jLabel3))
+            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(estadoAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(numeroAlterarPJTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGap(18, 18, 18)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addComponent(limparFormularioAlterarPJButton)
+                .addComponent(alterarPJButton))
+            .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+    );
 
-        pack();
+    pack();
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -314,8 +320,6 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
 
     private void emailAlterarPJFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_emailAlterarPJFormattedTextFieldActionPerformed
         // TODO add your handling code here:
-        String email = emailAlterarPJFormattedTextField.getText().toLowerCase();
-        emailAlterarPJFormattedTextField.setText(email);
     }//GEN-LAST:event_emailAlterarPJFormattedTextFieldActionPerformed
 
     private void limparFormularioAlterarPJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_limparFormularioAlterarPJButtonActionPerformed
@@ -354,9 +358,15 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
             this.dispose();
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, "ERROO");
+            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
     }//GEN-LAST:event_alterarPJButtonActionPerformed
+
+    private void emailAlterarPJFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_emailAlterarPJFormattedTextFieldFocusLost
+        // TODO add your handling code here:
+        String email = emailAlterarPJFormattedTextField.getText().toLowerCase();
+        emailAlterarPJFormattedTextField.setText(email);
+    }//GEN-LAST:event_emailAlterarPJFormattedTextFieldFocusLost
 
     /**
      * @param args the command line arguments

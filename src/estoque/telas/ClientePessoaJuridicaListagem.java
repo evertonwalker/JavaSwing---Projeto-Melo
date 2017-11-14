@@ -31,12 +31,10 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
     }
 
     public void listar() {
-
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
         modelo.setColumnIdentifiers(new String[]{"Nome Fantasia", "CNPJ",
             "Razão Social", "Email", "Telefone Principal", "Telefone Opicional"});
-
         try {
             ControladorClientePessoaJuridica cpj = new ControladorClientePessoaJuridica();
             this.listaClientePessoaJuridicaGlobal = cpj.listarPessoaJuridica();
@@ -220,17 +218,17 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
     private void alterarClientePJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarClientePJButtonActionPerformed
         // TODO add your handling code here:
-        
-                int index = tabelaClientePJTable.getSelectedRow();
+
+        int index = tabelaClientePJTable.getSelectedRow();
 
         if (index >= 0) {
             ClientePessoaJuridica cpj = this.listaClientePessoaJuridicaGlobal.get(index);
-            AlterarClientePessoaJuridicaForm acpj = new AlterarClientePessoaJuridicaForm(cpj,this);
-            
+            AlterarClientePessoaJuridicaForm acpj = new AlterarClientePessoaJuridicaForm(cpj, this);
+
             acpj.setVisible(true);
-            
+
         } else {
-             JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
                     + " Alterar");
         }
 

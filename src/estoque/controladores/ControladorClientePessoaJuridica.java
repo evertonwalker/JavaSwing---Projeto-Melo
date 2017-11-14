@@ -18,6 +18,21 @@ import java.util.logging.Logger;
  */
 public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaInterface {
 
+    public boolean verificarCnpj(String cnpj) throws Exception{
+        
+        boolean verificador = false;
+        
+        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        try {
+        verificador = dao.verificarCnpj(cnpj);   
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+
+        return verificador;    
+    }
+    
+    
     @Override
     public void cadastrar(ClientePessoaJuridica c) throws Exception {
 
@@ -41,7 +56,17 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
 
     @Override
-    public void atualizar(ClientePessoaJuridica cpj, String oldCnpj) {
+    public void atualizar(ClientePessoaJuridica cpj, String oldCnpj) throws Exception {
+        
+         if (cpj.getCnpj().replace(" ", "").length() < 14) {
+            throw new Exception("Informe o CNPJ do cliente com 14 dígitos");
+        }
+        if ("".equals(cpj.getNomeFantasia().trim())) {
+            throw new Exception("Informe o Nome Fantasia do Cliente");
+        }
+        if ("".equals(cpj.getRazaoSocial().trim())) {
+            throw new Exception("Informe a Razão Social do Cliente");
+        }
 
         ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
         try {

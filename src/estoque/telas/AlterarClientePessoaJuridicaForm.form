@@ -176,6 +176,9 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cnpjAlterarPJTextFieldActionPerformed"/>
       </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Util().mascara(&quot;##.###.##&quot;&#xa;    + &quot;#/####-##&quot;));"/>
+      </AuxValues>
     </Component>
     <Component class="javax.swing.JLabel" name="razaoSocialAlterarPJLabel">
       <Properties>
@@ -189,6 +192,7 @@
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="emailAlterarPJFormattedTextField">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="emailAlterarPJFormattedTextFieldFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="emailAlterarPJFormattedTextFieldActionPerformed"/>
       </Events>
     </Component>

@@ -15,10 +15,12 @@ public interface ClientePessoaJuridicaInterface {
     
     public void cadastrar(ClientePessoaJuridica c) throws Exception;
     
-    public void atualizar(ClientePessoaJuridica c, String oldCnpj);
+    public void atualizar(ClientePessoaJuridica c, String oldCnpj) throws Exception;
     
     public void remover(ClientePessoaJuridica filtro) throws Exception;
     
     public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception;
+    
+    public boolean verificarCnpj(String cnpj) throws Exception;
     
 }

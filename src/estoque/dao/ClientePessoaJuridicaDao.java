@@ -59,7 +59,7 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
 
         Connection conn = conectarPrepareStatment();
 
-        String sql = "Update CLIENTE_JURIDICO  set cnpj = ?, nomeFantasia = ?, razaoSocial = ? "
+        String sql = "Update CLIENTE_JURIDICO  set cnpj = ?, nomeFantasia = ?, razaoSocial = ?,"
                 + " email = ?, telefonePrinc = ?, telefoneOpc = ?, cep = ?,"
                 + "logradouro = ?, estado = ?, cidade = ?, bairro = ?,"
                 + "numero = ? where cnpj = ?";
@@ -144,6 +144,40 @@ public class ClientePessoaJuridicaDao extends ConnectionFactory {
         //fechando a conexão com o banco de dados
         desconectar();
         return retorno;
+    }
+    
+    public boolean verificarCnpj(String cnpj) throws Exception {
+        
+        boolean verificador = false;
+        
+        ArrayList<ClientePessoaJuridica> retorno = new ArrayList<>();
+        
+        //abrindo a conexão
+        Connection conn = conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT *"
+                + " FROM CLIENTE_JURIDICO where cnpj = ?";
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, cnpj);
+
+            //executando a instrução sql
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ClientePessoaJuridica cpj = new ClientePessoaJuridica();
+                retorno.add(cpj);
+            }
+
+            if (!retorno.isEmpty()) {
+                verificador = true;
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+        
+        return verificador;
     }
 
 }

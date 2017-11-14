@@ -151,7 +151,6 @@ public class clientesForm extends javax.swing.JFrame {
     logradouroLabel = new javax.swing.JLabel();
     estadoLabel = new javax.swing.JLabel();
     estadoTextField = new javax.swing.JTextField();
-    cidadeLabel = new javax.swing.JLabel();
     cidadeTextField = new javax.swing.JTextField();
     bairroTextField = new javax.swing.JTextField();
     bairroLabel = new javax.swing.JLabel();
@@ -160,6 +159,7 @@ public class clientesForm extends javax.swing.JFrame {
     numeroLabel = new javax.swing.JLabel();
     numeroTextField = new javax.swing.JTextField();
     jLabel5 = new javax.swing.JLabel();
+    cidadeLabel = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
     setBackground(new java.awt.Color(255, 255, 255));
@@ -268,8 +268,6 @@ public class clientesForm extends javax.swing.JFrame {
         }
     });
 
-    cidadeLabel.setText("Cidade");
-
     cidadeTextField.setEnabled(false);
     cidadeTextField.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -300,6 +298,8 @@ public class clientesForm extends javax.swing.JFrame {
     jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
     jLabel5.setForeground(new java.awt.Color(153, 153, 0));
     jLabel5.setText("* Campos com asterisco são obrigatórios");
+
+    cidadeLabel.setText("Cidade");
 
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
@@ -362,40 +362,28 @@ public class clientesForm extends javax.swing.JFrame {
                             .addGap(0, 9, Short.MAX_VALUE)))
                     .addGap(18, 18, 18)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(cepLabel)
-                        .addComponent(logradouroLabel)
-                        .addComponent(estadoLabel)
-                        .addComponent(bairroLabel)
-                        .addComponent(numeroLabel)
-                        .addComponent(numeroTextField)
-                        .addComponent(bairroTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                        .addComponent(cidadeTextField)
-                        .addComponent(estadoTextField)
-                        .addComponent(cepFormattedTextField))
-                    .addGap(0, 0, Short.MAX_VALUE))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
-<<<<<<< HEAD
                     .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(64, 64, 64))
-=======
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(64, 64, 64))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabel4)
-                            .addGap(76, 76, 76))))))
-        .addGroup(layout.createSequentialGroup()
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
->>>>>>> 8f0a8f1c2678f2399f2dc1cae69df6d9137cbcbd
+                .addGroup(layout.createSequentialGroup()
+                    .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(cidadeLabel)
-                        .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(cepLabel)
+                            .addComponent(logradouroLabel)
+                            .addComponent(estadoLabel)
+                            .addComponent(bairroLabel)
+                            .addComponent(numeroLabel)
+                            .addComponent(numeroTextField)
+                            .addComponent(bairroTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                            .addComponent(cidadeTextField)
+                            .addComponent(estadoTextField)
+                            .addComponent(cepFormattedTextField))
+                        .addComponent(cidadeLabel))
+                    .addGap(0, 0, Short.MAX_VALUE))))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -447,8 +435,8 @@ public class clientesForm extends javax.swing.JFrame {
                         .addComponent(razaoSocialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cidadeLabel)
-                        .addComponent(emailLabel))
+                        .addComponent(emailLabel)
+                        .addComponent(cidadeLabel))
                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)

@@ -6,12 +6,8 @@
 package estoque.telas;
 
 import estoque.controladores.ControladorClienteFisico;
-import estoque.dao.ClienteFisicoDao;
 import estoque.modelos.ClienteFisico;
-import java.awt.Button;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -34,8 +30,7 @@ public class ClienteListagem extends javax.swing.JFrame {
         listarClientes();
 
     }
-    
-     
+
     public void listarClientes() {
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
@@ -209,12 +204,12 @@ public class ClienteListagem extends javax.swing.JFrame {
 
         if (index >= 0) {
             ClienteFisico cf = this.listaClienteGlobal.get(index);
-            AlterarClienteForm acf = new AlterarClienteForm(cf,this);
-            
+            AlterarClienteForm acf = new AlterarClienteForm(cf, this);
+
             acf.setVisible(true);
-            
+
         } else {
-             JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
                     + " Alterar");
         }
 
@@ -222,9 +217,32 @@ public class ClienteListagem extends javax.swing.JFrame {
 
     private void filtroClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroClienteKeyPressed
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(rootPane, filtroCliente.getText());
-        
-        
+
+        DefaultTableModel modelo = new DefaultTableModel();
+        //atribuindo as colunas da tabela
+        modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
+            "Telefone Principal", "Telefone Opcional"});
+
+        if (filtroCliente.getText().length() > 0) {
+
+            ControladorClienteFisico ccf = new ControladorClienteFisico();
+
+            try {
+                this.listaClienteGlobal = ccf.filtragem(filtroCliente.getText());
+                for (ClienteFisico cfs : listaClienteGlobal) {
+                    modelo.addRow(new String[]{"" + cfs.getNome(), cfs.getCpf(),
+                        cfs.getEmail(), cfs.getTelefonePrinc(), cfs.getTelefoneOpc()});
+                }
+            } catch (Exception ex) {
+                JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            }
+
+            jTable1.setModel(modelo);
+
+        } else {
+            listarClientes();
+        }
+
     }//GEN-LAST:event_filtroClienteKeyPressed
 
     /**

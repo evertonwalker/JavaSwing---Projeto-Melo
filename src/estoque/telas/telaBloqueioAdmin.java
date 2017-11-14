@@ -113,7 +113,7 @@ public class telaBloqueioAdmin extends javax.swing.JFrame {
 
     private void entrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entrarButtonActionPerformed
         // TODO add your handling code here:
-         if ("admin123".equals(passwordAdmin.getText())) {
+         if ("1234".equals(passwordAdmin.getText())) {
             UsuarioForm uf = new UsuarioForm();
             uf.setVisible(true);
             this.dispose();

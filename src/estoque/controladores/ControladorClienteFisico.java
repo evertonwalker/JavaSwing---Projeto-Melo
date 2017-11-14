@@ -8,8 +8,6 @@ package estoque.controladores;
 import estoque.dao.ClienteFisicoDao;
 import estoque.modelos.ClienteFisico;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -30,10 +28,18 @@ public class ControladorClienteFisico {
 
         return verificador;
     }
+    
+    public ArrayList<ClienteFisico> filtragem(String filtro) throws Exception{
+        
+        ClienteFisicoDao dao = new ClienteFisicoDao();
+        return dao.filtragem(filtro);
+    }
+    
+    
 
     public void cadastrar(ClienteFisico c) throws Exception {
 
-      /*  boolean verificar = false;
+        /*  boolean verificar = false;
 
         ControladorClienteFisico ccf = new ControladorClienteFisico();
         try {
@@ -47,25 +53,36 @@ public class ControladorClienteFisico {
             JOptionPane.showMessageDialog(rootPane, "Cliente já existente,"
                     + " Digite outro Cpf");
         } */
-      
-        if (c.getCpf().replace(" ", "").length() < 14) {
-            throw new Exception("Informe o Cpf do cliente com 14 dígitos");
-        }
         if ("".equals(c.getNome().trim())) {
             throw new Exception("Informe o Nome do Cliente");
         }
-        
-        if("".equals(c.getEmail().trim())){
+
+        if (c.getCpf().replace(" ", "").length() < 14) {
+            throw new Exception("Informe o Cpf do cliente com 14 dígitos");
+        }
+
+        if ("".equals(c.getEmail().trim())) {
             throw new Exception("Informe o e-mail do Cliente");
         }
-        
-        
-       
+
+        if (c.getTelefonePrinc().replace(" ", "").length() < 11) {
+            throw new Exception("Informe o Telefone Principal do cliente com "
+                    + "DDD e 9 números");
+        }
+
+        if (c.getCep().replace(" ", "").length() < 8) {
+            throw new Exception("Informe o CEP do cliente com 8 dígitos");
+        }
+
+        if ("".equals(c.getNumero())) {
+            throw new Exception("Informe o número do Endereço do Cliente");
+        }
+
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
             dao.cadastrar(c);
         } catch (Exception ex) {
-            Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
+           ex.getMessage();
         }
     }
 

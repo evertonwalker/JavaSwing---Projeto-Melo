@@ -353,8 +353,12 @@ public class AlterarClienteForm extends javax.swing.JFrame {
 
     private void cepFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cepFormattedTextFieldFocusLost
         // TODO add your handling code here:
-
-        buscarCep(cepFormattedTextField.getText());
+        try {
+            buscarCep(cepFormattedTextField.getText());
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Cep inválido, informe um"
+                    + "8 digitos");
+        }
 
     }//GEN-LAST:event_cepFormattedTextFieldFocusLost
 

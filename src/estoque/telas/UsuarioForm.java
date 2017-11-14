@@ -128,6 +128,9 @@ public class UsuarioForm extends javax.swing.JFrame {
             cu.cadastrar(u);
             JOptionPane.showMessageDialog(rootPane, "Usuário Cadastrado com sucesso");
             limparCamposUsuario();
+            this.dispose();
+            Login lg = new Login();
+            lg.setVisible(true);
         } catch (Exception ex) {
           JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }

@@ -7,6 +7,9 @@
   </NonVisualComponents>
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="2"/>
+    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+      <Color blue="ff" green="ff" red="ff" type="rgb"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -27,80 +30,158 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="1" attributes="0">
+          <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="nomeClienteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cpfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              <Component id="cpfFormattedTextField" alignment="0" max="32767" attributes="0"/>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <Group type="103" groupAlignment="1" attributes="0">
-                                      <Component id="telefonePrincipalTextField" pref="154" max="32767" attributes="0"/>
-                                      <Component id="emailTextField" max="32767" attributes="0"/>
-                                  </Group>
-                                  <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
+                          <Group type="102" attributes="0">
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="emailLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telefonePrincipalLabel" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telefonePrincipalTextField" min="-2" pref="172" max="-2" attributes="0"/>
+                                  <Component id="emailTextField" alignment="0" min="-2" pref="239" max="-2" attributes="0"/>
                               </Group>
-                              <Component id="jToggleButton2" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="telefonePrincipalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="clienteFisicoButton" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="emailLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="nomeClienteTextField" alignment="0" min="-2" pref="200" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace pref="63" max="32767" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="juridicoFisicoButton" min="-2" max="-2" attributes="0"/>
-                          <Component id="telefoneOpcionalLabel" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="razaoSocialLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <Component id="nomeFantasiaLabel" min="-2" max="-2" attributes="0"/>
-                              <Component id="nomeFantasiaTextField" alignment="0" pref="153" max="32767" attributes="0"/>
-                              <Component id="cnpjFormattedTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="razaoSocialTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="telefoneOpcionalTextField" alignment="0" max="32767" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Group type="103" groupAlignment="1" attributes="0">
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                      <Component id="nomeClienteLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cpfLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="clienteFisicoButton" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="cpfFormattedTextField" alignment="0" pref="239" max="32767" attributes="0"/>
+                                      <Component id="telefoneOpcionalLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="telefoneOpcionalTextField" alignment="0" min="-2" pref="172" max="-2" attributes="0"/>
+                                      <Component id="nomeClienteTextField" alignment="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" attributes="0">
+                                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="cnpjFormattedTextField" alignment="0" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" alignment="1" attributes="0">
+                                              <EmptySpace min="0" pref="16" max="32767" attributes="0"/>
+                                              <Component id="juridicoFisicoButton" min="-2" max="-2" attributes="0"/>
+                                              <EmptySpace min="-2" pref="178" max="-2" attributes="0"/>
+                                          </Group>
+                                      </Group>
+                                  </Group>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="nomeFantasiaLabel" min="-2" max="-2" attributes="0"/>
+                                          <Component id="nomeFantasiaTextField" min="-2" pref="239" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="280" max="-2" attributes="0"/>
-                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="279" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <Component id="razaoSocialLabel" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Component id="razaoSocialTextField" max="32767" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="jToggleButton2" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
+                      <Component id="cidadeLabel" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="cepLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="logradouroLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="estadoLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="cidadeLabel" min="-2" max="-2" attributes="0"/>
                           <Component id="bairroLabel" min="-2" max="-2" attributes="0"/>
-                          <Component id="cepFormattedTextField" alignment="0" min="-2" pref="154" max="-2" attributes="0"/>
-                          <Component id="logradouroTextField" min="-2" pref="260" max="-2" attributes="0"/>
                           <Component id="numeroLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                              <Component id="numeroTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="bairroTextField" alignment="0" pref="163" max="32767" attributes="0"/>
-                              <Component id="cidadeTextField" alignment="0" max="32767" attributes="0"/>
-                              <Component id="estadoTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="numeroTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="bairroTextField" alignment="0" pref="163" max="32767" attributes="0"/>
+                          <Component id="cidadeTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="estadoTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="logradouroTextField" alignment="0" max="32767" attributes="0"/>
+                          <Component id="cepFormattedTextField" alignment="0" max="32767" attributes="0"/>
+                      </Group>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="45" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="nomeClienteValidacao" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailClienteFisicoValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="numeroClienteFisicoValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="telefonePrincipalValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cepClienteFisicoValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="nomeFantasiaValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cnpjValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="razaoSocialValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cepJuridicoValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="emailJuridicoValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="numeroJuridicoValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="cpfValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace pref="144" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="clienteFisicoLabel" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="105" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="93" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Component id="cadastrarButton" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="cadastrarButton" min="-2" pref="140" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                   </Group>
               </Group>
           </Group>
-          <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="161" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+          <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="366" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="378" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" pref="273" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
               <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -108,93 +189,134 @@
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="21" max="-2" attributes="0"/>
-              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
-              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="clienteFisicoButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="juridicoFisicoButton" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nomeClienteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nomeFantasiaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cepLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="nomeClienteTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="nomeFantasiaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cepFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cpfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="logradouroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="cpfFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cnpjFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="logradouroTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="razaoSocialLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="estadoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="razaoSocialTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="estadoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cidadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="cidadeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="telefonePrincipalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="telefoneOpcionalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="bairroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Group type="102" attributes="0">
+                              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="3" attributes="0">
+                                  <Component id="clienteFisicoButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="juridicoFisicoButton" alignment="3" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                          </Group>
+                      </Group>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="telefonePrincipalTextField" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="bairroTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeClienteLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeFantasiaLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cepLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="nomeClienteTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeFantasiaTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cepFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="clienteFisicoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cpfLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="logradouroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nomeClienteValidacao" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Component id="telefoneOpcionalTextField" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="85" max="-2" attributes="0"/>
+                      <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
+              <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="numeroLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="numeroTextField" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="0" pref="56" max="32767" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="cpfFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="cnpjFormattedTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="logradouroTextField" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
+                  <Component id="cpfValidacao" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <Group type="103" groupAlignment="1" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="cadastrarButton" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jToggleButton2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="razaoSocialLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="estadoLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="estadoTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="razaoSocialTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cidadeLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="emailLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="emailTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="cidadeTextField" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="telefonePrincipalLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="bairroLabel" alignment="3" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="telefonePrincipalTextField" min="-2" max="-2" attributes="0"/>
+                          <Component id="bairroTextField" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="1" attributes="0">
+                          <Component id="telefoneOpcionalLabel" min="-2" pref="23" max="-2" attributes="0"/>
+                          <Component id="numeroLabel" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="numeroTextField" min="-2" max="-2" attributes="0"/>
+                          <Component id="telefoneOpcionalTextField" min="-2" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="-2" pref="1" max="-2" attributes="0"/>
+                      <Component id="cepClienteFisicoValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="emailClienteFisicoValidacao" min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="telefonePrincipalValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="numeroClienteFisicoValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
+                      <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
+                      <Component id="nomeFantasiaValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cnpjValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="razaoSocialValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="cepJuridicoValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="emailJuridicoValidacao" min="-2" pref="14" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="numeroJuridicoValidacao" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="71" max="32767" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="cadastrarButton" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                          <Component id="jToggleButton2" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
+                      </Group>
+                      <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -204,6 +326,9 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
         <Property name="text" type="java.lang.String" value="Tipo do Cliente"/>
       </Properties>
     </Component>
@@ -233,29 +358,30 @@
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="18" style="0"/>
+          <Font name="Tahoma" size="24" style="0"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Cadastrar Cliente"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeClienteTextField">
       <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="nomeClienteTextFieldFocusLost"/>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nomeClienteTextFieldActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nomeClienteLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome do Cliente"/>
+        <Property name="text" type="java.lang.String" value="Nome do Cliente*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cpfLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cpf"/>
+        <Property name="text" type="java.lang.String" value="Cpf*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="nomeFantasiaLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Nome Fantasia"/>
+        <Property name="text" type="java.lang.String" value="Nome Fantasia*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="nomeFantasiaTextField">
@@ -268,12 +394,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cnpj"/>
+        <Property name="text" type="java.lang.String" value="Cnpj*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="cpfFormattedTextField">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpfFormattedTextFieldActionPerformed"/>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="cpfFormattedTextFieldFocusLost"/>
       </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JFormattedTextField(new Util().mascara(&quot;###.###.###-##&quot;))"/>
@@ -292,17 +418,20 @@
     </Component>
     <Component class="javax.swing.JLabel" name="razaoSocialLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Raz&#xe3;o Social"/>
+        <Property name="text" type="java.lang.String" value="Raz&#xe3;o Social*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="razaoSocialTextField">
       <Properties>
         <Property name="enabled" type="boolean" value="false"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="razaoSocialTextFieldActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="emailLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Email"/>
+        <Property name="text" type="java.lang.String" value="E-mail*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="emailTextField">
@@ -312,7 +441,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="telefonePrincipalLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefone Principal"/>
+        <Property name="text" type="java.lang.String" value="Telefone Principal*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="telefonePrincipalTextField">
@@ -326,7 +455,7 @@
     </Component>
     <Component class="javax.swing.JLabel" name="cepLabel">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Cep"/>
+        <Property name="text" type="java.lang.String" value="Cep*"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="cepFormattedTextField">
@@ -408,6 +537,131 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="numeroTextField">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="14" style="0"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Tabela de Valida&#xe7;&#xf5;es"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nomeClienteValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nome"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cpfValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cpf"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cepClienteFisicoValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cep preenchido"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="emailClienteFisicoValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="E-mail inv&#xe1;lido"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numeroClienteFisicoValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero vazio"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="telefonePrincipalValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Telefone Principal"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+          <Color blue="0" green="99" red="99" type="rgb"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="* Campos com asterisco s&#xe3;o obrigat&#xf3;rios"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="clienteFisicoLabel">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cliente F&#xed;sico"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel6">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Cliente Jur&#xed;dico"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="nomeFantasiaValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Nome Fantasia "/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cnpjValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cnpj"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="razaoSocialValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Raz&#xe3;o Social"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="cepJuridicoValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="Cep preenchido"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="emailJuridicoValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="E-mail inv&#xe1;lido"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="numeroJuridicoValidacao">
+      <Properties>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="11" style="1"/>
+        </Property>
+        <Property name="text" type="java.lang.String" value="N&#xfa;mero vazio"/>
+      </Properties>
     </Component>
   </SubComponents>
 </Form>

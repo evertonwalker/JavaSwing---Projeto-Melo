@@ -18,6 +18,20 @@ import java.util.logging.Logger;
  */
 public class ControladorClienteFisico {
 
+    public boolean verificarCpf(String cpf) throws Exception {
+
+        boolean verificador = false;
+        
+        ClienteFisicoDao dao = new ClienteFisicoDao();
+        try {
+        verificador = dao.verificarCpf(cpf);   
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+
+        return verificador;
+    }
+
     public void cadastrar(ClienteFisico c) {
 
         ClienteFisicoDao dao = new ClienteFisicoDao();
@@ -29,14 +43,14 @@ public class ControladorClienteFisico {
     }
 
     public void atualizar(ClienteFisico cf, String oldCpf) {
-        
+
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
             dao.atualizar(cf, oldCpf);
         } catch (Exception ex) {
             ex.getMessage();
-        } 
-     
+        }
+
     }
 
     public void remover(ClienteFisico cf) throws Exception {

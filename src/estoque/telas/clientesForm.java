@@ -10,6 +10,10 @@ import estoque.controladores.ControladorClientePessoaJuridica;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
+import java.awt.Color;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
@@ -155,9 +159,27 @@ public class clientesForm extends javax.swing.JFrame {
     jToggleButton2 = new javax.swing.JToggleButton();
     numeroLabel = new javax.swing.JLabel();
     numeroTextField = new javax.swing.JTextField();
+    jLabel4 = new javax.swing.JLabel();
+    nomeClienteValidacao = new javax.swing.JLabel();
+    cpfValidacao = new javax.swing.JLabel();
+    cepClienteFisicoValidacao = new javax.swing.JLabel();
+    emailClienteFisicoValidacao = new javax.swing.JLabel();
+    numeroClienteFisicoValidacao = new javax.swing.JLabel();
+    telefonePrincipalValidacao = new javax.swing.JLabel();
+    jLabel5 = new javax.swing.JLabel();
+    clienteFisicoLabel = new javax.swing.JLabel();
+    jLabel6 = new javax.swing.JLabel();
+    nomeFantasiaValidacao = new javax.swing.JLabel();
+    cnpjValidacao = new javax.swing.JLabel();
+    razaoSocialValidacao = new javax.swing.JLabel();
+    cepJuridicoValidacao = new javax.swing.JLabel();
+    emailJuridicoValidacao = new javax.swing.JLabel();
+    numeroJuridicoValidacao = new javax.swing.JLabel();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+    setBackground(new java.awt.Color(255, 255, 255));
 
+    jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
     jLabel1.setText("Tipo do Cliente");
 
     tipoClienteButton.add(clienteFisicoButton);
@@ -177,20 +199,25 @@ public class clientesForm extends javax.swing.JFrame {
         }
     });
 
-    jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+    jLabel2.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
     jLabel2.setText("Cadastrar Cliente");
 
+    nomeClienteTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            nomeClienteTextFieldFocusLost(evt);
+        }
+    });
     nomeClienteTextField.addActionListener(new java.awt.event.ActionListener() {
         public void actionPerformed(java.awt.event.ActionEvent evt) {
             nomeClienteTextFieldActionPerformed(evt);
         }
     });
 
-    nomeClienteLabel.setText("Nome do Cliente");
+    nomeClienteLabel.setText("Nome do Cliente*");
 
-    cpfLabel.setText("Cpf");
+    cpfLabel.setText("Cpf*");
 
-    nomeFantasiaLabel.setText("Nome Fantasia");
+    nomeFantasiaLabel.setText("Nome Fantasia*");
 
     nomeFantasiaTextField.setEnabled(false);
     nomeFantasiaTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -199,11 +226,11 @@ public class clientesForm extends javax.swing.JFrame {
         }
     });
 
-    jLabel3.setText("Cnpj");
+    jLabel3.setText("Cnpj*");
 
-    cpfFormattedTextField.addActionListener(new java.awt.event.ActionListener() {
-        public void actionPerformed(java.awt.event.ActionEvent evt) {
-            cpfFormattedTextFieldActionPerformed(evt);
+    cpfFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
+        public void focusLost(java.awt.event.FocusEvent evt) {
+            cpfFormattedTextFieldFocusLost(evt);
         }
     });
 
@@ -214,11 +241,16 @@ public class clientesForm extends javax.swing.JFrame {
         }
     });
 
-    razaoSocialLabel.setText("Razão Social");
+    razaoSocialLabel.setText("Razão Social*");
 
     razaoSocialTextField.setEnabled(false);
+    razaoSocialTextField.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            razaoSocialTextFieldActionPerformed(evt);
+        }
+    });
 
-    emailLabel.setText("Email");
+    emailLabel.setText("E-mail*");
 
     emailTextField.addFocusListener(new java.awt.event.FocusAdapter() {
         public void focusLost(java.awt.event.FocusEvent evt) {
@@ -226,11 +258,11 @@ public class clientesForm extends javax.swing.JFrame {
         }
     });
 
-    telefonePrincipalLabel.setText("Telefone Principal");
+    telefonePrincipalLabel.setText("Telefone Principal*");
 
     telefoneOpcionalLabel.setText("Telefone Opcional");
 
-    cepLabel.setText("Cep");
+    cepLabel.setText("Cep*");
 
     cepFormattedTextField.addFocusListener(new java.awt.event.FocusAdapter() {
         public void focusLost(java.awt.event.FocusEvent evt) {
@@ -285,145 +317,280 @@ public class clientesForm extends javax.swing.JFrame {
 
     numeroLabel.setText("Número");
 
+    jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+    jLabel4.setText("Tabela de Validações");
+
+    nomeClienteValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    nomeClienteValidacao.setText("Nome");
+
+    cpfValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    cpfValidacao.setText("Cpf");
+
+    cepClienteFisicoValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    cepClienteFisicoValidacao.setText("Cep preenchido");
+
+    emailClienteFisicoValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    emailClienteFisicoValidacao.setText("E-mail inválido");
+
+    numeroClienteFisicoValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    numeroClienteFisicoValidacao.setText("Número vazio");
+
+    telefonePrincipalValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    telefonePrincipalValidacao.setText("Telefone Principal");
+
+    jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    jLabel5.setForeground(new java.awt.Color(153, 153, 0));
+    jLabel5.setText("* Campos com asterisco são obrigatórios");
+
+    clienteFisicoLabel.setText("Cliente Físico");
+
+    jLabel6.setText("Cliente Jurídico");
+
+    nomeFantasiaValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    nomeFantasiaValidacao.setText("Nome Fantasia ");
+
+    cnpjValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    cnpjValidacao.setText("Cnpj");
+
+    razaoSocialValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    razaoSocialValidacao.setText("Razão Social");
+
+    cepJuridicoValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    cepJuridicoValidacao.setText("Cep preenchido");
+
+    emailJuridicoValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    emailJuridicoValidacao.setText("E-mail inválido");
+
+    numeroJuridicoValidacao.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+    numeroJuridicoValidacao.setText("Número vazio");
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+        .addGroup(layout.createSequentialGroup()
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(24, 24, 24)
+                    .addGap(20, 20, 20)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(nomeClienteLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cpfLabel, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cpfFormattedTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 154, Short.MAX_VALUE)
-                                    .addComponent(emailTextField))
-                                .addGap(8, 8, 8))
-                            .addComponent(jToggleButton2, javax.swing.GroupLayout.Alignment.LEADING))
-                        .addComponent(telefonePrincipalLabel)
-                        .addComponent(clienteFisicoButton)
-                        .addComponent(emailLabel)
-                        .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(emailLabel)
+                                .addComponent(telefonePrincipalLabel)
+                                .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addComponent(jLabel1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(nomeClienteLabel)
+                                    .addComponent(cpfLabel)
+                                    .addComponent(clienteFisicoButton)
+                                    .addComponent(cpfFormattedTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 239, Short.MAX_VALUE)
+                                    .addComponent(telefoneOpcionalLabel)
+                                    .addComponent(telefoneOpcionalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(nomeClienteTextField)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(20, 20, 20)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(cnpjFormattedTextField)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addComponent(jLabel3)
+                                            .addGap(0, 0, Short.MAX_VALUE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addGap(0, 16, Short.MAX_VALUE)
+                                            .addComponent(juridicoFisicoButton)
+                                            .addGap(178, 178, 178))))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(18, 18, 18)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(nomeFantasiaLabel)
+                                        .addComponent(nomeFantasiaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(0, 0, Short.MAX_VALUE)))))
+                    .addGap(20, 20, 20))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(279, 279, 279)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(juridicoFisicoButton)
-                        .addComponent(telefoneOpcionalLabel)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
                             .addComponent(razaoSocialLabel)
-                            .addComponent(jLabel3)
-                            .addComponent(nomeFantasiaLabel)
-                            .addComponent(nomeFantasiaTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                            .addComponent(cnpjFormattedTextField)
-                            .addComponent(razaoSocialTextField)
-                            .addComponent(telefoneOpcionalTextField))))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(razaoSocialTextField))
+                    .addGap(18, 18, 18))
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(280, 280, 280)
-                    .addComponent(jLabel2)))
+                    .addGap(48, 48, 48)
+                    .addComponent(jToggleButton2)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(41, 41, 41)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(cidadeLabel)
+                    .addContainerGap())
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(cepLabel)
                         .addComponent(logradouroLabel)
                         .addComponent(estadoLabel)
-                        .addComponent(cidadeLabel)
                         .addComponent(bairroLabel)
-                        .addComponent(cepFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(numeroLabel)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(numeroTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(bairroTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
-                            .addComponent(cidadeTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(estadoTextField, javax.swing.GroupLayout.Alignment.LEADING)))
-                    .addContainerGap())
+                        .addComponent(numeroTextField)
+                        .addComponent(bairroTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE)
+                        .addComponent(cidadeTextField)
+                        .addComponent(estadoTextField)
+                        .addComponent(logradouroTextField)
+                        .addComponent(cepFormattedTextField))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(45, 45, 45)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(nomeClienteValidacao)
+                                .addComponent(emailClienteFisicoValidacao)
+                                .addComponent(numeroClienteFisicoValidacao)
+                                .addComponent(telefonePrincipalValidacao)
+                                .addComponent(cepClienteFisicoValidacao)
+                                .addComponent(nomeFantasiaValidacao)
+                                .addComponent(cnpjValidacao)
+                                .addComponent(razaoSocialValidacao)
+                                .addComponent(cepJuridicoValidacao)
+                                .addComponent(emailJuridicoValidacao)
+                                .addComponent(numeroJuridicoValidacao)
+                                .addComponent(cpfValidacao))
+                            .addGap(0, 0, Short.MAX_VALUE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 144, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(clienteFisicoLabel)
+                                    .addGap(105, 105, 105))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabel6)
+                                    .addGap(93, 93, 93))))))
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(cadastrarButton)
-                    .addGap(26, 26, 26))))
+                    .addGap(0, 0, Short.MAX_VALUE)
+                    .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(64, 64, 64))
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                    .addComponent(jLabel4)
+                    .addGap(76, 76, 76))))
         .addGroup(layout.createSequentialGroup()
-            .addGap(161, 161, 161)
-            .addComponent(jLabel1)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(366, 366, 366)
+                    .addComponent(jLabel5))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(378, 378, 378)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
     layout.setVerticalGroup(
         layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
         .addGroup(layout.createSequentialGroup()
-            .addGap(21, 21, 21)
-            .addComponent(jLabel2)
-            .addGap(38, 38, 38)
-            .addComponent(jLabel1)
-            .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(clienteFisicoButton)
-                .addComponent(juridicoFisicoButton))
-            .addGap(14, 14, 14)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(nomeClienteLabel)
-                .addComponent(nomeFantasiaLabel)
-                .addComponent(cepLabel))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(nomeFantasiaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(cepFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(cpfLabel)
-                .addComponent(jLabel3)
-                .addComponent(logradouroLabel))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(cpfFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(cnpjFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(razaoSocialLabel)
-                .addComponent(estadoLabel))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(razaoSocialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(estadoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(11, 11, 11)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(emailLabel)
-                .addComponent(cidadeLabel))
-            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(cidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGap(18, 18, 18)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(telefonePrincipalLabel)
-                .addComponent(telefoneOpcionalLabel)
-                .addComponent(bairroLabel))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addGap(13, 13, 13)
+                    .addGap(26, 26, 26)
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(65, 65, 65)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(clienteFisicoButton)
+                                .addComponent(juridicoFisicoButton))
+                            .addGap(14, 14, 14))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jLabel4)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(bairroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(nomeClienteLabel)
+                        .addComponent(nomeFantasiaLabel)
+                        .addComponent(cepLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(nomeClienteTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nomeFantasiaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cepFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(clienteFisicoLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cpfLabel)
+                        .addComponent(jLabel3)
+                        .addComponent(logradouroLabel)
+                        .addComponent(nomeClienteValidacao)))
                 .addGroup(layout.createSequentialGroup()
+                    .addGap(85, 85, 85)
+                    .addComponent(jLabel1)))
+            .addGap(3, 3, 3)
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cpfFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cnpjFormattedTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(cpfValidacao))
+            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(16, 16, 16)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(razaoSocialLabel)
+                        .addComponent(estadoLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(estadoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(razaoSocialTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(18, 18, 18)
-                    .addComponent(telefoneOpcionalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(numeroLabel)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                    .addComponent(numeroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 56, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(cadastrarButton)
-                        .addComponent(jToggleButton2))
-                    .addContainerGap())))
+                        .addComponent(cidadeLabel)
+                        .addComponent(emailLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(emailTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cidadeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(telefonePrincipalLabel)
+                        .addComponent(bairroLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(telefonePrincipalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bairroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(telefoneOpcionalLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(numeroLabel))
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(numeroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(telefoneOpcionalTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(47, 47, 47)
+                    .addComponent(jLabel5)
+                    .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(1, 1, 1)
+                    .addComponent(cepClienteFisicoValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(emailClienteFisicoValidacao, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(telefonePrincipalValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(numeroClienteFisicoValidacao)
+                    .addGap(42, 42, 42)
+                    .addComponent(jLabel6)
+                    .addGap(14, 14, 14)
+                    .addComponent(nomeFantasiaValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cnpjValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(razaoSocialValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(cepJuridicoValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(emailJuridicoValidacao, javax.swing.GroupLayout.PREFERRED_SIZE, 14, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(numeroJuridicoValidacao)
+                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 71, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGap(40, 40, 40))))
     );
 
     pack();
@@ -463,7 +630,9 @@ public class clientesForm extends javax.swing.JFrame {
             bairroTextField.setText((obj.getString("bairro")));
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane,ex.getMessage());
+            
+            JOptionPane.showMessageDialog(rootPane, "Cep inválido, informe outro!");
+            System.out.println(ex.getMessage());
         }
 
     }//GEN-LAST:event_cepFormattedTextFieldFocusLost
@@ -540,10 +709,6 @@ public class clientesForm extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_nomeClienteTextFieldActionPerformed
 
-    private void cpfFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFormattedTextFieldActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cpfFormattedTextFieldActionPerformed
-
     private void cnpjFormattedTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cnpjFormattedTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cnpjFormattedTextFieldActionPerformed
@@ -563,6 +728,57 @@ public class clientesForm extends javax.swing.JFrame {
     private void cidadeTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cidadeTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cidadeTextFieldActionPerformed
+
+    private void nomeClienteTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_nomeClienteTextFieldFocusLost
+        // TODO add your handling code here:
+        if(clienteFisicoButton.isSelected() && nomeClienteTextField.getText().equals("")){
+            nomeClienteValidacao.setForeground(Color.RED);
+        } else {
+             nomeClienteValidacao.setForeground(new Color(0,153,102));
+        }
+        
+    }//GEN-LAST:event_nomeClienteTextFieldFocusLost
+
+    private void razaoSocialTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_razaoSocialTextFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_razaoSocialTextFieldActionPerformed
+
+    private void cpfFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfFormattedTextFieldFocusLost
+            // TODO add your handling code here:
+            
+       String cpfTratado = cpfFormattedTextField.getText().replace(" ", "");
+       
+        if(cpfTratado.length() == 14){
+            
+            boolean verificar = false;
+            
+        ControladorClienteFisico ccf = new ControladorClienteFisico();
+        try {
+             verificar = ccf.verificarCpf(cpfFormattedTextField.getText());
+        } catch (Exception ex) {
+           JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+        }
+        
+        if(verificar){
+             JOptionPane.showMessageDialog(rootPane, "Cliente já existente,"
+                     + " Digite outro Cpf");
+             cpfFormattedTextField.setText("");
+        }
+           } else {
+            JOptionPane.showMessageDialog(rootPane, "Digite um cpf válido");
+            cpfFormattedTextField.setText("   .   .   -  ");
+        }
+        
+       
+        /*
+        if(clienteFisicoButton.isSelected() && cpfTratado.length() < 14){
+            cpfValidacao.setForeground(Color.RED);
+        } else {
+             cpfValidacao.setForeground(new Color(0,153,102));
+        }
+       */
+        
+    }//GEN-LAST:event_cpfFormattedTextFieldFocusLost
 
     /**
      * @param args the command line arguments
@@ -612,14 +828,21 @@ public class clientesForm extends javax.swing.JFrame {
     private javax.swing.JLabel bairroLabel;
     private javax.swing.JTextField bairroTextField;
     private javax.swing.JToggleButton cadastrarButton;
+    private javax.swing.JLabel cepClienteFisicoValidacao;
     private javax.swing.JFormattedTextField cepFormattedTextField;
+    private javax.swing.JLabel cepJuridicoValidacao;
     private javax.swing.JLabel cepLabel;
     private javax.swing.JLabel cidadeLabel;
     private javax.swing.JTextField cidadeTextField;
     private javax.swing.JRadioButton clienteFisicoButton;
+    private javax.swing.JLabel clienteFisicoLabel;
     private javax.swing.JFormattedTextField cnpjFormattedTextField;
+    private javax.swing.JLabel cnpjValidacao;
     private javax.swing.JFormattedTextField cpfFormattedTextField;
     private javax.swing.JLabel cpfLabel;
+    private javax.swing.JLabel cpfValidacao;
+    private javax.swing.JLabel emailClienteFisicoValidacao;
+    private javax.swing.JLabel emailJuridicoValidacao;
     private javax.swing.JLabel emailLabel;
     private javax.swing.JTextField emailTextField;
     private javax.swing.JLabel estadoLabel;
@@ -627,22 +850,31 @@ public class clientesForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JRadioButton juridicoFisicoButton;
     private javax.swing.JLabel logradouroLabel;
     private javax.swing.JTextField logradouroTextField;
     private javax.swing.JLabel nomeClienteLabel;
     private javax.swing.JTextField nomeClienteTextField;
+    private javax.swing.JLabel nomeClienteValidacao;
     private javax.swing.JLabel nomeFantasiaLabel;
     private javax.swing.JTextField nomeFantasiaTextField;
+    private javax.swing.JLabel nomeFantasiaValidacao;
+    private javax.swing.JLabel numeroClienteFisicoValidacao;
+    private javax.swing.JLabel numeroJuridicoValidacao;
     private javax.swing.JLabel numeroLabel;
     private javax.swing.JTextField numeroTextField;
     private javax.swing.JLabel razaoSocialLabel;
     private javax.swing.JTextField razaoSocialTextField;
+    private javax.swing.JLabel razaoSocialValidacao;
     private javax.swing.JLabel telefoneOpcionalLabel;
     private javax.swing.JTextField telefoneOpcionalTextField;
     private javax.swing.JLabel telefonePrincipalLabel;
     private javax.swing.JTextField telefonePrincipalTextField;
+    private javax.swing.JLabel telefonePrincipalValidacao;
     private javax.swing.ButtonGroup tipoClienteButton;
     // End of variables declaration//GEN-END:variables
 }

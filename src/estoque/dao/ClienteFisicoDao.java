@@ -49,9 +49,9 @@ public class ClienteFisicoDao extends ConnectionFactory {
     }
 
     public void atualizar(ClienteFisico cf, String oldCpf) throws Exception {
-        
+
         Connection conn = conectarPrepareStatment();
-        
+
         String sql = "Update CLIENTE_FISICO  set cpf = ?, nome = ?, email = ?,"
                 + "telefonePrinc = ?, telefoneOpc = ?, cep = ?,"
                 + "logradouro = ?, estado = ?, cidade = ?, bairro = ?,"
@@ -70,8 +70,8 @@ public class ClienteFisicoDao extends ConnectionFactory {
             stmt.setString(7, cf.getLogradouro());
             stmt.setString(8, cf.getEstado());
             stmt.setString(9, cf.getCidade());
-            stmt.setString(10,cf.getBairro());
-            stmt.setString(11,cf.getNumero());
+            stmt.setString(10, cf.getBairro());
+            stmt.setString(11, cf.getNumero());
             stmt.setString(12, oldCpf);
 
             stmt.execute();
@@ -82,10 +82,7 @@ public class ClienteFisicoDao extends ConnectionFactory {
             ex.getMessage();
 
         }
-        
-        
-        
-        
+
     }
 
     public void remover(ClienteFisico cf) throws Exception {
@@ -133,12 +130,46 @@ public class ClienteFisicoDao extends ConnectionFactory {
             cf.setTelefoneOpc(rs.getString("telefoneOpc"));
             cf.setCep(rs.getString("cep"));
             cf.setNumero((rs.getString("numero")));
-           
+
             retorno.add(cf);
         }
         //fechando a conexão com o banco de dados
         desconectar();
         return retorno;
+    }
+
+    public boolean verificarCpf(String cpf) throws Exception {
+
+        boolean verificador = false;
+
+        ArrayList<ClienteFisico> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT *"
+                + " FROM CLIENTE_FISICO where cpf = ?";
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, cpf);
+
+            //executando a instrução sql
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ClienteFisico cf = new ClienteFisico();
+                retorno.add(cf);
+            }
+
+            if (!retorno.isEmpty()) {
+                verificador = true;
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+        return verificador;
     }
 
 }

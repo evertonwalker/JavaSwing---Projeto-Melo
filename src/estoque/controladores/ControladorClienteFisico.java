@@ -7,10 +7,7 @@ package estoque.controladores;
 
 import estoque.dao.ClienteFisicoDao;
 import estoque.modelos.ClienteFisico;
-import estoque.modelos.ClienteFisicoInterface;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -21,24 +18,71 @@ public class ControladorClienteFisico {
     public boolean verificarCpf(String cpf) throws Exception {
 
         boolean verificador = false;
-        
+
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
-        verificador = dao.verificarCpf(cpf);   
+            verificador = dao.verificarCpf(cpf);
         } catch (Exception ex) {
             ex.getMessage();
         }
 
         return verificador;
     }
+    
+    public ArrayList<ClienteFisico> filtragem(String filtro) throws Exception{
+        
+        ClienteFisicoDao dao = new ClienteFisicoDao();
+        return dao.filtragem(filtro);
+    }
+    
+    
 
-    public void cadastrar(ClienteFisico c) {
+    public void cadastrar(ClienteFisico c) throws Exception {
+
+        /*  boolean verificar = false;
+
+        ControladorClienteFisico ccf = new ControladorClienteFisico();
+        try {
+            verificar = ccf.verificarCpf(c.getCpf());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            throw new Exception("Cliente já Cadastrado, insira outro Cpf.");
+        }
+
+        if (verificar) {
+            JOptionPane.showMessageDialog(rootPane, "Cliente já existente,"
+                    + " Digite outro Cpf");
+        } */
+        if ("".equals(c.getNome().trim())) {
+            throw new Exception("Informe o Nome do Cliente");
+        }
+
+        if (c.getCpf().replace(" ", "").length() < 14) {
+            throw new Exception("Informe o Cpf do cliente com 14 dígitos");
+        }
+
+        if ("".equals(c.getEmail().trim())) {
+            throw new Exception("Informe o e-mail do Cliente");
+        }
+
+        if (c.getTelefonePrinc().replace(" ", "").length() < 11) {
+            throw new Exception("Informe o Telefone Principal do cliente com "
+                    + "DDD e 9 números");
+        }
+
+        if (c.getCep().replace(" ", "").length() < 8) {
+            throw new Exception("Informe o CEP do cliente com 8 dígitos");
+        }
+
+        if ("".equals(c.getNumero())) {
+            throw new Exception("Informe o número do Endereço do Cliente");
+        }
 
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
             dao.cadastrar(c);
         } catch (Exception ex) {
-            Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
+           ex.getMessage();
         }
     }
 

@@ -107,6 +107,38 @@ public class ClienteFisicoDao extends ConnectionFactory {
 
     }
 
+    public ArrayList<ClienteFisico> filtragem(String filtro) throws Exception {
+
+        ArrayList<ClienteFisico> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT nome, cpf, email, telefonePrinc, telefoneOpc, cep,"
+                + "numero FROM CLIENTE_FISICO where nome like ? ";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        stmt.setString(1, "%"+filtro+"%");
+        //executando a instrução sql
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            ClienteFisico cf = new ClienteFisico();
+
+            cf.setNome(rs.getString("nome"));
+            cf.setCpf(rs.getString("cpf"));
+            cf.setEmail(rs.getString("email"));
+            cf.setTelefonePrinc(rs.getString("telefonePrinc"));
+            cf.setTelefoneOpc(rs.getString("telefoneOpc"));
+            cf.setCep(rs.getString("cep"));
+            cf.setNumero((rs.getString("numero")));
+
+            retorno.add(cf);
+        }
+        //fechando a conexão com o banco de dados
+        desconectar();
+        return retorno;
+    }
+
     public ArrayList<ClienteFisico> listar() throws Exception {
 
         ArrayList<ClienteFisico> retorno = new ArrayList<>();

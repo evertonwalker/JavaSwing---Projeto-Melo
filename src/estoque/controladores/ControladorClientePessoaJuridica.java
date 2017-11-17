@@ -9,9 +9,6 @@ import estoque.dao.ClientePessoaJuridicaDao;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.modelos.ClientePessoaJuridicaInterface;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 
 /**
  *

@@ -19,39 +19,87 @@ import java.util.logging.Logger;
 public class ControladorMecanico implements MecanicoInterface {
 
     @Override
-    public void cadastrar(Mecanico m) throws Exception {
+    public void cadastrar(Mecanico mec) throws Exception {
 
-        if (m.getNome().isEmpty()) {
+        if (mec.getNome().isEmpty()) {
             throw new Exception("Informe o Nome do Mecânico");
         }
-        if ("".equals(m.getNome().trim())) {
+        if ("".equals(mec.getNome().trim())) {
             throw new Exception("Informar o nome do Mecânico");
         }
-        if (m.getCpf().replace(" ", "").length() < 11) {
+        if (mec.getCpf().replace(" ", "").length() < 11) {
             throw new Exception("O Cpf deverá conter 11 dígitos");
         }
 
         MecanicoDao dao = new MecanicoDao();
         try {
-            dao.cadastrar(m);
+            dao.cadastrar(mec);
         } catch (Exception ex) {
             Logger.getLogger(ControladorClienteFisico.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     @Override
-    public void atualizar(Mecanico m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void atualizar(Mecanico mec, String oldCpf) throws Exception {
+    
+        if (mec.getNome().isEmpty()) {
+            throw new Exception("Informe o Nome do Mecânico");
+        }
+        if ("".equals(mec.getNome().trim())) {
+            throw new Exception("Informar o nome do Mecânico");
+        }
+        if (mec.getCpf().replace(" ", "").length() < 11) {
+            throw new Exception("O Cpf deverá conter 11 dígitos");
+        }
+        
+        MecanicoDao dao = new MecanicoDao();
+        try {
+            dao.atualizar(mec, oldCpf);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
     }
 
     @Override
-    public void remover(Mecanico filtro) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(Mecanico mec) throws Exception {
+    
+    MecanicoDao dao = new MecanicoDao();
+
+        try {
+            dao.remover(mec);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
     }
 
     @Override
-    public ArrayList<Mecanico> listar(Mecanico m) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public ArrayList<Mecanico> listarMecanico() throws Exception {
+        
+        MecanicoDao dao = new MecanicoDao();
+        return dao.listarMecanico();
+
     }
 
+    @Override
+    public boolean verificarCpf(String cpf) throws Exception {
+
+        boolean verificador = false;
+
+        MecanicoDao dao = new MecanicoDao();
+        try {
+            verificador = dao.verificarCpf(cpf);
+        } catch (Exception ex) {
+            ex.getMessage();
+        }
+
+        return verificador;
+    }
+    
+    @Override
+    public ArrayList<Mecanico> filtragem(String filtro) throws Exception{
+        
+        MecanicoDao dao = new MecanicoDao();
+        return dao.filtragem(filtro);
+    }
+    
 }

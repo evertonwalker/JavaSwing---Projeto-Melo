@@ -89,4 +89,4 @@
 
 --###############################################
 
-SELECT * FROM CLIENTE_JURIDICO;
+SELECT * FROM MECANICO;

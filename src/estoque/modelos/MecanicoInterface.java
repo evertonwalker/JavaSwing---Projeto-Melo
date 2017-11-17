@@ -13,12 +13,16 @@ import java.util.ArrayList;
  */
 public interface MecanicoInterface {
     
-    public void cadastrar(Mecanico m) throws Exception;
+    public void cadastrar(Mecanico mec) throws Exception;
     
-    public void atualizar(Mecanico m);
+    public void atualizar(Mecanico mec, String oldCpf) throws Exception;
     
-    public void remover(Mecanico filtro);
+    public void remover(Mecanico mec)throws Exception;
     
-    public ArrayList<Mecanico> listar(Mecanico m);
+    public ArrayList<Mecanico> listarMecanico() throws Exception;
+    
+    public boolean verificarCpf(String cpf) throws Exception;
+    
+    public ArrayList<Mecanico> filtragem(String filtro) throws Exception;
     
 }

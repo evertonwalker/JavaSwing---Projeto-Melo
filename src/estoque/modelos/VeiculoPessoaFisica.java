@@ -9,12 +9,13 @@ package estoque.modelos;
  *
  * @author FHC
  */
-public class Veiculo {
+public class VeiculoPessoaFisica {
     
     private String placa;
     private String modelo;
     private Fabricante fabricante;
     private Cliente cliente;
+    private int ano;
 
     /**
      * @return the placa
@@ -71,7 +72,19 @@ public class Veiculo {
     public void setCliente(Cliente cliente) {
         this.cliente = cliente;
     }
-    
-    
+
+    /**
+     * @return the ano
+     */
+    public int getAno() {
+        return ano;
+    }
+
+    /**
+     * @param ano the ano to set
+     */
+    public void setAno(int ano) {
+        this.ano = ano;
+    }
     
 }

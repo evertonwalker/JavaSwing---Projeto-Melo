@@ -16,10 +16,10 @@ public class Fabricante {
     private String idFabricante;
     private String nomeFabricante;
     
-    private ArrayList <Veiculo> veiculo;
+    private ArrayList <VeiculoPessoaFisica> veiculo;
     
     public Fabricante (){
-        ArrayList<Veiculo> veiculos = new ArrayList<>();
+        ArrayList<VeiculoPessoaFisica> veiculos = new ArrayList<>();
     }
 
     /**
@@ -53,14 +53,14 @@ public class Fabricante {
     /**
      * @return the veiculo
      */
-    public ArrayList <Veiculo> getVeiculo() {
+    public ArrayList <VeiculoPessoaFisica> getVeiculo() {
         return veiculo;
     }
 
     /**
      * @param veiculo the veiculo to set
      */
-    public void setVeiculo(ArrayList <Veiculo> veiculo) {
+    public void setVeiculo(ArrayList <VeiculoPessoaFisica> veiculo) {
         this.veiculo = veiculo;
     }
     

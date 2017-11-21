@@ -89,4 +89,28 @@
 
 --###############################################
 
-SELECT * FROM MECANICO;
+
+--###############################################
+
+--CREATE TABLE VEÍCULO_PF (
+--Vei_Placa VARCHAR(8) PRIMARY KEY,
+--Vei_Fabricante VARCHAR(50) NOT NULL,
+--Vei_Modelo VARCHAR(50) NOT NULL,
+--Vei_Ano INTEGER NOT NULL,
+--Cli_Cpf VARCHAR(14) NOT NULL,
+--FOREIGN KEY(Cli_Cpf) REFERENCES CLIENTE_FISICO (cpf)
+--)
+
+--CREATE TABLE VEÍCULO_PJ (
+--Vei_Placa VARCHAR(8) PRIMARY KEY,
+--Vei_Fabricante VARCHAR(50) NOT NULL,
+--Vei_Modelo VARCHAR(50) NOT NULL,
+--Vei_Ano INTEGER NOT NULL,
+--Cli_Cnpj VARCHAR(20) NOT NULL,
+--FOREIGN KEY(Cli_Cnpj) REFERENCES CLIENTE_JURIDICO (cnpj)
+--)
+
+--###################################################
+
+
+--SELECT * FROM MECANICO;

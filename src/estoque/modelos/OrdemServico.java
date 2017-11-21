@@ -17,7 +17,7 @@ public class OrdemServico {
     private String descricao;
     private Date date;
     
-    private Veiculo veiculo;
+    private VeiculoPessoaFisica veiculo;
     private ClienteFisico clienteFisico;
     private ClientePessoaJuridica clientePessoaJuridica;
     private Mecanico mecanico;
@@ -68,14 +68,14 @@ public class OrdemServico {
     /**
      * @return the veiculo
      */
-    public Veiculo getVeiculo() {
+    public VeiculoPessoaFisica getVeiculo() {
         return veiculo;
     }
 
     /**
      * @param veiculo the veiculo to set
      */
-    public void setVeiculo(Veiculo veiculo) {
+    public void setVeiculo(VeiculoPessoaFisica veiculo) {
         this.veiculo = veiculo;
     }
 

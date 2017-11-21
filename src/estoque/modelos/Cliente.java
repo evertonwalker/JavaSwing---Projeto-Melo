@@ -24,10 +24,10 @@ public abstract class Cliente {
     private String telefoneOpc;
     private String email;
     
-    private ArrayList <Veiculo> veiculo;
+    private ArrayList <VeiculoPessoaFisica> veiculo;
     
     public Cliente (){
-        ArrayList<Veiculo> veiculos = new ArrayList<>();
+        ArrayList<VeiculoPessoaFisica> veiculos = new ArrayList<>();
     }
 
     
@@ -174,14 +174,14 @@ public abstract class Cliente {
     /**
      * @return the veiculo
      */
-    public ArrayList <Veiculo> getVeiculo() {
+    public ArrayList <VeiculoPessoaFisica> getVeiculo() {
         return veiculo;
     }
 
     /**
      * @param veiculo the veiculo to set
      */
-    public void setVeiculo(ArrayList <Veiculo> veiculo) {
+    public void setVeiculo(ArrayList <VeiculoPessoaFisica> veiculo) {
         this.veiculo = veiculo;
     }
 

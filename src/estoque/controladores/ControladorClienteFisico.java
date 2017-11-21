@@ -28,14 +28,7 @@ public class ControladorClienteFisico {
 
         return verificador;
     }
-    
-    public ArrayList<ClienteFisico> filtragem(String filtro) throws Exception{
-        
-        ClienteFisicoDao dao = new ClienteFisicoDao();
-        return dao.filtragem(filtro);
-    }
-    
-    
+   
 
     public void cadastrar(ClienteFisico c) throws Exception {
 

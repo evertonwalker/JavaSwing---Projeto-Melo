@@ -31,13 +31,6 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
     
     @Override
-    public ArrayList<ClientePessoaJuridica> filtragem(String filtro) throws Exception{
-        
-        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
-        return dao.filtragem(filtro);
-    }
-
-    @Override
     public void cadastrar(ClientePessoaJuridica c) throws Exception {
 
         if (c.getCnpj().replace(" ", "").length() < 14) {

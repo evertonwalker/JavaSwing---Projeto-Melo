@@ -79,9 +79,10 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         ListarClientePJLabel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
-        ListarClientePJLabel.setText("Listar Cliente PJ");
+        ListarClientePJLabel.setText("Listar Cliente Pessoa Jurídica");
 
-        filtroFantasiaLabel.setText("Filtro por nome fantasia");
+        filtroFantasiaLabel.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        filtroFantasiaLabel.setText("Filtro pelo Nome Fantasia");
 
         tabelaClientePJTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -132,24 +133,23 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(ListarClientePJLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(236, 236, 236)
-                                .addComponent(filtroFantasiaLabel))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(207, 207, 207)
-                                .addComponent(filtroPessoaJuridicaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(30, 30, 30)
                                 .addComponent(alterarClientePJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(44, 44, 44)
-                                .addComponent(removerClientePJButton)))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE))
+                                .addComponent(removerClientePJButton))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(20, 20, 20)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(filtroFantasiaLabel)
+                                    .addComponent(filtroPessoaJuridicaTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 367, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(234, 234, 234)
+                                .addComponent(ListarClientePJLabel)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -244,26 +244,18 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
-        modelo.setColumnIdentifiers(new String[]{"Nome Fantasia", "CNPJ",
-            "Razão Social", "Email", "Telefone Principal", "Telefone Opicional"});
-
+        modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
+            "Telefone Principal", "Telefone Opcional"});
+        
         if (filtroPessoaJuridicaTextField.getText().length() > 0) {
-
-            ControladorClientePessoaJuridica ccf = new ControladorClientePessoaJuridica();
-
-            try {
-                this.listaClientePessoaJuridicaGlobal = ccf.filtragem(filtroPessoaJuridicaTextField.getText());
-                 for (ClientePessoaJuridica cj : listaClientePessoaJuridicaGlobal) {
-                modelo.addRow(new String[]{"" + cj.getNomeFantasia(), cj.getCnpj(),
+            for(ClientePessoaJuridica cj : listaClientePessoaJuridicaGlobal){
+                if(cj.getNomeFantasia().contains(filtroPessoaJuridicaTextField.getText())){
+                     modelo.addRow(new String[]{"" + cj.getNomeFantasia(), cj.getCnpj(),
                     cj.getRazaoSocial(), cj.getEmail(), cj.getTelefonePrinc(),
                     cj.getTelefoneOpc()});
+                }           
             }
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(rootPane, "Cliente não encontrado!");
-            }
-
-            tabelaClientePJTable.setModel(modelo);
-
+           tabelaClientePJTable.setModel(modelo);    
         } else {
             listar();
         }

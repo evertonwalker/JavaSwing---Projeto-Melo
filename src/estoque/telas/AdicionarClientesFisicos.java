@@ -5,35 +5,39 @@
  */
 package estoque.telas;
 
-import com.sun.xml.internal.ws.util.StringUtils;
 import estoque.controladores.ControladorClienteFisico;
 import estoque.modelos.ClienteFisico;
-import java.nio.file.DirectoryStream;
 import java.util.ArrayList;
-import java.util.logging.Filter;
-import java.util.stream.Stream;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author aluno
+ * @author EWalker
  */
-public class ClienteListagem extends javax.swing.JFrame {
+public class AdicionarClientesFisicos extends javax.swing.JFrame {
 
     /**
      * Creates new form ClienteListagem
      */
     ArrayList<ClienteFisico> listaClienteGlobal;
+    OrdemServico formPai;
 
-    public ClienteListagem() {
+    public AdicionarClientesFisicos() {
+        
         initComponents();
-
         this.setLocationRelativeTo(null);
 
-        listarClientes();
 
     }
+    
+    public AdicionarClientesFisicos(OrdemServico formPai){
+        this.setLocationRelativeTo(null);
+        initComponents();
+        this.formPai = formPai;
+        listarClientes();
+    }
+        
 
     public void listarClientes() {
         DefaultTableModel modelo = new DefaultTableModel();
@@ -67,9 +71,9 @@ public class ClienteListagem extends javax.swing.JFrame {
         jTable1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         filtroCliente = new javax.swing.JTextField();
-        removerButton = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
-        alterarButton = new javax.swing.JButton();
+        voltarButton = new javax.swing.JButton();
+        confirmarClienteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -84,11 +88,6 @@ public class ClienteListagem extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTable1MouseClicked(evt);
-            }
-        });
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
@@ -100,20 +99,20 @@ public class ClienteListagem extends javax.swing.JFrame {
             }
         });
 
-        removerButton.setText("Remover");
-        removerButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                removerButtonActionPerformed(evt);
-            }
-        });
-
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel2.setText("Filtre pelo nome");
 
-        alterarButton.setText("Alterar");
-        alterarButton.addActionListener(new java.awt.event.ActionListener() {
+        voltarButton.setText("Voltar");
+        voltarButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                alterarButtonActionPerformed(evt);
+                voltarButtonActionPerformed(evt);
+            }
+        });
+
+        confirmarClienteButton.setText("Confirmar Cliente");
+        confirmarClienteButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                confirmarClienteButtonActionPerformed(evt);
             }
         });
 
@@ -122,23 +121,22 @@ public class ClienteListagem extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(alterarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addComponent(removerButton))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(filtroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(156, 156, 156))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2)
+                    .addComponent(filtroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(voltarButton)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(confirmarClienteButton)
+                .addGap(27, 27, 27))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,72 +149,15 @@ public class ClienteListagem extends javax.swing.JFrame {
                 .addComponent(filtroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(removerButton)
-                    .addComponent(alterarButton))
-                .addContainerGap(40, Short.MAX_VALUE))
+                    .addComponent(voltarButton)
+                    .addComponent(confirmarClienteButton))
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
-        // TODO add your handling code here:
-        int index = jTable1.getSelectedRow();
-        if (index >= 0) {
-            ClienteFisico cf = this.listaClienteGlobal.get(index);
-
-        }
-
-
-    }//GEN-LAST:event_jTable1MouseClicked
-
-    private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
-        // TODO add your handling code here:
-        ControladorClienteFisico ccf = new ControladorClienteFisico();
-
-        //Seleciona a linha da coluna.
-        int index = jTable1.getSelectedRow();
-
-        if (index >= 0) {
-            ClienteFisico cf = this.listaClienteGlobal.get(index);
-
-            try {
-                ccf.remover(cf);
-                JOptionPane.showMessageDialog(rootPane, "Cliente Removido com "
-                        + "Sucesso");
-                listarClientes();
-            } catch (Exception ex) {
-                System.out.println(ex.getMessage());
-                JOptionPane.showMessageDialog(rootPane, "Falha ao remover");
-            }
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
-                    + " Remover");
-        }
-
-
-    }//GEN-LAST:event_removerButtonActionPerformed
-
-    private void alterarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarButtonActionPerformed
-        // TODO add your handling code here:
-
-        int index = jTable1.getSelectedRow();
-
-        if (index >= 0) {
-            ClienteFisico cf = this.listaClienteGlobal.get(index);
-            AlterarClienteForm acf = new AlterarClienteForm(cf, this);
-
-            acf.setVisible(true);
-
-        } else {
-            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
-                    + " Alterar");
-        }
-
-    }//GEN-LAST:event_alterarButtonActionPerformed
 
     private void filtroClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroClienteKeyPressed
         // TODO add your handling code here:
@@ -239,6 +180,29 @@ public class ClienteListagem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_filtroClienteKeyPressed
 
+    private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_voltarButtonActionPerformed
+
+    private void confirmarClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarClienteButtonActionPerformed
+        // TODO add your handling code here:
+        int index = jTable1.getSelectedRow();
+
+        if (index >= 0) {
+            ClienteFisico cf = this.listaClienteGlobal.get(index);
+            formPai.receberCliente(cf);
+            this.dispose();
+            formPai.setVisible(true);
+          
+
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+                    + " confirmar");
+        }
+
+    }//GEN-LAST:event_confirmarClienteButtonActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -256,31 +220,38 @@ public class ClienteListagem extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClienteListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClienteListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClienteListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClienteListagem.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClienteListagem().setVisible(true);
+                new AdicionarClientesFisicos().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton alterarButton;
+    private javax.swing.JButton confirmarClienteButton;
     private javax.swing.JTextField filtroCliente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JButton removerButton;
+    private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }

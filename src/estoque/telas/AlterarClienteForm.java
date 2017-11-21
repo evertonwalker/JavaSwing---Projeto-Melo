@@ -52,7 +52,9 @@ public class AlterarClienteForm extends javax.swing.JFrame {
             bairroTextField.setText((obj.getString("bairro")));
 
         } catch (Exception ex) {
-            JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+            System.out.println(ex.getMessage());
+            JOptionPane.showMessageDialog(rootPane, 
+                    "Cep inválido, informe CEP com 8 dígitos");
         }
     }
 

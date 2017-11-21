@@ -254,10 +254,16 @@ public class MenuInicial extends javax.swing.JFrame {
 
     private void ListarClienteButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarClienteButton1ActionPerformed
         // TODO add your handling code here:
+        MecanicoListagem ml = new MecanicoListagem();
+        ml.setVisible(true);
+        
     }//GEN-LAST:event_ListarClienteButton1ActionPerformed
 
     private void cadastrarClientButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarClientButton2ActionPerformed
         // TODO add your handling code here:
+        OrdemServico os = new OrdemServico();
+        os.setVisible(true);
+        
     }//GEN-LAST:event_cadastrarClientButton2ActionPerformed
 
     private void ListarClienteButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ListarClienteButton2ActionPerformed

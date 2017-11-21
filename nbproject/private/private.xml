@@ -3,8 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/telas/ClientePessoaJuridicaListagem.java</file>
-            <file>file:/C:/Users/FHC/Documents/NetBeansProjects/JavaSwing---Projeto-Melo/src/estoque/telas/ClienteListagem.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/ClientePessoaJuridicaListagem.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/OrdemServico.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/dao/ClienteFisicoDao.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/MenuInicial.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/AlterarClientePessoaJuridicaForm.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/controladores/ControladorClientePessoaJuridica.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/AlterarMecanicoForm.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/ClientePessoaJuridicaInterface.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/dao/ClientePessoaJuridicaDao.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/adicionarClientesFisicos.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/ClienteListagem.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/ClientePessoaJuridica.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/controladores/ControladorClienteFisico.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/AlterarClienteForm.java</file>
         </group>
     </open-files>
 </project-private>

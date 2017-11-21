@@ -26,8 +26,6 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
     public AdicionarClientesFisicos() {
         
         initComponents();
-        this.setLocationRelativeTo(null);
-
 
     }
     

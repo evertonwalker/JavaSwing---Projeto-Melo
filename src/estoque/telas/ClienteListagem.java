@@ -225,15 +225,16 @@ public class ClienteListagem extends javax.swing.JFrame {
         //atribuindo as colunas da tabela
         modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
             "Telefone Principal", "Telefone Opcional"});
-        
+
         if (filtroCliente.getText().length() > 0) {
-            for(ClienteFisico cfs : listaClienteGlobal){
-                if(cfs.getNome().contains(filtroCliente.getText())){
-                     modelo.addRow(new String[]{"" + cfs.getNome(), cfs.getCpf(),
-                    cfs.getEmail(), cfs.getTelefonePrinc(), cfs.getTelefoneOpc()});
-                }           
+            for (ClienteFisico cfs : listaClienteGlobal) {
+                if (cfs.getNome().toLowerCase().contains(
+                        filtroCliente.getText().toLowerCase())) {
+                    modelo.addRow(new String[]{"" + cfs.getNome(), cfs.getCpf(),
+                        cfs.getEmail(), cfs.getTelefonePrinc(), cfs.getTelefoneOpc()});
+                }
             }
-           jTable1.setModel(modelo);    
+            jTable1.setModel(modelo);
         } else {
             listarClientes();
         }

@@ -7,6 +7,7 @@ package estoque.telas;
 
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
+import estoque.modelos.Mecanico;
 import javax.swing.JOptionPane;
 
 /**
@@ -31,6 +32,9 @@ public class OrdemServico extends javax.swing.JFrame {
         clienteNomeTextField.setText(cpj.getNomeFantasia());
     }
     
+    public void receberMecanico(Mecanico mec){
+        mecanicoTextField.setText(mec.getNome());
+    }
     
     /**
      * This method is called from within the constructor to initialize the form.
@@ -46,7 +50,7 @@ public class OrdemServico extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         clienteNomeTextField = new javax.swing.JTextField();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        mecanicoTextField = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jFormattedTextField1 = new javax.swing.JFormattedTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -65,7 +69,7 @@ public class OrdemServico extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         produtoNomeTextField = new javax.swing.JTextField();
         selecionarClienteButton = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        selecionarMecanico = new javax.swing.JButton();
         clienteFisicoButton = new javax.swing.JRadioButton();
         clienteJuridicoButton = new javax.swing.JRadioButton();
 
@@ -80,7 +84,7 @@ public class OrdemServico extends javax.swing.JFrame {
 
         jLabel3.setText("Mecânico");
 
-        jTextField1.setEnabled(false);
+        mecanicoTextField.setEnabled(false);
 
         jLabel4.setText("Data");
 
@@ -109,7 +113,12 @@ public class OrdemServico extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Selecionar Mecânico");
+        selecionarMecanico.setText("Selecionar Mecânico");
+        selecionarMecanico.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                selecionarMecanicoActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(clienteFisicoButton);
         clienteFisicoButton.setSelected(true);
@@ -143,9 +152,9 @@ public class OrdemServico extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel3)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(mecanicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(jButton2))))
+                                .addComponent(selecionarMecanico))))
                     .addComponent(jLabel6)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(106, 106, 106)
@@ -208,8 +217,8 @@ public class OrdemServico extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clienteNomeTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(selecionarClienteButton)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2)
+                    .addComponent(mecanicoTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(selecionarMecanico)
                     .addComponent(jFormattedTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(10, 10, 10)
                 .addComponent(jLabel6)
@@ -264,6 +273,12 @@ public class OrdemServico extends javax.swing.JFrame {
          clienteNomeTextField.setText("");
     }//GEN-LAST:event_clienteJuridicoButtonActionPerformed
 
+    private void selecionarMecanicoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_selecionarMecanicoActionPerformed
+        // TODO add your handling code here:
+        AdicionarMecanico am = new AdicionarMecanico(this);
+        am.setVisible(true);
+    }//GEN-LAST:event_selecionarMecanicoActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -304,7 +319,6 @@ public class OrdemServico extends javax.swing.JFrame {
     private javax.swing.JRadioButton clienteFisicoButton;
     private javax.swing.JRadioButton clienteJuridicoButton;
     private javax.swing.JTextField clienteNomeTextField;
-    private javax.swing.JButton jButton2;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JFormattedTextField jFormattedTextField2;
@@ -321,11 +335,12 @@ public class OrdemServico extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField mecanicoTextField;
     private javax.swing.JTextField pagamentoTextField;
     private javax.swing.JTextField produtoNomeTextField;
     private javax.swing.JButton selecionarClienteButton;
+    private javax.swing.JButton selecionarMecanico;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,8 +5,8 @@
  */
 package estoque.telas;
 
-import estoque.controladores.ControladorClienteFisico;
-import estoque.modelos.ClienteFisico;
+import estoque.controladores.ControladorMecanico;
+import estoque.modelos.Mecanico;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -15,44 +15,41 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author EWalker
  */
-public class AdicionarClientesFisicos extends javax.swing.JFrame {
+public class AdicionarMecanico extends javax.swing.JFrame {
 
     /**
      * Creates new form ClienteListagem
      */
-    ArrayList<ClienteFisico> listaClienteGlobal;
+    ArrayList<Mecanico> listaMecanicoGlobal;
     OrdemServico formPai;
 
-    public AdicionarClientesFisicos() {
-        
+    public AdicionarMecanico() {
+
         initComponents();
         this.setLocationRelativeTo(null);
     }
-    
-    public AdicionarClientesFisicos(OrdemServico formPai){
+
+    public AdicionarMecanico(OrdemServico formPai) {
         initComponents();
         this.setLocationRelativeTo(null);
         this.formPai = formPai;
-        listarClientes();
+        listarMecanicos();
     }
-        
 
-    public void listarClientes() {
+    public void listarMecanicos() {
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
-        modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
-            "Telefone Principal", "Telefone Opcional"});
+        modelo.setColumnIdentifiers(new String[]{"Nome Mecânico", "CPF"});
         try {
-            ControladorClienteFisico ccf = new ControladorClienteFisico();
-            this.listaClienteGlobal = ccf.listar();
-            for (ClienteFisico cfs : listaClienteGlobal) {
-                modelo.addRow(new String[]{"" + cfs.getNome(), cfs.getCpf(),
-                    cfs.getEmail(), cfs.getTelefonePrinc(), cfs.getTelefoneOpc()});
+            ControladorMecanico mec = new ControladorMecanico();
+            this.listaMecanicoGlobal = mec.listarMecanico();
+            for (Mecanico m : listaMecanicoGlobal) {
+                modelo.addRow(new String[]{"" + m.getNome(), m.getCpf()});
             }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, ex.getMessage());
         }
-        jTable1.setModel(modelo);
+        tabelaMecanicoTable.setModel(modelo);
 
     }
 
@@ -66,16 +63,16 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        tabelaMecanicoTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        filtroCliente = new javax.swing.JTextField();
+        filtroMecanico = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         voltarButton = new javax.swing.JButton();
         confirmarClienteButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tabelaMecanicoTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -86,14 +83,14 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        jScrollPane1.setViewportView(tabelaMecanicoTable);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Listar Clientes");
+        jLabel1.setText("Adicionar Mecânico");
 
-        filtroCliente.addKeyListener(new java.awt.event.KeyAdapter() {
+        filtroMecanico.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                filtroClienteKeyPressed(evt);
+                filtroMecanicoKeyPressed(evt);
             }
         });
 
@@ -127,7 +124,7 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
-                    .addComponent(filtroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(filtroMecanico, javax.swing.GroupLayout.PREFERRED_SIZE, 386, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
@@ -144,7 +141,7 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(filtroCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(filtroMecanico, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
@@ -157,26 +154,26 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void filtroClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroClienteKeyPressed
+    private void filtroMecanicoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroMecanicoKeyPressed
         // TODO add your handling code here:
 
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
-        modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
-            "Telefone Principal", "Telefone Opcional"});
-        
-        if (filtroCliente.getText().length() > 0) {
-            for(ClienteFisico cfs : listaClienteGlobal){
-                if(cfs.getNome().contains(filtroCliente.getText())){
-                     modelo.addRow(new String[]{"" + cfs.getNome(), cfs.getCpf(),
-                    cfs.getEmail(), cfs.getTelefonePrinc(), cfs.getTelefoneOpc()});
-                }           
+        modelo.setColumnIdentifiers(new String[]{"Nome", "CPF"});
+
+        if (filtroMecanico.getText().length() > 0) {
+            for (Mecanico mec : listaMecanicoGlobal) {
+                if (mec.getNome().toLowerCase().contains(
+                        filtroMecanico.getText().toLowerCase())) {
+                    modelo.addRow(new String[]{"" + mec.getNome(), mec.getCpf()
+                    });
+                }
             }
-           jTable1.setModel(modelo);    
+            tabelaMecanicoTable.setModel(modelo);
         } else {
-            listarClientes();
+            listarMecanicos();
         }
-    }//GEN-LAST:event_filtroClienteKeyPressed
+    }//GEN-LAST:event_filtroMecanicoKeyPressed
 
     private void voltarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voltarButtonActionPerformed
         // TODO add your handling code here:
@@ -185,17 +182,16 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
 
     private void confirmarClienteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmarClienteButtonActionPerformed
         // TODO add your handling code here:
-        int index = jTable1.getSelectedRow();
+        int index = tabelaMecanicoTable.getSelectedRow();
 
         if (index >= 0) {
-            ClienteFisico cf = this.listaClienteGlobal.get(index);
-            formPai.receberCliente(cf);
+            Mecanico mec = this.listaMecanicoGlobal.get(index);
+            formPai.receberMecanico(mec);
             this.dispose();
             formPai.setVisible(true);
-          
 
         } else {
-            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+            JOptionPane.showMessageDialog(rootPane, "Selecione um Mecânico para"
                     + " confirmar");
         }
 
@@ -215,17 +211,33 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
+
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarMecanico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarMecanico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarMecanico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
+
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AdicionarClientesFisicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(AdicionarMecanico.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>
@@ -238,18 +250,18 @@ public class AdicionarClientesFisicos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AdicionarClientesFisicos().setVisible(true);
+                new AdicionarMecanico().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton confirmarClienteButton;
-    private javax.swing.JTextField filtroCliente;
+    private javax.swing.JTextField filtroMecanico;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tabelaMecanicoTable;
     private javax.swing.JButton voltarButton;
     // End of variables declaration//GEN-END:variables
 }

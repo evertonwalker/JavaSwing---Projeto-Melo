@@ -6,7 +6,6 @@
 package estoque.telas;
 
 import estoque.controladores.ControladorClientePessoaJuridica;
-import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
@@ -28,8 +27,6 @@ public class AdicionarClientesJuridicos extends javax.swing.JFrame {
         
         initComponents();
         this.setLocationRelativeTo(null);
-
-
     }
     
     public AdicionarClientesJuridicos(OrdemServico formPai){
@@ -93,7 +90,7 @@ public class AdicionarClientesJuridicos extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
-        jLabel1.setText("Listar Clientes");
+        jLabel1.setText("Adicionar Clientes Jurídicos");
 
         filtroPessoaJuridicaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
@@ -111,7 +108,7 @@ public class AdicionarClientesJuridicos extends javax.swing.JFrame {
             }
         });
 
-        confirmarClienteButton.setText("Confirmar Cliente");
+        confirmarClienteButton.setText("Confirmar Cliente Jurídico");
         confirmarClienteButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 confirmarClienteButtonActionPerformed(evt);
@@ -123,10 +120,6 @@ public class AdicionarClientesJuridicos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 616, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(156, 156, 156))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -139,6 +132,10 @@ public class AdicionarClientesJuridicos extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(confirmarClienteButton)
                 .addGap(27, 27, 27))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 305, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(156, 156, 156))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

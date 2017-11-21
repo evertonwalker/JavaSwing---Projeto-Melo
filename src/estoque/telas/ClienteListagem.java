@@ -181,7 +181,15 @@ public class ClienteListagem extends javax.swing.JFrame {
 
         if (index >= 0) {
             ClienteFisico cf = this.listaClienteGlobal.get(index);
-
+            
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+              
+             int teste = JOptionPane.showConfirmDialog (rootPane, "Você realmente "
+                        + "Deseja apagar "
+                        + "Esse Cliente?","Cuidado",dialogButton);
+            
+             if(teste == JOptionPane.YES_OPTION){
+                 
             try {
                 ccf.remover(cf);
                 JOptionPane.showMessageDialog(rootPane, "Cliente Removido com "
@@ -191,6 +199,8 @@ public class ClienteListagem extends javax.swing.JFrame {
                 System.out.println(ex.getMessage());
                 JOptionPane.showMessageDialog(rootPane, "Falha ao remover");
             }
+          }
+             
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"

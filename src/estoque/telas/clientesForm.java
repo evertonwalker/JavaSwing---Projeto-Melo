@@ -67,7 +67,7 @@ public class clientesForm extends javax.swing.JFrame {
         cnpjFormattedTextField.setEnabled(false);
         razaoSocialTextField.setText("");
         razaoSocialTextField.setEnabled(false);
-
+        
     }
 
     private void camposJuridicoAtivarLimparClienteFisico() {

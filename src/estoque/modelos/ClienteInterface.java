@@ -13,9 +13,9 @@ import java.util.ArrayList;
  */
 public interface ClienteInterface {
     
-    public void cadastrarFisico(Cliente c) throws Exception;
+    public void cadastrarFisico(ClienteFisico c) throws Exception;
     
-    public void cadastrarJuridico(Cliente c) throws Exception;
+    public void cadastrarJuridico(ClientePessoaJuridica c) throws Exception;
     
     public void atualizar(Cliente c) throws Exception;
     

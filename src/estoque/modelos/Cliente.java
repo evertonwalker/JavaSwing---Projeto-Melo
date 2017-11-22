@@ -23,6 +23,7 @@ public abstract class Cliente {
     private String telefonePrinc;
     private String telefoneOpc;
     private String email;
+    private int tipo;
     
     private ArrayList <VeiculoPessoaFisica> veiculo;
     
@@ -184,6 +185,22 @@ public abstract class Cliente {
     public void setVeiculo(ArrayList <VeiculoPessoaFisica> veiculo) {
         this.veiculo = veiculo;
     }
+
+    /**
+     * @return the tipo
+     */
+    public int getTipo() {
+        return tipo;
+    }
+
+    /**
+     * @param tipo the tipo to set
+     */
+    public void setTipo(int tipo) {
+        this.tipo = tipo;
+    }
+    
+    
 
 
 }

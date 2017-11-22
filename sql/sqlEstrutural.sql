@@ -113,4 +113,26 @@
 --###################################################
 
 
---SELECT * FROM MECANICO;
+SELECT * FROM CLIENTE;
+
+
+
+--CREATE TABLE CLIENTE (codigo INTEGER PRIMARY KEY IDENTITY,
+--						cpf VARCHAR(14),
+--						nome VARCHAR(150),
+--						cnpj VARCHAR(20), 
+--						nomeFantasia VARCHAR(150),
+--						razaoSocial VARCHAR(150),
+--						email varchar(60)not null,
+--						telefonePrinc varchar(30) not null,
+--						telefoneOpc varchar(30),
+--						cep VARCHAR(9) not null,
+--						logradouro VARCHAR(90) not null,
+--						estado varchar(40) not null,	
+--						cidade varchar(40) not null,
+--						bairro varchar(40) not null,
+--						numero varchar(20) not null,
+--						tipo INT)
+
+--INSERT INTO CLIENTE (cpf, nome, email, telefonePrinc, telefoneOpc, cep, logradouro, estado, cidade, bairro, numero, tipo)
+--			VALUES ('1111','NOME TESTE','fhen@fhen','9999999','888888','51020-021','Rua Dhalia','pe','recife','boa viagem','25', 0)

@@ -5,8 +5,10 @@
  */
 package estoque.controladores;
 
+import estoque.dao.ClienteDao;
 import estoque.dao.ClienteFisicoDao;
 import estoque.modelos.ClienteFisico;
+import estoque.modelos.ClientePessoaJuridica;
 import java.util.ArrayList;
 
 /**
@@ -30,7 +32,7 @@ public class ControladorClienteFisico {
     }
    
 
-    public void cadastrar(ClienteFisico c) throws Exception {
+    public void cadastrar(ClienteFisico c, ClientePessoaJuridica pj) throws Exception {
 
         /*  boolean verificar = false;
 
@@ -71,9 +73,9 @@ public class ControladorClienteFisico {
             throw new Exception("Informe o número do Endereço do Cliente");
         }
 
-        ClienteFisicoDao dao = new ClienteFisicoDao();
+        ClienteDao dao = new ClienteDao();
         try {
-            dao.cadastrar(c);
+            dao.cadastrar(c, pj);
         } catch (Exception ex) {
            ex.getMessage();
         }

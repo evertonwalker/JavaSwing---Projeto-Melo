@@ -14,45 +14,79 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import javax.swing.plaf.RootPaneUI;
 
 /**
  *
  * @author FHC
  */
 public class ClienteDao implements ClienteInterface {
-    
+
     private ConnectionFactory conexao;
 
     @Override
-    public void cadastrarFisico(ClienteFisico c) throws Exception {
-        //abrindo a conexão
-        Connection conn = conexao.conectarPrepareStatment();
-        //instrução sql correspondente a inserção do aluno
-        String sql = "INSERT INTO CLIENTE (cpf, nome, email, telefonePrinc, telefoneOpc,"
-                + " cep, logradouro, estado, cidade, bairro, numero, tipo)";
-        sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+    public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
+        
+        if (pf.getTipo() == 0) {
+            //abrindo a conexão para cadastrar Cliente Físico
+            Connection conn = conexao.conectarPrepareStatment();
+            //instrução sql correspondente a inserção do aluno
+            String sql = "INSERT INTO CLIENTE (cpf, nome, email, telefonePrinc, telefoneOpc,"
+                    + " cep, logradouro, estado, cidade, bairro, numero, tipo) ";
+            sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
 
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        // preenche os valores
-        stmt.setString(1, c.getCpf());
-        stmt.setString(2, c.getNome());
-        stmt.setString(3, c.getEmail());
-        stmt.setString(4, c.getTelefonePrinc());
-        stmt.setString(5, c.getTelefoneOpc());
-        stmt.setString(6, c.getCep());
-        stmt.setString(7, c.getLogradouro());
-        stmt.setString(8, c.getEstado());
-        stmt.setString(9, c.getCidade());
-        stmt.setString(10, c.getBairro());
-        stmt.setString(11, c.getNumero());
-        stmt.setString(12, "0");
-        // executa
-        stmt.execute();
-        stmt.close();
-        //fechando a conexão com o banco de dados
-        conexao.desconectar();
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            // preenche os valores
+            stmt.setString(1, pf.getCpf());
+            stmt.setString(2, pf.getNome());
+            stmt.setString(3, pf.getEmail());
+            stmt.setString(4, pf.getTelefonePrinc());
+            stmt.setString(5, pf.getTelefoneOpc());
+            stmt.setString(6, pf.getCep());
+            stmt.setString(7, pf.getLogradouro());
+            stmt.setString(8, pf.getEstado());
+            stmt.setString(9, pf.getCidade());
+            stmt.setString(10, pf.getBairro());
+            stmt.setString(11, pf.getNumero());
+            stmt.setInt(12, pf.getTipo());
+            // executa
+            stmt.execute();
+            stmt.close();
+            //fechando a conexão com o banco de dados
+            conexao.desconectar();
+
+        } if (pj.getTipo() == 1){
+            //abrindo a conexão para cadastrar Cliente Pessoa Jurídica
+            Connection conn = conexao.conectarPrepareStatment();
+            //instrução sql correspondente a inserção do aluno
+            String sql = "INSERT INTO CLIENTE (cnpj, nomeFantasia, razaoSocial,"
+                    + " email, telefonePrinc, telefoneOpc, cep, logradouro, estado,"
+                    + " cidade, bairro, numero, tipo) ";
+            sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            // preenche os valores
+            stmt.setString(1, pj.getCnpj());
+            stmt.setString(2, pj.getNomeFantasia());
+            stmt.setString(3, pj.getRazaoSocial());
+            stmt.setString(4, pj.getEmail());
+            stmt.setString(5, pj.getTelefonePrinc());
+            stmt.setString(6, pj.getTelefoneOpc());
+            stmt.setString(7, pj.getCep());
+            stmt.setString(8, pj.getLogradouro());
+            stmt.setString(9, pj.getEstado());
+            stmt.setString(10, pj.getCidade());
+            stmt.setString(11, pj.getBairro());
+            stmt.setString(12, pj.getNumero());
+            stmt.setString(13, "1");
+            // executa
+            stmt.execute();
+            stmt.close();
+            //fechando a conexão com o banco de dados
+            conexao.desconectar();
+        }
     }
-    
 
     @Override
     public void cadastrarJuridico(ClientePessoaJuridica c) throws Exception {
@@ -98,7 +132,7 @@ public class ClienteDao implements ClienteInterface {
 
     @Override
     public ArrayList<Cliente> listarCliente() throws Exception {
-        ArrayList<ClienteFisico> retorno = new ArrayList<>();
+        ArrayList<Cliente> retorno = new ArrayList<>();
 
         //abrindo a conexão
         Connection conn = conexao.conectarPrepareStatment();
@@ -123,8 +157,8 @@ public class ClienteDao implements ClienteInterface {
             retorno.add(cf);
         }
         //fechando a conexão com o banco de dados
-        desconectar();
-        return retorno;        
+        conexao.desconectar();
+        return retorno;
     }
 
     @Override
@@ -137,5 +171,4 @@ public class ClienteDao implements ClienteInterface {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
 }

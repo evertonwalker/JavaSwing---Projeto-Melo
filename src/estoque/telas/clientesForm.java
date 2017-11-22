@@ -518,6 +518,7 @@ public class clientesForm extends javax.swing.JFrame {
         if (clienteFisicoButton.isSelected()) {
 
             ClienteFisico c = new ClienteFisico();
+            ClientePessoaJuridica pj = new ClientePessoaJuridica();
 
             c.setNome(nomeClienteTextField.getText());
             c.setCpf(cpfFormattedTextField.getText());
@@ -530,10 +531,11 @@ public class clientesForm extends javax.swing.JFrame {
             c.setCidade(cidadeTextField.getText());
             c.setBairro(bairroTextField.getText());
             c.setNumero(numeroTextField.getText());
+            c.setTipo(0);
 
             ControladorClienteFisico ccf = new ControladorClienteFisico();
             try {
-                ccf.cadastrar(c);
+                ccf.cadastrar(c, pj);
                 JOptionPane.showMessageDialog(rootPane, "Cliente Cliente "
                         + "Cadastrado");
                 limparCampos();
@@ -558,6 +560,7 @@ public class clientesForm extends javax.swing.JFrame {
             c.setCidade(cidadeTextField.getText());
             c.setBairro(bairroTextField.getText());
             c.setNumero(numeroTextField.getText());
+            c.setTipo(1);
 
             ControladorClientePessoaJuridica ccpj = new ControladorClientePessoaJuridica();
             try {

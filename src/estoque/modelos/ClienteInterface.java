@@ -13,7 +13,7 @@ import java.util.ArrayList;
  */
 public interface ClienteInterface {
     
-    public void cadastrarFisico(ClienteFisico c) throws Exception;
+    public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
     
     public void cadastrarJuridico(ClientePessoaJuridica c) throws Exception;
     

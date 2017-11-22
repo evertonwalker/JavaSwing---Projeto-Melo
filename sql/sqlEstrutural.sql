@@ -113,9 +113,6 @@
 --###################################################
 
 
-SELECT * FROM CLIENTE;
-
-
 
 --CREATE TABLE CLIENTE (codigo INTEGER PRIMARY KEY IDENTITY,
 --						cpf VARCHAR(14),
@@ -136,3 +133,5 @@ SELECT * FROM CLIENTE;
 
 --INSERT INTO CLIENTE (cpf, nome, email, telefonePrinc, telefoneOpc, cep, logradouro, estado, cidade, bairro, numero, tipo)
 --			VALUES ('1111','NOME TESTE','fhen@fhen','9999999','888888','51020-021','Rua Dhalia','pe','recife','boa viagem','25', 0)
+
+SELECT * FROM CLIENTE;

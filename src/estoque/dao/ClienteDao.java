@@ -7,7 +7,7 @@ package estoque.dao;
 
 import estoque.modelos.Cliente;
 import estoque.modelos.ClienteFisico;
-import estoque.modelos.ClienteInterface;
+import estoque.modelos.interfaces.ClienteInterface;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.ConnectionFactory;
 import java.sql.Connection;

@@ -7,7 +7,7 @@ package estoque.controladores;
 
 import estoque.dao.UsuarioDao;
 import estoque.modelos.Usuario;
-import estoque.modelos.UsuarioInterface;
+import estoque.modelos.interfaces.UsuarioInterface;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

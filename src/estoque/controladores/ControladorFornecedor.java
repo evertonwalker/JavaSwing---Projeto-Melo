@@ -7,7 +7,7 @@ package estoque.controladores;
 
 import estoque.dao.FornecedorDao;
 import estoque.modelos.Fornecedor;
-import estoque.modelos.FornecedorInterface;
+import estoque.modelos.interfaces.FornecedorInterface;
 import java.util.ArrayList;
 
 /**
@@ -41,12 +41,26 @@ public class ControladorFornecedor implements FornecedorInterface {
 
     @Override
     public void atualizar(Fornecedor f, String oldCnpj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        FornecedorDao dao = new FornecedorDao();
+        try {
+            dao.atualizar(f, oldCnpj);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     @Override
     public void remover(Fornecedor f) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
+        FornecedorDao dao = new FornecedorDao();
+        try {
+            dao.remover(f);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
 }

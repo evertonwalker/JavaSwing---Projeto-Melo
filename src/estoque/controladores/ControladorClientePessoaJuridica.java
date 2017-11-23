@@ -7,7 +7,7 @@ package estoque.controladores;
 
 import estoque.dao.ClientePessoaJuridicaDao;
 import estoque.modelos.ClientePessoaJuridica;
-import estoque.modelos.ClientePessoaJuridicaInterface;
+import estoque.modelos.interfaces.ClientePessoaJuridicaInterface;
 import java.util.ArrayList;
 
 /**

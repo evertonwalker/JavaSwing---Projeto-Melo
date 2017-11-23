@@ -6,7 +6,7 @@
 package estoque.dao;
 
 import estoque.modelos.Fornecedor;
-import estoque.modelos.FornecedorInterface;
+import estoque.modelos.interfaces.FornecedorInterface;
 import estoque.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -108,12 +108,63 @@ public class FornecedorDao implements FornecedorInterface {
 
     @Override
     public void atualizar(Fornecedor f, String oldCnpj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+        Connection conn = conexao.conectarPrepareStatment();
+
+        String sql = "Update FORNECEDOR  set cnpj = ?, nomeFantasia = ?, razaoSocial = ?,"
+                + " email = ?, telefonePrinc = ?, telefoneOpc = ?, cep = ?,"
+                + "logradouro = ?, estado = ?, cidade = ?, bairro = ?,"
+                + "nomeResponsaveis = ? where cnpj = ?";
+
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            // preenche os valores
+            stmt.setString(1, f.getCnpj());
+            stmt.setString(2, f.getNomeFantasia());
+            stmt.setString(3, f.getRazaoSocial());
+            stmt.setString(4, f.getEmail());
+            stmt.setString(5, f.getTelefonePrincipal());
+            stmt.setString(6, f.getTelefoneOpcional());
+            stmt.setString(7, f.getCep());
+            stmt.setString(8, f.getLogradouro());
+            stmt.setString(9, f.getEstado());
+            stmt.setString(10, f.getCidade());
+            stmt.setString(11, f.getBairro());
+            stmt.setString(12, f.getNomeResponsaveis());
+            stmt.setString(13, oldCnpj);
+
+            stmt.execute();
+            stmt.close();
+            //fechando a conexão com o banco de dados
+            conexao.desconectar();
+        } catch (SQLException ex) {
+            ex.getMessage();
+
+        }
     }
 
     @Override
     public void remover(Fornecedor f) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
+         Connection conn = conexao.conectarPrepareStatment();
+        String sql = "Delete from FORNECEDOR where cnpj = ?";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            // preenche os valores
+            stmt.setString(1, f.getCnpj());
+
+            stmt.execute();
+            stmt.close();
+            //fechando a conexão com o banco de dados
+            conexao.desconectar();
+        } catch (SQLException ex) {
+            ex.getMessage();
+
+        }
+        
+        
     }
 
 }

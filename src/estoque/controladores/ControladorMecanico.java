@@ -7,7 +7,7 @@ package estoque.controladores;
 
 import estoque.dao.MecanicoDao;
 import estoque.modelos.Mecanico;
-import estoque.modelos.MecanicoInterface;
+import estoque.modelos.interfaces.MecanicoInterface;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;

@@ -134,4 +134,38 @@
 --INSERT INTO CLIENTE (cpf, nome, email, telefonePrinc, telefoneOpc, cep, logradouro, estado, cidade, bairro, numero, tipo)
 --			VALUES ('1111','NOME TESTE','fhen@fhen','9999999','888888','51020-021','Rua Dhalia','pe','recife','boa viagem','25', 0)
 
+
+
+create table FORNECEDOR( cnpj varchar(20) primary key,
+						 nomeFantasia varchar(100) not null,
+						 razaoSocial varchar(100) not null,
+						 nomeResponsaveis varchar(100),
+						 cep varchar(9) not null,
+						 logradouro varchar(150) not null,
+						 estado varchar(50) not null,
+						 cidade varchar(50) not null,
+						 bairro varchar(40) not null,
+						 email varchar(40) not null,
+						 telefonePrinc varchar(15) not null,
+						 telefoneOpc varchar(15));
+
+						 select * from fornecedor;
+
+Create table PRODUTO ( id int identity primary key, 
+						referencia varchar(30) not null,
+						Fornecedor_cnpj varchar(20) REFERENCES FORNECEDOR(cnpj),
+						descricao varchar(40) not null,
+						unidadeVolume varchar(40) not null,
+						precoCusto float not null,
+						margemLucro float not null,
+						estoqueAtual int not null,
+						estoqueMinimo int not null,
+						aplicacao varchar(1500));
+
+
+
+
+
+
+
 SELECT * FROM CLIENTE;

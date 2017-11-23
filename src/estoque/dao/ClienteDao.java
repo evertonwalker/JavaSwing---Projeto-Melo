@@ -24,6 +24,10 @@ import javax.swing.plaf.RootPaneUI;
 public class ClienteDao implements ClienteInterface {
 
     private ConnectionFactory conexao;
+    
+    public ClienteDao(){
+        this.conexao = new ConnectionFactory();
+    }
 
     @Override
     public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {

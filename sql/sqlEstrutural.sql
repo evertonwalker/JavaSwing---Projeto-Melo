@@ -168,4 +168,4 @@ Create table PRODUTO ( id int identity primary key,
 
 
 
-SELECT * FROM CLIENTE;
+SELECT * FROM Mecanico;

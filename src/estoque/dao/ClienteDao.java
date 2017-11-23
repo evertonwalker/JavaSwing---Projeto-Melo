@@ -13,6 +13,7 @@ import estoque.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.plaf.RootPaneUI;
@@ -24,14 +25,14 @@ import javax.swing.plaf.RootPaneUI;
 public class ClienteDao implements ClienteInterface {
 
     private ConnectionFactory conexao;
-    
-    public ClienteDao(){
+
+    public ClienteDao() {
         this.conexao = new ConnectionFactory();
     }
 
     @Override
     public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
-        
+
         if (pf.getTipo() == 0) {
             //abrindo a conexão para cadastrar Cliente Físico
             Connection conn = conexao.conectarPrepareStatment();
@@ -60,14 +61,16 @@ public class ClienteDao implements ClienteInterface {
             //fechando a conexão com o banco de dados
             conexao.desconectar();
 
-        } if (pj.getTipo() == 1){
+        }
+
+        if (pj.getTipo() == 1) {
             //abrindo a conexão para cadastrar Cliente Pessoa Jurídica
             Connection conn = conexao.conectarPrepareStatment();
             //instrução sql correspondente a inserção do aluno
             String sql = "INSERT INTO CLIENTE (cnpj, nomeFantasia, razaoSocial,"
                     + " email, telefonePrinc, telefoneOpc, cep, logradouro, estado,"
                     + " cidade, bairro, numero, tipo) ";
-            sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
+            sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement stmt = conn.prepareStatement(sql);
             // preenche os valores
@@ -83,7 +86,7 @@ public class ClienteDao implements ClienteInterface {
             stmt.setString(10, pj.getCidade());
             stmt.setString(11, pj.getBairro());
             stmt.setString(12, pj.getNumero());
-            stmt.setString(13, "1");
+            stmt.setInt(13, pj.getTipo());
             // executa
             stmt.execute();
             stmt.close();
@@ -93,56 +96,65 @@ public class ClienteDao implements ClienteInterface {
     }
 
     @Override
-    public void cadastrarJuridico(ClientePessoaJuridica c) throws Exception {
-        //abrindo a conexão
-        Connection conn = conexao.conectarPrepareStatment();
-        //instrução sql correspondente a inserção do aluno
-        String sql = "INSERT INTO CLIENTE (cnpj, nomeFantasia, razaoSocial,"
-                + " email, telefonePrinc, telefoneOpc, cep, logradouro, estado,"
-                + " cidade, bairro, numero, tipo)";
-        sql += "VALUES (?,?,?,?,?,?,?,?,?,?,?,?)";
-
-        PreparedStatement stmt = conn.prepareStatement(sql);
-        // preenche os valores
-        stmt.setString(1, c.getCnpj());
-        stmt.setString(2, c.getNomeFantasia());
-        stmt.setString(3, c.getRazaoSocial());
-        stmt.setString(4, c.getEmail());
-        stmt.setString(5, c.getTelefonePrinc());
-        stmt.setString(6, c.getTelefoneOpc());
-        stmt.setString(7, c.getCep());
-        stmt.setString(8, c.getLogradouro());
-        stmt.setString(9, c.getEstado());
-        stmt.setString(10, c.getCidade());
-        stmt.setString(11, c.getBairro());
-        stmt.setString(12, c.getNumero());
-        stmt.setString(13, "0");
-        // executa
-        stmt.execute();
-        stmt.close();
-        //fechando a conexão com o banco de dados
-        conexao.desconectar();
-    }
-
-    @Override
     public void atualizar(Cliente c) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remover(Cliente filtro) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
+        System.out.println("Entrou no REMOVER DAO");
+        if (pj.getCnpj() == null) {
+            Connection conn = conexao.conectarPrepareStatment();
+            String sql = "Delete from CLIENTE where cpf = ?";
+
+            try {
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                // preenche os valores
+                stmt.setString(1, pf.getCpf());
+
+                stmt.execute();
+                stmt.close();
+                //fechando a conexão com o banco de dados
+                conexao.desconectar();
+            } catch (SQLException ex) {
+                ex.getMessage();
+
+            }
+        }
+        
+        if (pf.getCpf() == null) {
+            Connection conn = conexao.conectarPrepareStatment();
+            String sql = "Delete from CLIENTE where cnpj = ?";
+
+            try {
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                // preenche os valores
+                stmt.setString(1, pj.getCnpj());
+
+                stmt.execute();
+                stmt.close();
+                //fechando a conexão com o banco de dados
+                conexao.desconectar();
+            } catch (SQLException ex) {
+                ex.getMessage();
+
+            }
+        }
+        System.out.println("SAIU REMOVER DAO");
     }
 
     @Override
-    public ArrayList<Cliente> listarCliente() throws Exception {
-        ArrayList<Cliente> retorno = new ArrayList<>();
+    public ArrayList<ClienteFisico> listarFisico() throws Exception {
+
+        ArrayList<ClienteFisico> retorno = new ArrayList<>();
 
         //abrindo a conexão
         Connection conn = conexao.conectarPrepareStatment();
         //instrução sql correspondente a seleção dos alunos
         String sql = "SELECT nome, cpf, email, telefonePrinc, telefoneOpc, cep,"
-                + "numero FROM CLIENTE_FISICO order by nome ";
+                + "numero FROM CLIENTE where tipo = 0 order by nome";
         PreparedStatement stmt = conn.prepareStatement(sql);
 
         //executando a instrução sql
@@ -159,6 +171,39 @@ public class ClienteDao implements ClienteInterface {
             cf.setNumero((rs.getString("numero")));
 
             retorno.add(cf);
+        }
+        //fechando a conexão com o banco de dados
+        conexao.desconectar();
+        return retorno;
+    }
+
+    @Override
+    public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception {
+        ArrayList<ClientePessoaJuridica> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conexao.conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT cnpj, nomeFantasia, razaoSocial, email,"
+                + " telefonePrinc, telefoneOpc, cep, numero ";
+        sql += "FROM CLIENTE  where tipo = 1 order by nomeFantasia";
+        PreparedStatement stmt = conn.prepareStatement(sql);
+
+        //executando a instrução sql
+        ResultSet rs = stmt.executeQuery();
+        while (rs.next()) {
+            ClientePessoaJuridica cpj = new ClientePessoaJuridica();
+
+            cpj.setNomeFantasia(rs.getString("nomeFantasia"));
+            cpj.setCnpj(rs.getString("cnpj"));
+            cpj.setRazaoSocial(rs.getString("razaoSocial"));
+            cpj.setEmail(rs.getString("email"));
+            cpj.setTelefonePrinc(rs.getString("telefonePrinc"));
+            cpj.setTelefoneOpc(rs.getString("telefoneOpc"));
+            cpj.setCep(rs.getString("cep"));
+            cpj.setNumero((rs.getString("numero")));
+
+            retorno.add(cpj);
         }
         //fechando a conexão com o banco de dados
         conexao.desconectar();

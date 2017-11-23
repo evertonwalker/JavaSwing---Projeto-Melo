@@ -17,14 +17,14 @@ import java.util.ArrayList;
 public interface ClienteInterface {
     
     public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
-    
-    public void cadastrarJuridico(ClientePessoaJuridica c) throws Exception;
-    
+        
     public void atualizar(Cliente c) throws Exception;
     
-    public void remover(Cliente filtro) throws Exception;
+    public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
     
-    public ArrayList<Cliente> listarCliente() throws Exception;
+    public ArrayList<ClienteFisico> listarFisico() throws Exception;
+    
+    public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception;
     
     public boolean verificarCnpj(String cnpj) throws Exception;
     

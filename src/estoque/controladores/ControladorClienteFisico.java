@@ -9,14 +9,16 @@ import estoque.dao.ClienteDao;
 import estoque.dao.ClienteFisicoDao;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
+import estoque.modelos.interfaces.ClienteFisicoInterface;
 import java.util.ArrayList;
 
 /**
  *
  * @author EWalker
  */
-public class ControladorClienteFisico {
+public class ControladorClienteFisico implements ClienteFisicoInterface {
 
+    @Override
     public boolean verificarCpf(String cpf) throws Exception {
 
         boolean verificador = false;
@@ -30,8 +32,8 @@ public class ControladorClienteFisico {
 
         return verificador;
     }
-   
 
+    @Override
     public void cadastrar(ClienteFisico c, ClientePessoaJuridica pj) throws Exception {
 
         /*  boolean verificar = false;
@@ -81,7 +83,8 @@ public class ControladorClienteFisico {
         }
     }
 
-    public void atualizar(ClienteFisico cf, String oldCpf) {
+    @Override
+    public void atualizar(ClienteFisico cf, String oldCpf) throws Exception {
 
         ClienteFisicoDao dao = new ClienteFisicoDao();
         try {
@@ -92,22 +95,24 @@ public class ControladorClienteFisico {
 
     }
 
-    public void remover(ClienteFisico cf) throws Exception {
+    @Override
+    public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
 
-        ClienteFisicoDao dao = new ClienteFisicoDao();
+        ClienteDao dao = new ClienteDao();
 
         try {
-            dao.remover(cf);
+            dao.remover(pf, pj);
         } catch (Exception ex) {
             ex.getMessage();
         }
 
     }
 
+    @Override
     public ArrayList<ClienteFisico> listar() throws Exception {
 
-        ClienteFisicoDao dao = new ClienteFisicoDao();
-        return dao.listar();
+        ClienteDao dao = new ClienteDao();
+        return dao.listarFisico();
 
     }
 

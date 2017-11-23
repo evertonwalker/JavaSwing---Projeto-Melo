@@ -5,7 +5,9 @@
  */
 package estoque.controladores;
 
+import estoque.dao.ClienteDao;
 import estoque.dao.ClientePessoaJuridicaDao;
+import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.modelos.interfaces.ClientePessoaJuridicaInterface;
 import java.util.ArrayList;
@@ -31,38 +33,38 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
     
     @Override
-    public void cadastrar(ClientePessoaJuridica c) throws Exception {
+    public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
 
-        if (c.getCnpj().replace(" ", "").length() < 14) {
+        if (pj.getCnpj().replace(" ", "").length() < 14) {
             throw new Exception("Informe o CNPJ do cliente com 14 dígitos");
         }
-        if ("".equals(c.getNomeFantasia().trim())) {
+        if ("".equals(pj.getNomeFantasia().trim())) {
             throw new Exception("Informe o Nome Fantasia do Cliente");
         }
-        if ("".equals(c.getRazaoSocial().trim())) {
+        if ("".equals(pj.getRazaoSocial().trim())) {
             throw new Exception("Informe a Razão Social do Cliente");
         }
 
-        if ("".equals(c.getEmail().trim())) {
+        if ("".equals(pj.getEmail().trim())) {
             throw new Exception("Informe o email do Cliente");
         }
 
-        if (c.getTelefonePrinc().replace(" ", "").length() < 10 || c.getTelefonePrinc().replace(" ", "").length() > 11) {
+        if (pj.getTelefonePrinc().replace(" ", "").length() < 10 || pj.getTelefonePrinc().replace(" ", "").length() > 11) {
             throw new Exception("Informe o Telefone Principal do cliente com DDD, máximo 11 dígitos");
         }
 
-        if ((c.getTelefoneOpc().replace(" ", "").length() < 10 && c.getTelefoneOpc().length() != 0)
-                || (c.getTelefoneOpc().replace(" ", "").length() > 11 && c.getTelefoneOpc().length() != 0)) {
+        if ((pj.getTelefoneOpc().replace(" ", "").length() < 10 && pj.getTelefoneOpc().length() != 0)
+                || (pj.getTelefoneOpc().replace(" ", "").length() > 11 && pj.getTelefoneOpc().length() != 0)) {
             throw new Exception("Informe o Telefone Opcional do cliente com DDD, máximo 11 dígitos");
         }
 
-        if (c.getCep().replace(" ", "").length() < 8) {
+        if (pj.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");
         }
 
-        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        ClienteDao dao = new ClienteDao();
         try {
-            dao.cadastrar(c);
+            dao.cadastrar(pf, pj);
         } catch (Exception ex) {
             ex.getMessage();
         }
@@ -108,12 +110,12 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
 
     @Override
-    public void remover(ClientePessoaJuridica cpj) throws Exception {
+    public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
 
-        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        ClienteDao dao = new ClienteDao();
 
         try {
-            dao.remover(cpj);
+            dao.remover(pf, pj);
         } catch (Exception ex) {
             ex.getMessage();
         }
@@ -123,7 +125,7 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     @Override
     public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception {
 
-        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        ClienteDao dao = new ClienteDao();
         return dao.listarPessoaJuridica();
 
     }

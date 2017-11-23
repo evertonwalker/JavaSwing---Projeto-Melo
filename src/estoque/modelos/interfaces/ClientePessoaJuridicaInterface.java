@@ -5,6 +5,7 @@
  */
 package estoque.modelos.interfaces;
 
+import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import java.util.ArrayList;
 
@@ -14,11 +15,11 @@ import java.util.ArrayList;
  */
 public interface ClientePessoaJuridicaInterface {
     
-    public void cadastrar(ClientePessoaJuridica c) throws Exception;
+    public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
     
     public void atualizar(ClientePessoaJuridica c, String oldCnpj) throws Exception;
     
-    public void remover(ClientePessoaJuridica filtro) throws Exception;
+    public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
     
     public ArrayList<ClientePessoaJuridica> listarPessoaJuridica() throws Exception;
     

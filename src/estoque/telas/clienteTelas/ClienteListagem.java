@@ -7,6 +7,7 @@ package estoque.telas.clienteTelas;
 
 import estoque.controladores.ControladorClienteFisico;
 import estoque.modelos.ClienteFisico;
+import estoque.modelos.ClientePessoaJuridica;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -171,7 +172,7 @@ public class ClienteListagem extends javax.swing.JFrame {
     private void removerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerButtonActionPerformed
         // TODO add your handling code here:
         ControladorClienteFisico ccf = new ControladorClienteFisico();
-
+        ClientePessoaJuridica pj = new ClientePessoaJuridica();
         //Seleciona a linha da coluna.
         int index = jTable1.getSelectedRow();
 
@@ -187,7 +188,7 @@ public class ClienteListagem extends javax.swing.JFrame {
              if(teste == JOptionPane.YES_OPTION){
                  
             try {
-                ccf.remover(cf);
+                ccf.remover(cf, pj);
                 JOptionPane.showMessageDialog(rootPane, "Cliente Removido com "
                         + "Sucesso");
                 listarClientes();

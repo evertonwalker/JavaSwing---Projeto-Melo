@@ -67,7 +67,7 @@ public class clientesForm extends javax.swing.JFrame {
         cnpjFormattedTextField.setEnabled(false);
         razaoSocialTextField.setText("");
         razaoSocialTextField.setEnabled(false);
-        
+
     }
 
     private void camposJuridicoAtivarLimparClienteFisico() {
@@ -505,7 +505,7 @@ public class clientesForm extends javax.swing.JFrame {
             bairroTextField.setText((obj.getString("bairro")));
 
         } catch (Exception ex) {
-            
+
             JOptionPane.showMessageDialog(rootPane, "Cep inválido, informe outro!");
             System.out.println(ex.getMessage());
         }
@@ -514,11 +514,14 @@ public class clientesForm extends javax.swing.JFrame {
 
     private void cadastrarButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarButtonActionPerformed
         // TODO add your handling code here:
-
+        
+        ClienteFisico c = new ClienteFisico();
+        ClientePessoaJuridica pj = new ClientePessoaJuridica();
+        
+        pj.setTipo(2);
+        c.setTipo(2);
+        
         if (clienteFisicoButton.isSelected()) {
-
-            ClienteFisico c = new ClienteFisico();
-            ClientePessoaJuridica pj = new ClientePessoaJuridica();
 
             c.setNome(nomeClienteTextField.getText());
             c.setCpf(cpfFormattedTextField.getText());
@@ -536,37 +539,35 @@ public class clientesForm extends javax.swing.JFrame {
             ControladorClienteFisico ccf = new ControladorClienteFisico();
             try {
                 ccf.cadastrar(c, pj);
-                JOptionPane.showMessageDialog(rootPane, "Cliente Cliente "
-                        + "Cadastrado");
+                JOptionPane.showMessageDialog(rootPane, "Cliente Pessoa Física"
+                        + " cadastrado com sucesso!");
                 limparCampos();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());
             }
-        } 
-        
-        if(juridicoFisicoButton.isSelected()) {
+        }
 
-            ClientePessoaJuridica c = new ClientePessoaJuridica();
+        if (juridicoFisicoButton.isSelected()) {
 
-            c.setCnpj(cnpjFormattedTextField.getText());
-            c.setNomeFantasia(nomeFantasiaTextField.getText());
-            c.setRazaoSocial(razaoSocialTextField.getText());
-            c.setEmail(emailTextField.getText());
-            c.setTelefonePrinc(telefonePrincipalTextField.getText());
-            c.setTelefoneOpc(telefoneOpcionalTextField.getText());
-            c.setCep(cepFormattedTextField.getText());
-            c.setLogradouro(logradouroTextField.getText());
-            c.setEstado(estadoTextField.getText());
-            c.setCidade(cidadeTextField.getText());
-            c.setBairro(bairroTextField.getText());
-            c.setNumero(numeroTextField.getText());
-            c.setTipo(1);
+            pj.setCnpj(cnpjFormattedTextField.getText());
+            pj.setNomeFantasia(nomeFantasiaTextField.getText());
+            pj.setRazaoSocial(razaoSocialTextField.getText());
+            pj.setEmail(emailTextField.getText());
+            pj.setTelefonePrinc(telefonePrincipalTextField.getText());
+            pj.setTelefoneOpc(telefoneOpcionalTextField.getText());
+            pj.setCep(cepFormattedTextField.getText());
+            pj.setLogradouro(logradouroTextField.getText());
+            pj.setEstado(estadoTextField.getText());
+            pj.setCidade(cidadeTextField.getText());
+            pj.setBairro(bairroTextField.getText());
+            pj.setNumero(numeroTextField.getText());
+            pj.setTipo(1);
 
             ControladorClientePessoaJuridica ccpj = new ControladorClientePessoaJuridica();
             try {
-                ccpj.cadastrar(c);
-                JOptionPane.showMessageDialog(rootPane, "Cliente Juridico"
-                        + " Cadastrado");
+                ccpj.cadastrar(c, pj);
+                JOptionPane.showMessageDialog(rootPane, "Cliente Pessoa Juridica"
+                        + " cadastrado com sucesso");
                 limparCampos();
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(rootPane, ex.getMessage());
@@ -608,7 +609,7 @@ public class clientesForm extends javax.swing.JFrame {
     }//GEN-LAST:event_razaoSocialTextFieldActionPerformed
 
     private void cpfFormattedTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cpfFormattedTextFieldFocusLost
-            // TODO add your handling code here:   
+        // TODO add your handling code here:   
     }//GEN-LAST:event_cpfFormattedTextFieldFocusLost
 
     private void nomeClienteTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nomeClienteTextFieldActionPerformed

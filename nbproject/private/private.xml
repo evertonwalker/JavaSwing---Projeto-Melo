@@ -3,8 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/MecanicoListagem.java</file>
-            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/MenuInicial.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/ordemServicoTelas/OrdemServico.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/dao/ClienteFisicoDao.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/clienteTelas/ClienteListagem.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/interfaces/UsuarioInterface.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/Produto.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/telas/Produtos/ProdutoForm.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/interfaces/ProdutoInterFace.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/controladores/ControladorProduto.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/modelos/interfaces/FornecedorInterface.java</file>
+            <file>file:/C:/Users/Walker/Documents/NetBeansProjects/ConexaoComBanco/src/estoque/dao/ProdutoDao.java</file>
         </group>
     </open-files>
 </project-private>

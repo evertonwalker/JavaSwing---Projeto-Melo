@@ -66,3 +66,6 @@ Create table PRODUTO ( id int identity primary key,
 						estoqueAtual int not null,
 						estoqueMinimo int not null,
 						aplicacao varchar(1500));
+
+
+SELECT * FROM PRODUTO

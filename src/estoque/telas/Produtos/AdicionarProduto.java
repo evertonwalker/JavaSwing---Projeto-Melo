@@ -168,7 +168,8 @@ public class AdicionarProduto extends javax.swing.JFrame {
 
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
-        modelo.setColumnIdentifiers(new String[]{"Nome", "CPF"});
+        modelo.setColumnIdentifiers(new String[]{"Descrição", "Referência" ,
+            "Aplicação", "Quantidade no Estoque" });
 
         if (filtroProduto.getText().length() > 0) {
             for (Produto p : listaProdutoGlobal) {

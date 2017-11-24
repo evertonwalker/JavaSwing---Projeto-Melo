@@ -18,11 +18,17 @@ import java.util.ArrayList;
  */
 public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaInterface {
 
+    private ClienteDao dao;
+    
+    public ControladorClientePessoaJuridica() {
+        this.dao = new ClienteDao();
+    }
+
     public boolean verificarCnpj(String cnpj) throws Exception {
 
         boolean verificador = false;
 
-        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        ClienteDao dao = new ClienteDao();
         try {
             verificador = dao.verificarCnpj(cnpj);
         } catch (Exception ex) {
@@ -31,7 +37,7 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
 
         return verificador;
     }
-    
+
     @Override
     public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
 
@@ -61,12 +67,15 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         if (pj.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");
         }
-        
+
         if ("".equals(pj.getNumero())) {
             throw new Exception("Informe o número do Endereço do Cliente");
         }
 
-        ClienteDao dao = new ClienteDao();
+        if (dao.verificarCnpj(pj.getCnpj())) {
+            throw new Exception("CNPJ do CLIENTE JURIDICO já cadastrado");
+        }
+
         try {
             dao.cadastrar(pf, pj);
         } catch (Exception ex) {
@@ -104,7 +113,7 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         if (pj.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");
         }
-        
+
         if ("".equals(pj.getNumero())) {
             throw new Exception("Informe o número do Endereço do Cliente");
         }

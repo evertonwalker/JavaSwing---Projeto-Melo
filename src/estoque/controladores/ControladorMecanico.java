@@ -31,6 +31,11 @@ public class ControladorMecanico implements MecanicoInterface {
             throw new Exception("O Cpf deverá conter 11 dígitos");
         }
 
+        boolean teste = verificarCpf(mec.getCpf());
+        if (teste == true) {
+            throw new Exception("Cpf do Mecânico já cadastrado");
+        }
+
         MecanicoDao dao = new MecanicoDao();
         try {
             dao.cadastrar(mec);
@@ -41,7 +46,7 @@ public class ControladorMecanico implements MecanicoInterface {
 
     @Override
     public void atualizar(Mecanico mec, String oldCpf) throws Exception {
-    
+
         if (mec.getNome().isEmpty()) {
             throw new Exception("Informe o Nome do Mecânico");
         }
@@ -51,7 +56,7 @@ public class ControladorMecanico implements MecanicoInterface {
         if (mec.getCpf().replace(" ", "").length() < 11) {
             throw new Exception("O Cpf deverá conter 11 dígitos");
         }
-        
+
         MecanicoDao dao = new MecanicoDao();
         try {
             dao.atualizar(mec, oldCpf);
@@ -62,8 +67,8 @@ public class ControladorMecanico implements MecanicoInterface {
 
     @Override
     public void remover(Mecanico mec) throws Exception {
-    
-    MecanicoDao dao = new MecanicoDao();
+
+        MecanicoDao dao = new MecanicoDao();
 
         try {
             dao.remover(mec);
@@ -74,7 +79,7 @@ public class ControladorMecanico implements MecanicoInterface {
 
     @Override
     public ArrayList<Mecanico> listarMecanico() throws Exception {
-        
+
         MecanicoDao dao = new MecanicoDao();
         return dao.listarMecanico();
 
@@ -94,12 +99,12 @@ public class ControladorMecanico implements MecanicoInterface {
 
         return verificador;
     }
-    
+
     @Override
-    public ArrayList<Mecanico> filtragem(String filtro) throws Exception{
-        
+    public ArrayList<Mecanico> filtragem(String filtro) throws Exception {
+
         MecanicoDao dao = new MecanicoDao();
         return dao.filtragem(filtro);
     }
-    
+
 }

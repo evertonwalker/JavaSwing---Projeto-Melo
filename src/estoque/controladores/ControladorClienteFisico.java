@@ -18,12 +18,18 @@ import java.util.ArrayList;
  */
 public class ControladorClienteFisico implements ClienteFisicoInterface {
 
+    private ClienteDao dao;
+    
+    public ControladorClienteFisico(){
+        this.dao = new ClienteDao();
+    }
+    
     @Override
     public boolean verificarCpf(String cpf) throws Exception {
 
         boolean verificador = false;
 
-        ClienteFisicoDao dao = new ClienteFisicoDao();
+        ClienteDao dao = new ClienteDao();
         try {
             verificador = dao.verificarCpf(cpf);
         } catch (Exception ex) {
@@ -79,6 +85,10 @@ public class ControladorClienteFisico implements ClienteFisicoInterface {
         if ("".equals(c.getNumero())) {
             throw new Exception("Informe o número do Endereço do Cliente");
         }
+        
+        if(dao.verificarCpf(c.getCpf())){
+            throw new Exception("CPF do CLIENTE FÍSICO já cadastrado");
+        }
 
         ClienteDao dao = new ClienteDao();
         try {
@@ -106,6 +116,11 @@ public class ControladorClienteFisico implements ClienteFisicoInterface {
         if (cf.getTelefonePrinc().replace(" ", "").length() < 11) {
             throw new Exception("Informe o Telefone Principal do cliente com "
                     + "DDD e 9 números");
+        }
+        
+        if ((cf.getTelefoneOpc().replace(" ", "").length() < 10 && cf.getTelefoneOpc().length() != 0)
+                || (cf.getTelefoneOpc().replace(" ", "").length() > 11 && cf.getTelefoneOpc().length() != 0)) {
+            throw new Exception("Informe o Telefone Opcional do cliente com DDD, máximo 11 dígitos");
         }
 
         if (cf.getCep().replace(" ", "").length() < 8) {

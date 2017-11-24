@@ -61,6 +61,10 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
         if (pj.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");
         }
+        
+        if ("".equals(pj.getNumero())) {
+            throw new Exception("Informe o número do Endereço do Cliente");
+        }
 
         ClienteDao dao = new ClienteDao();
         try {
@@ -99,6 +103,10 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
 
         if (pj.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");
+        }
+        
+        if ("".equals(pj.getNumero())) {
+            throw new Exception("Informe o número do Endereço do Cliente");
         }
 
         ClienteDao dao = new ClienteDao();

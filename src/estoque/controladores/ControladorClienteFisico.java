@@ -66,6 +66,11 @@ public class ControladorClienteFisico implements ClienteFisicoInterface {
             throw new Exception("Informe o Telefone Principal do cliente com "
                     + "DDD e 9 números");
         }
+        
+        if ((c.getTelefoneOpc().replace(" ", "").length() < 10 && c.getTelefoneOpc().length() != 0)
+                || (c.getTelefoneOpc().replace(" ", "").length() > 11 && c.getTelefoneOpc().length() != 0)) {
+            throw new Exception("Informe o Telefone Opcional do cliente com DDD, máximo 11 dígitos");
+        }
 
         if (c.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");

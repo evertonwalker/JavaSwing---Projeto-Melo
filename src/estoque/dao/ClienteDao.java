@@ -281,12 +281,72 @@ public class ClienteDao implements ClienteInterface {
 
     @Override
     public boolean verificarCnpj(String cnpj) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean verificador = false;
+
+        ArrayList<ClientePessoaJuridica> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conexao.conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT *"
+                + " FROM CLIENTE where cnpj = ?";
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, cnpj);
+
+            //executando a instrução sql
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ClientePessoaJuridica cpj = new ClientePessoaJuridica();
+                retorno.add(cpj);
+            }
+
+            if (!retorno.isEmpty()) {
+                verificador = true;
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+        return verificador;
     }
 
     @Override
     public boolean verificarCpf(String cpf) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        
+        boolean verificador = false;
+
+        ArrayList<ClienteFisico> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conexao.conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT *"
+                + " FROM CLIENTE where cpf = ?";
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, cpf);
+
+            //executando a instrução sql
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                ClienteFisico cf = new ClienteFisico();
+                retorno.add(cf);
+            }
+
+            if (!retorno.isEmpty()) {
+                verificador = true;
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+        return verificador;
     }
 
 }

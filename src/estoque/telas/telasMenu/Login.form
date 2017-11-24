@@ -47,10 +47,6 @@
                       <Component id="entrarButton" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="141" max="-2" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="senhaIncorretaLabel" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="152" max="-2" attributes="0"/>
-                  </Group>
               </Group>
           </Group>
       </Group>
@@ -60,9 +56,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="senhaIncorretaLabel" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="loginField" min="-2" max="-2" attributes="0"/>
@@ -126,8 +120,6 @@
       </Events>
     </Component>
     <Component class="javax.swing.JPasswordField" name="senhaField">
-    </Component>
-    <Component class="javax.swing.JLabel" name="senhaIncorretaLabel">
     </Component>
   </SubComponents>
 </Form>

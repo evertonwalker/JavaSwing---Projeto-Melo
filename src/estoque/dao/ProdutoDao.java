@@ -32,9 +32,9 @@ public class ProdutoDao implements ProdutoInterFace {
         Connection conn = conexao.conectarPrepareStatment();
         //instrução sql correspondente a inserção do aluno
         String sql = "INSERT INTO PRODUTO (referencia, Fornecedor_cnpj,"
-                + " descricao, unidadeVolume, precoCusto, margemLucro, estoqueAtual,"
+                + " descricao, unidadeVolume, precoCusto, precoVenda, margemLucro, estoqueAtual,"
                 + "estoqueMinimo, aplicacao)";
-        sql += "VALUES (?,?,?,?,?,?,?,?,?)";
+        sql += "VALUES (?,?,?,?,?,?,?,?,?,?)";
 
         try {
 
@@ -45,10 +45,11 @@ public class ProdutoDao implements ProdutoInterFace {
             stmt.setString(3, p.getDescricao());
             stmt.setString(4, p.getUnidadeVolume());
             stmt.setFloat(5, p.getPrecoCusto());
-            stmt.setFloat(6, p.getMargemLucro());
-            stmt.setInt(7, p.getEstoqueAtual());
-            stmt.setInt(8, p.getEstoqueMinimo());
-            stmt.setString(9, p.getAplicacao());
+            stmt.setFloat(6, p.getPrecoVenda());
+            stmt.setFloat(7, p.getMargemLucro());
+            stmt.setInt(8, p.getEstoqueAtual());
+            stmt.setInt(9, p.getEstoqueMinimo());
+            stmt.setString(10, p.getAplicacao());
 
             // executa
             stmt.execute();

@@ -37,7 +37,6 @@ public class Login extends javax.swing.JFrame {
         cadastrarNovoAdminButton = new javax.swing.JButton();
         entrarButton = new javax.swing.JButton();
         senhaField = new javax.swing.JPasswordField();
-        senhaIncorretaLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -92,19 +91,14 @@ public class Login extends javax.swing.JFrame {
                         .addGap(91, 91, 91))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(entrarButton)
-                        .addGap(141, 141, 141))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(senhaIncorretaLabel)
-                        .addGap(152, 152, 152))))
+                        .addGap(141, 141, 141))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
-                .addComponent(senhaIncorretaLabel)
-                .addGap(7, 7, 7)
+                .addGap(25, 25, 25)
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(loginField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -133,13 +127,7 @@ public class Login extends javax.swing.JFrame {
             MenuInicial mi = new MenuInicial();
             mi.setVisible(true);
             this.dispose();
-
-        } else {
-            senhaIncorretaLabel.setText("Usuário ou Senha incorreta.");
-            senhaIncorretaLabel.setForeground(Color.red);
         }
-
-
     }//GEN-LAST:event_entrarButtonActionPerformed
 
     private void cadastrarNovoAdminButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastrarNovoAdminButtonActionPerformed
@@ -195,6 +183,5 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField loginField;
     private javax.swing.JPasswordField senhaField;
-    private javax.swing.JLabel senhaIncorretaLabel;
     // End of variables declaration//GEN-END:variables
 }

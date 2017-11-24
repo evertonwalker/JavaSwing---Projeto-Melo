@@ -16,6 +16,7 @@ public class Produto {
     private String descricao;
     private String unidadeVolume;
     private float precoCusto;
+    private float precoVenda;
     private float margemLucro;
     private int estoqueAtual;
     private int estoqueMinimo;
@@ -145,6 +146,20 @@ public class Produto {
      */
     public void setAplicacao(String aplicacao) {
         this.aplicacao = aplicacao;
+    }
+
+    /**
+     * @return the precoVenda
+     */
+    public float getPrecoVenda() {
+        return precoVenda;
+    }
+
+    /**
+     * @param precoVenda the precoVenda to set
+     */
+    public void setPrecoVenda(float precoVenda) {
+        this.precoVenda = precoVenda;
     }
 
 }

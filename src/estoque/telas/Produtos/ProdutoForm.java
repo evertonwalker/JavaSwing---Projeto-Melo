@@ -280,6 +280,7 @@ public class ProdutoForm extends javax.swing.JFrame {
         p.setDescricao(descricaoTextField.getText());
         p.setUnidadeVolume(unidadeComboBox.getSelectedItem().toString());
         p.setPrecoCusto(Float.parseFloat(precoCustoTextField.getText()));
+        p.setPrecoVenda(Float.parseFloat(valorDeVenda.getText()));
         p.setMargemLucro(Float.parseFloat(margemLucroTextField.getText()));
         p.setEstoqueAtual(Integer.parseInt(quantidadeEstoqueTextField.getText()));
         p.setEstoqueMinimo(Integer.parseInt(quantidadeMinimaTextField.getText()));

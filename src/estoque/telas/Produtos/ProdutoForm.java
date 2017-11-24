@@ -19,6 +19,8 @@ public class ProdutoForm extends javax.swing.JFrame {
 
     private Fornecedor fornecedor;
     private float valorLucro;
+    private float custoPeca;
+    private float margemLucro;
 
     /**
      * Creates new form ProdutoForm
@@ -254,8 +256,8 @@ public class ProdutoForm extends javax.swing.JFrame {
     private void margemLucroTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_margemLucroTextFieldFocusLost
         // TODO add your handling code here:
 
-        float custoPeca = Float.parseFloat(precoCustoTextField.getText());
-        float margemLucro = Float.parseFloat(margemLucroTextField.getText());
+         custoPeca = Float.parseFloat(precoCustoTextField.getText());
+         margemLucro = Float.parseFloat(margemLucroTextField.getText());
 
         if (custoPeca != 0 && margemLucro != 0) {
             valorLucro = custoPeca * (margemLucro / 100);
@@ -280,7 +282,7 @@ public class ProdutoForm extends javax.swing.JFrame {
         p.setDescricao(descricaoTextField.getText());
         p.setUnidadeVolume(unidadeComboBox.getSelectedItem().toString());
         p.setPrecoCusto(Float.parseFloat(precoCustoTextField.getText()));
-        p.setPrecoVenda(Float.parseFloat(valorDeVenda.getText()));
+        //p.setPrecoVenda(Float.parseFloat(valorLucro + custoPeca));
         p.setMargemLucro(Float.parseFloat(margemLucroTextField.getText()));
         p.setEstoqueAtual(Integer.parseInt(quantidadeEstoqueTextField.getText()));
         p.setEstoqueMinimo(Integer.parseInt(quantidadeMinimaTextField.getText()));

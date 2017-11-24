@@ -12,9 +12,15 @@ import java.util.ArrayList;
 
 /**
  *
- * @author Walker
+ * @author EWalker
  */
 public class ControladorProduto implements ProdutoInterFace {
+    
+    private ProdutoDao dao;
+    
+    public ControladorProduto(){
+        this.dao = new ProdutoDao();
+    }
 
     @Override
     public void cadastrarProduto(Produto p) throws Exception {
@@ -44,7 +50,8 @@ public class ControladorProduto implements ProdutoInterFace {
 
     @Override
     public ArrayList<Produto> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return dao.listar();
+        
     }
 
     @Override

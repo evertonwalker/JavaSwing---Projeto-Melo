@@ -5,11 +5,13 @@
  */
 package estoque.dao;
 
+import estoque.modelos.Fornecedor;
 import estoque.modelos.Produto;
 import estoque.modelos.interfaces.ProdutoInterFace;
 import estoque.util.ConnectionFactory;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -64,7 +66,48 @@ public class ProdutoDao implements ProdutoInterFace {
 
     @Override
     public ArrayList<Produto> listar() throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
+        ArrayList<Produto> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conexao.conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT *  FROM PRODUTO order by referencia";
+
+        try {
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            //executando a instrução sql
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+               
+                Produto p = new Produto();
+                
+                Fornecedor f = new Fornecedor();
+                
+                f.setCnpj(rs.getString("Fornecedor_cnpj"));
+                
+                
+                p.setReferencia(rs.getString("referencia"));
+                p.setFornecedor(f);                
+                p.setDescricao(rs.getString("descricao"));
+                p.setUnidadeVolume(rs.getString("unidadeVolume"));
+                p.setPrecoCusto(rs.getFloat("precoCusto"));
+                p.setPrecoVenda(rs.getFloat("precoVenda"));
+                p.setMargemLucro(rs.getFloat("margemLucro"));
+                p.setEstoqueAtual(rs.getInt("estoqueAtual"));
+                p.setEstoqueMinimo(rs.getInt("estoqueMinimo"));
+                p.setAplicacao(rs.getString("aplicacao"));
+                
+                retorno.add(p);
+            }
+
+            //fechando a conexão com o banco de dados
+            conexao.desconectar();
+        } catch (Exception e) {
+            e.getMessage();
+        }
+        return retorno;
     }
 
     @Override

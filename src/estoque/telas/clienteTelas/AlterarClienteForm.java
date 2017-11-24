@@ -7,6 +7,7 @@ package estoque.telas.clienteTelas;
 
 import estoque.controladores.ControladorClienteFisico;
 import estoque.modelos.ClienteFisico;
+import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
@@ -53,7 +54,7 @@ public class AlterarClienteForm extends javax.swing.JFrame {
 
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
-            JOptionPane.showMessageDialog(rootPane, 
+            JOptionPane.showMessageDialog(rootPane,
                     "Cep inválido, informe CEP com 8 dígitos");
         }
     }
@@ -370,6 +371,11 @@ public class AlterarClienteForm extends javax.swing.JFrame {
             ControladorClienteFisico ccf = new ControladorClienteFisico();
 
             ClienteFisico cf = new ClienteFisico();
+            ClientePessoaJuridica pj = new ClientePessoaJuridica();
+            String oldCnpj = null;
+
+            pj.setTipo(2);
+            cf.setTipo(2);
 
             cf.setCpf(cpfFormattedTextField1.getText());
             cf.setNome(nomeClienteTextField.getText());
@@ -382,8 +388,9 @@ public class AlterarClienteForm extends javax.swing.JFrame {
             cf.setCidade(cidadeTextField.getText());
             cf.setBairro(bairroTextField.getText());
             cf.setNumero(numeroTextField.getText());
+            cf.setTipo(0);
 
-            ccf.atualizar(cf, this.oldCpf);
+            ccf.atualizar(cf, pj, this.oldCpf, oldCnpj);
             JOptionPane.showMessageDialog(rootPane, "Cliente Atualizado com"
                     + " Sucesso");
             this.formPai.listarClientes();

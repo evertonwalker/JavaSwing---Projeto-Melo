@@ -193,14 +193,21 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
 
     private void removerClientePJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removerClientePJButtonActionPerformed
         // TODO add your handling code here:
-        try {
-            ControladorClientePessoaJuridica cpj = new ControladorClientePessoaJuridica();
-            ClienteFisico pf = new ClienteFisico();
-            //Seleciona a linha da coluna.
-            int index = tabelaClientePJTable.getSelectedRow();
+        ControladorClientePessoaJuridica cpj = new ControladorClientePessoaJuridica();
+        ClienteFisico pf = new ClienteFisico();
+        //Seleciona a linha da coluna.
+        int index = tabelaClientePJTable.getSelectedRow();
 
-            if (index >= 0) {
-                ClientePessoaJuridica pj = this.listaClientePessoaJuridicaGlobal.get(index);
+        if (index >= 0) {
+            ClientePessoaJuridica pj = this.listaClientePessoaJuridicaGlobal.get(index);
+
+            int dialogButton = JOptionPane.YES_NO_OPTION;
+
+            int teste = JOptionPane.showConfirmDialog(rootPane, "Você realmente "
+                    + "Deseja apagar "
+                    + "Esse Cliente?", "Cuidado", dialogButton);
+
+            if (teste == JOptionPane.YES_OPTION) {
 
                 try {
                     cpj.remover(pf, pj);
@@ -209,18 +216,14 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
                     listar();
                 } catch (Exception ex) {
                     System.out.println();
-                    JOptionPane.showMessageDialog(rootPane, ex.getMessage());
+                    JOptionPane.showMessageDialog(rootPane, "Falha ao remover");
                 }
-
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
-                        + " Remover");
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+        } else {
+            JOptionPane.showMessageDialog(rootPane, "Selecione um Cliente para"
+                    + " Remover");
         }
-
     }//GEN-LAST:event_removerClientePJButtonActionPerformed
 
     private void alterarClientePJButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_alterarClientePJButtonActionPerformed
@@ -248,25 +251,25 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
         //atribuindo as colunas da tabela
         modelo.setColumnIdentifiers(new String[]{"Nome", "Cpf", "Email",
             "Telefone Principal", "Telefone Opcional"});
-        
+
         if (filtroPessoaJuridicaTextField.getText().length() > 0) {
-            for(ClientePessoaJuridica cj : listaClientePessoaJuridicaGlobal){
-                if(cj.getNomeFantasia().contains(filtroPessoaJuridicaTextField.getText())){
-                     modelo.addRow(new String[]{"" + cj.getNomeFantasia(), cj.getCnpj(),
-                    cj.getRazaoSocial(), cj.getEmail(), cj.getTelefonePrinc(),
-                    cj.getTelefoneOpc()});
-                }           
+            for (ClientePessoaJuridica cj : listaClientePessoaJuridicaGlobal) {
+                if (cj.getNomeFantasia().contains(filtroPessoaJuridicaTextField.getText())) {
+                    modelo.addRow(new String[]{"" + cj.getNomeFantasia(), cj.getCnpj(),
+                        cj.getRazaoSocial(), cj.getEmail(), cj.getTelefonePrinc(),
+                        cj.getTelefoneOpc()});
+                }
             }
-           tabelaClientePJTable.setModel(modelo);    
+            tabelaClientePJTable.setModel(modelo);
         } else {
             listar();
         }
     }//GEN-LAST:event_filtroPessoaJuridicaTextFieldKeyPressed
 
-/**
- * @param args the command line arguments
- */
-public static void main(String args[]) {
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -277,28 +280,24 @@ public static void main(String args[]) {
                 if ("Nimbus".equals(info.getName())) {
                     javax.swing.UIManager.setLookAndFeel(info.getClassName());
                     break;
-                
 
-}
+                }
             }
         } catch (ClassNotFoundException ex) {
             java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (InstantiationException ex) {
+        } catch (InstantiationException ex) {
             java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (IllegalAccessException ex) {
+        } catch (IllegalAccessException ex) {
             java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
 
-} catch (javax.swing.UnsupportedLookAndFeelException ex) {
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(ClientePessoaJuridicaListagem.class
-.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 

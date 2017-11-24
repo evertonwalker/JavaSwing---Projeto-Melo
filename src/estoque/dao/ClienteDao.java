@@ -96,13 +96,83 @@ public class ClienteDao implements ClienteInterface {
     }
 
     @Override
-    public void atualizar(Cliente c) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void atualizar(ClienteFisico pf, ClientePessoaJuridica pj, String oldCpf, String oldCnpj) throws Exception {
+
+        if (pf.getTipo() == 0) {
+            Connection conn = conexao.conectarPrepareStatment();
+
+            String sql = "Update CLIENTE  set cpf = ?, nome = ?, email = ?,"
+                    + "telefonePrinc = ?, telefoneOpc = ?, cep = ?,"
+                    + "logradouro = ?, estado = ?, cidade = ?, bairro = ?,"
+                    + "numero = ? where cpf = ?";
+
+            try {
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                // preenche os valores
+                stmt.setString(1, pf.getCpf());
+                stmt.setString(2, pf.getNome());
+                stmt.setString(3, pf.getEmail());
+                stmt.setString(4, pf.getTelefonePrinc());
+                stmt.setString(5, pf.getTelefoneOpc());
+                stmt.setString(6, pf.getCep());
+                stmt.setString(7, pf.getLogradouro());
+                stmt.setString(8, pf.getEstado());
+                stmt.setString(9, pf.getCidade());
+                stmt.setString(10, pf.getBairro());
+                stmt.setString(11, pf.getNumero());
+                stmt.setString(12, oldCpf);
+
+                stmt.execute();
+                stmt.close();
+                //fechando a conexão com o banco de dados
+                conexao.desconectar();
+            } catch (SQLException ex) {
+                ex.getMessage();
+
+            }
+        }
+
+        if (pj.getTipo() == 1) {
+            Connection conn = conexao.conectarPrepareStatment();
+
+            String sql = "Update CLIENTE set cnpj = ?, nomeFantasia = ?, razaoSocial = ?,"
+                    + " email = ?, telefonePrinc = ?, telefoneOpc = ?, cep = ?,"
+                    + "logradouro = ?, estado = ?, cidade = ?, bairro = ?,"
+                    + "numero = ? where cnpj = ?";
+
+            try {
+
+                PreparedStatement stmt = conn.prepareStatement(sql);
+                // preenche os valores
+                stmt.setString(1, pj.getCnpj());
+                stmt.setString(2, pj.getNomeFantasia());
+                stmt.setString(3, pj.getRazaoSocial());
+                stmt.setString(4, pj.getEmail());
+                stmt.setString(5, pj.getTelefonePrinc());
+                stmt.setString(6, pj.getTelefoneOpc());
+                stmt.setString(7, pj.getCep());
+                stmt.setString(8, pj.getLogradouro());
+                stmt.setString(9, pj.getEstado());
+                stmt.setString(10, pj.getCidade());
+                stmt.setString(11, pj.getBairro());
+                stmt.setString(12, pj.getNumero());
+                stmt.setString(13, oldCnpj);
+
+                stmt.execute();
+                stmt.close();
+                //fechando a conexão com o banco de dados
+                conexao.desconectar();
+            } catch (SQLException ex) {
+                ex.getMessage();
+
+            }
+        }
     }
 
     @Override
     public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception {
-        System.out.println("Entrou no REMOVER DAO");
+
         if (pj.getCnpj() == null) {
             Connection conn = conexao.conectarPrepareStatment();
             String sql = "Delete from CLIENTE where cpf = ?";
@@ -122,7 +192,7 @@ public class ClienteDao implements ClienteInterface {
 
             }
         }
-        
+
         if (pf.getCpf() == null) {
             Connection conn = conexao.conectarPrepareStatment();
             String sql = "Delete from CLIENTE where cnpj = ?";
@@ -142,7 +212,6 @@ public class ClienteDao implements ClienteInterface {
 
             }
         }
-        System.out.println("SAIU REMOVER DAO");
     }
 
     @Override

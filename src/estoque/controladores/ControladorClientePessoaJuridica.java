@@ -71,39 +71,39 @@ public class ControladorClientePessoaJuridica implements ClientePessoaJuridicaIn
     }
 
     @Override
-    public void atualizar(ClientePessoaJuridica cpj, String oldCnpj) throws Exception {
+    public void atualizar(ClienteFisico cf, ClientePessoaJuridica pj, String oldCpf, String oldCnpj) throws Exception {
 
-        if (cpj.getCnpj().replace(" ", "").length() < 14) {
+        if (pj.getCnpj().replace(" ", "").length() < 14) {
             throw new Exception("Informe o CNPJ do cliente com 14 dígitos");
         }
-        if ("".equals(cpj.getNomeFantasia().trim())) {
+        if ("".equals(pj.getNomeFantasia().trim())) {
             throw new Exception("Informe o Nome Fantasia do Cliente");
         }
 
-        if ("".equals(cpj.getRazaoSocial().trim())) {
+        if ("".equals(pj.getRazaoSocial().trim())) {
             throw new Exception("Informe a Razão Social do Cliente");
         }
 
-        if ("".equals(cpj.getEmail().trim())) {
+        if ("".equals(pj.getEmail().trim())) {
             throw new Exception("Informe o email do Cliente");
         }
 
-        if (cpj.getTelefonePrinc().replace(" ", "").length() < 10 || cpj.getTelefonePrinc().replace(" ", "").length() > 11) {
+        if (pj.getTelefonePrinc().replace(" ", "").length() < 10 || pj.getTelefonePrinc().replace(" ", "").length() > 11) {
             throw new Exception("Informe o Telefone Principal do cliente com DDD, máximo 11 dígitos");
         }
 
-        if ((cpj.getTelefoneOpc().replace(" ", "").length() < 10 && cpj.getTelefoneOpc().length() != 0)
-                || (cpj.getTelefoneOpc().replace(" ", "").length() > 11 && cpj.getTelefoneOpc().length() != 0)) {
+        if ((pj.getTelefoneOpc().replace(" ", "").length() < 10 && pj.getTelefoneOpc().length() != 0)
+                || (pj.getTelefoneOpc().replace(" ", "").length() > 11 && pj.getTelefoneOpc().length() != 0)) {
             throw new Exception("Informe o Telefone Opcional do cliente com DDD, máximo 11 dígitos");
         }
 
-        if (cpj.getCep().replace(" ", "").length() < 8) {
+        if (pj.getCep().replace(" ", "").length() < 8) {
             throw new Exception("Informe o CEP do cliente com 8 dígitos");
         }
 
-        ClientePessoaJuridicaDao dao = new ClientePessoaJuridicaDao();
+        ClienteDao dao = new ClienteDao();
         try {
-            dao.atualizar(cpj, oldCnpj);
+            dao.atualizar(cf, pj, oldCpf, oldCnpj);
         } catch (Exception ex) {
             ex.getMessage();
         }

@@ -6,6 +6,7 @@
 package estoque.telas.clienteTelas;
 
 import estoque.controladores.ControladorClientePessoaJuridica;
+import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
 import javax.swing.JOptionPane;
@@ -337,7 +338,13 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         try {
             ControladorClientePessoaJuridica ccpj = new ControladorClientePessoaJuridica();
+            
             ClientePessoaJuridica cpj = new ClientePessoaJuridica();
+            ClienteFisico pf = new ClienteFisico();
+            String oldCpf = null;
+            
+            cpj.setTipo(2);
+            pf.setTipo(2);
 
             cpj.setNomeFantasia(nomeFantasiaAlterarPJTextField.getText());
             cpj.setCnpj(cnpjAlterarPJTextField.getText());
@@ -351,8 +358,9 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
             cpj.setBairro(bairroAlterarPJTextField.getText());
             cpj.setEstado(estadoAlterarPJTextField.getText());
             cpj.setNumero(numeroAlterarPJTextField.getText());
+            cpj.setTipo(1);
 
-            ccpj.atualizar(cpj, this.oldCnpj);
+            ccpj.atualizar(pf, cpj, oldCpf, this.oldCnpj);
             JOptionPane.showMessageDialog(rootPane, "Cliente Atualizado com"
                     + " Sucesso");
             this.formPai.listar();

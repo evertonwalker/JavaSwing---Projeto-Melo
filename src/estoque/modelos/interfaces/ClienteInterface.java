@@ -18,7 +18,7 @@ public interface ClienteInterface {
     
     public void cadastrar(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
         
-    public void atualizar(Cliente c) throws Exception;
+    public void atualizar(ClienteFisico pf, ClientePessoaJuridica pj, String oldCpf, String oldCnpj) throws Exception;
     
     public void remover(ClienteFisico pf, ClientePessoaJuridica pj) throws Exception;
     

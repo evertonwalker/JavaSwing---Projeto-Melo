@@ -84,11 +84,36 @@ public class ControladorClienteFisico implements ClienteFisicoInterface {
     }
 
     @Override
-    public void atualizar(ClienteFisico cf, String oldCpf) throws Exception {
+    public void atualizar(ClienteFisico cf, ClientePessoaJuridica pj, String oldCpf, String oldCnpj) throws Exception {
 
-        ClienteFisicoDao dao = new ClienteFisicoDao();
+        if ("".equals(cf.getNome().trim())) {
+            throw new Exception("Informe o Nome do Cliente");
+        }
+
+        if (cf.getCpf().replace(" ", "").length() < 14) {
+            throw new Exception("Informe o Cpf do cliente com 14 dígitos");
+        }
+
+        if ("".equals(cf.getEmail().trim())) {
+            throw new Exception("Informe o e-mail do Cliente");
+        }
+
+        if (cf.getTelefonePrinc().replace(" ", "").length() < 11) {
+            throw new Exception("Informe o Telefone Principal do cliente com "
+                    + "DDD e 9 números");
+        }
+
+        if (cf.getCep().replace(" ", "").length() < 8) {
+            throw new Exception("Informe o CEP do cliente com 8 dígitos");
+        }
+
+        if ("".equals(cf.getNumero())) {
+            throw new Exception("Informe o número do Endereço do Cliente");
+        }
+        
+        ClienteDao dao = new ClienteDao();
         try {
-            dao.atualizar(cf, oldCpf);
+            dao.atualizar(cf, pj, oldCpf, oldCpf);
         } catch (Exception ex) {
             ex.getMessage();
         }

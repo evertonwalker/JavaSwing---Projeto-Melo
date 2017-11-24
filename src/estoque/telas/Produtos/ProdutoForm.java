@@ -98,7 +98,7 @@ public class ProdutoForm extends javax.swing.JFrame {
 
         jLabel6.setText("Preço de Custo");
 
-        jLabel7.setText("Margem de Lucro");
+        jLabel7.setText("Margem de Lucro %");
 
         margemLucroTextField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {

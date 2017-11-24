@@ -14,17 +14,32 @@ import java.util.ArrayList;
  *
  * @author Walker
  */
-public class ControladorProduto implements ProdutoInterFace{
+public class ControladorProduto implements ProdutoInterFace {
 
     @Override
     public void cadastrarProduto(Produto p) throws Exception {
-        ProdutoDao dao = new ProdutoDao();
-       try{
-           dao.cadastrarProduto(p);
-       } catch(Exception e ){
-           e.getMessage();
-       }
+
+        if ("".equals(p.getFornecedor().getNomeFantasia().isEmpty())) {
+            throw new Exception("Selecione o Fornecedor do Produto");
+        }
         
+        if ("".equals(p.getReferencia().trim())) {
+            throw new Exception("Informe o código referênia do Produto");
+        }
+        
+        if ("".equals(p.getDescricao().trim())) {
+            throw new Exception("Informe a descrição do Produto");
+        }
+        
+        
+        
+        ProdutoDao dao = new ProdutoDao();
+        try {
+            dao.cadastrarProduto(p);
+        } catch (Exception e) {
+            e.getMessage();
+        }
+
     }
 
     @Override
@@ -41,8 +56,5 @@ public class ControladorProduto implements ProdutoInterFace{
     public void remover(Produto p) throws Exception {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
-    
-    
+
 }

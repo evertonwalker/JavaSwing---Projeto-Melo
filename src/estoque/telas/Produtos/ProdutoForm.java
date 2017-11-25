@@ -9,6 +9,7 @@ import estoque.controladores.ControladorProduto;
 import estoque.modelos.Fornecedor;
 import estoque.modelos.Produto;
 import estoque.telas.telasFornecedor.AdicionarFornecedor;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
@@ -99,6 +100,12 @@ public class ProdutoForm extends javax.swing.JFrame {
         unidadeComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Caixa", "Peça" }));
 
         jLabel6.setText("Preço de Custo");
+
+        precoCustoTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                precoCustoTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel7.setText("Margem de Lucro %");
 
@@ -256,8 +263,8 @@ public class ProdutoForm extends javax.swing.JFrame {
     private void margemLucroTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_margemLucroTextFieldFocusLost
         // TODO add your handling code here:
 
-         custoPeca = Float.parseFloat(precoCustoTextField.getText());
-         margemLucro = Float.parseFloat(margemLucroTextField.getText());
+        custoPeca = Float.parseFloat(precoCustoTextField.getText());
+        margemLucro = Float.parseFloat(margemLucroTextField.getText());
 
         if (custoPeca != 0 && margemLucro != 0) {
             valorLucro = custoPeca * (margemLucro / 100);
@@ -276,7 +283,7 @@ public class ProdutoForm extends javax.swing.JFrame {
         Produto p = new Produto();
 
         ControladorProduto cp = new ControladorProduto();
-        
+
         p.setFornecedor(fornecedor);
         p.setReferencia(referenciaTextField.getText());
         p.setDescricao(descricaoTextField.getText());
@@ -288,15 +295,30 @@ public class ProdutoForm extends javax.swing.JFrame {
         p.setEstoqueMinimo(Integer.parseInt(quantidadeMinimaTextField.getText()));
         p.setAplicacao(aplicacaoTextField.getText());
 
-        try{
+        try {
             cp.cadastrarProduto(p);
             JOptionPane.showMessageDialog(rootPane, "Produto cadastrado com Sucesso");
-        } catch (Exception e){
+        } catch (Exception e) {
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
-        
-        
+
+
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void precoCustoTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_precoCustoTextFieldKeyTyped
+        // TODO add your handling code here:
+
+        char precoCusto = evt.getKeyChar();
+
+        if (!((precoCustoTextField.getText().length() <= 9) && (precoCusto >= '0') && (precoCusto <= '9')
+                || (precoCusto == '.')
+                || (precoCusto == KeyEvent.VK_BACK_SPACE)
+                || (precoCusto == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_precoCustoTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

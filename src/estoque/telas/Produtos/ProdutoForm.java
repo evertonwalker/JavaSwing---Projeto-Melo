@@ -36,6 +36,20 @@ public class ProdutoForm extends javax.swing.JFrame {
         this.fornecedor = f;
         fornecedorField.setText(f.getNomeFantasia());
     }
+    
+    private void limparCampos() {
+        fornecedorField.setText("");
+        referenciaTextField.setText("");
+        descricaoTextField.setText("");
+        precoCustoTextField.setText("");
+        margemLucroTextField.setText("");
+        lucroCalculado.setText("");
+        valorDeVenda.setText("");
+        quantidadeEstoqueTextField.setText("");
+        quantidadeMinimaTextField.setText("");
+        aplicacaoTextField.setText("");
+        
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -114,6 +128,11 @@ public class ProdutoForm extends javax.swing.JFrame {
                 margemLucroTextFieldFocusLost(evt);
             }
         });
+        margemLucroTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                margemLucroTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel8.setText("Valor Ganho Por Venda");
 
@@ -123,11 +142,28 @@ public class ProdutoForm extends javax.swing.JFrame {
 
         jLabel10.setText("Quantidade no Estoque");
 
+        quantidadeEstoqueTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantidadeEstoqueTextFieldKeyTyped(evt);
+            }
+        });
+
+        quantidadeMinimaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                quantidadeMinimaTextFieldKeyTyped(evt);
+            }
+        });
+
         jLabel11.setText("Quantidade mínima no Estoque");
 
         jLabel12.setText("Aplicação ");
 
         jButton1.setText("Limpar formulário");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Cadastrar Compra Produto");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
@@ -270,7 +306,7 @@ public class ProdutoForm extends javax.swing.JFrame {
             valorLucro = custoPeca * (margemLucro / 100);
             lucroCalculado.setText("R$: " + valorLucro);
 
-            valorDeVenda.setText("R$: " + (valorLucro + custoPeca));
+            valorDeVenda.setText("" + (valorLucro + custoPeca));
         } else {
             lucroCalculado.setText("Digite o custo e margem de lucro.");
         }
@@ -289,7 +325,7 @@ public class ProdutoForm extends javax.swing.JFrame {
         p.setDescricao(descricaoTextField.getText());
         p.setUnidadeVolume(unidadeComboBox.getSelectedItem().toString());
         p.setPrecoCusto(Float.parseFloat(precoCustoTextField.getText()));
-        //p.setPrecoVenda(Float.parseFloat(valorLucro + custoPeca));
+        p.setPrecoVenda(Float.parseFloat(valorDeVenda.getText()));
         p.setMargemLucro(Float.parseFloat(margemLucroTextField.getText()));
         p.setEstoqueAtual(Integer.parseInt(quantidadeEstoqueTextField.getText()));
         p.setEstoqueMinimo(Integer.parseInt(quantidadeMinimaTextField.getText()));
@@ -298,8 +334,9 @@ public class ProdutoForm extends javax.swing.JFrame {
         try {
             cp.cadastrarProduto(p);
             JOptionPane.showMessageDialog(rootPane, "Produto cadastrado com Sucesso");
+            limparCampos();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, e.getMessage());
+            JOptionPane.showMessageDialog(rootPane, "Produto não Cadastrado. Preencha todos os campos");
         }
 
 
@@ -319,6 +356,49 @@ public class ProdutoForm extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_precoCustoTextFieldKeyTyped
+
+    private void margemLucroTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_margemLucroTextFieldKeyTyped
+        // TODO add your handling code here:
+        char margemLucroKey = evt.getKeyChar();
+
+        if (!((margemLucroTextField.getText().length() <= 5) && (margemLucroKey >= '0') && (margemLucroKey <= '9')
+                || (margemLucroKey == '.')
+                || (margemLucroKey == KeyEvent.VK_BACK_SPACE)
+                || (margemLucroKey == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_margemLucroTextFieldKeyTyped
+
+    private void quantidadeEstoqueTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantidadeEstoqueTextFieldKeyTyped
+        // TODO add your handling code here:
+        char quatidadeEstoqueKey = evt.getKeyChar();
+
+        if (!((quantidadeEstoqueTextField.getText().length() <= 5) && (quatidadeEstoqueKey >= '0') && (quatidadeEstoqueKey <= '9')
+                || (quatidadeEstoqueKey == KeyEvent.VK_BACK_SPACE)
+                || (quatidadeEstoqueKey == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+
+    }//GEN-LAST:event_quantidadeEstoqueTextFieldKeyTyped
+
+    private void quantidadeMinimaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantidadeMinimaTextFieldKeyTyped
+        // TODO add your handling code here:
+        char quatidadeMinimaKey = evt.getKeyChar();
+
+        if (!((quantidadeMinimaTextField.getText().length() <= 2) && (quatidadeMinimaKey >= '0') && (quatidadeMinimaKey <= '9')
+                || (quatidadeMinimaKey == KeyEvent.VK_BACK_SPACE)
+                || (quatidadeMinimaKey == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_quantidadeMinimaTextFieldKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        limparCampos();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

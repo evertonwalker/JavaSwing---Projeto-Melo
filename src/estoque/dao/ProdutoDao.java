@@ -117,7 +117,24 @@ public class ProdutoDao implements ProdutoInterFace {
 
     @Override
     public void remover(Produto p) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+     
+        Connection conn = conexao.conectarPrepareStatment();
+        String sql = "Delete from PRODUTO where Fornecedor_cnpj = ?";
+
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+            // preenche os valores
+            stmt.setString(1, p.getFornecedor().getCnpj());
+
+            stmt.execute();
+            stmt.close();
+            //fechando a conexão com o banco de dados
+            conexao.desconectar();
+        } catch (SQLException ex) {
+            ex.getMessage();
+
+        }   
     }
 
 }

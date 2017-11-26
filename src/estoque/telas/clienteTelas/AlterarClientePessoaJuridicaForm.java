@@ -9,6 +9,7 @@ import estoque.controladores.ControladorClientePessoaJuridica;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
@@ -163,7 +164,19 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
 
     telefonePrincAlterarPJLabel.setText("Telefone Principal");
 
+    telefonePrincAlterarPJFormattedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            telefonePrincAlterarPJFormattedTextFieldKeyTyped(evt);
+        }
+    });
+
     jLabel2.setText("Telefone Opicional");
+
+    telefoneOpcionalAlterarPJFormattedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped(evt);
+        }
+    });
 
     cepAlterarPJLabel.setText("Cep");
 
@@ -190,6 +203,12 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
     estadoAlterarPJTextField.setEnabled(false);
 
     jLabel3.setText("Número");
+
+    numeroAlterarPJTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            numeroAlterarPJTextFieldKeyTyped(evt);
+        }
+    });
 
     limparFormularioAlterarPJButton.setText("Limpar Formúlario");
     limparFormularioAlterarPJButton.addActionListener(new java.awt.event.ActionListener() {
@@ -376,6 +395,42 @@ public class AlterarClientePessoaJuridicaForm extends javax.swing.JFrame {
         String email = emailAlterarPJFormattedTextField.getText().toLowerCase();
         emailAlterarPJFormattedTextField.setText(email);
     }//GEN-LAST:event_emailAlterarPJFormattedTextFieldFocusLost
+
+    private void telefonePrincAlterarPJFormattedTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonePrincAlterarPJFormattedTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefonePrinc = evt.getKeyChar();
+
+        if (!((telefonePrincAlterarPJFormattedTextField.getText().length() <= 10) && (telefonePrinc >= '0') && (telefonePrinc <= '9')
+                || (telefonePrinc == KeyEvent.VK_BACK_SPACE)
+                || (telefonePrinc == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefonePrincAlterarPJFormattedTextFieldKeyTyped
+
+    private void telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefoneOpcional = evt.getKeyChar();
+
+        if (!((telefoneOpcionalAlterarPJFormattedTextField.getText().length() <= 10) && (telefoneOpcional >= '0') && (telefoneOpcional <= '9')
+                || (telefoneOpcional == KeyEvent.VK_BACK_SPACE)
+                || (telefoneOpcional == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped
+
+    private void numeroAlterarPJTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroAlterarPJTextFieldKeyTyped
+        // TODO add your handling code here:
+        /*char numero = evt.getKeyChar();
+
+        if (!((numeroAlterarPJTextField.getText().length() <= 10) && (numero >= '0') && (numero <= '9')
+                || (numero == KeyEvent.VK_BACK_SPACE)
+                || (numero == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }*/
+    }//GEN-LAST:event_numeroAlterarPJTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

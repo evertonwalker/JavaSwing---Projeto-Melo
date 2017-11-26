@@ -22,5 +22,5 @@ public interface FornecedorInterface {
     
     public void remover(Fornecedor f) throws Exception;
     
-    
+    public boolean verificarCnpj(String cnpj) throws Exception;
 }

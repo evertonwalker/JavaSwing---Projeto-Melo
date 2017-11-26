@@ -8,6 +8,7 @@ package estoque.telas.telasFornecedor;
 import estoque.controladores.ControladorFornecedor;
 import estoque.modelos.Fornecedor;
 import estoque.util.Util;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
@@ -162,7 +163,19 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
 
     telefonePrincAlterarPJLabel.setText("Telefone Principal");
 
+    telefonePrincAlterarPJFormattedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            telefonePrincAlterarPJFormattedTextFieldKeyTyped(evt);
+        }
+    });
+
     jLabel2.setText("Telefone Opicional");
+
+    telefoneOpcionalAlterarPJFormattedTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped(evt);
+        }
+    });
 
     cepAlterarPJLabel.setText("Cep");
 
@@ -374,6 +387,30 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
         String email = emailAlterarPJFormattedTextField.getText().toLowerCase();
         emailAlterarPJFormattedTextField.setText(email);
     }//GEN-LAST:event_emailAlterarPJFormattedTextFieldFocusLost
+
+    private void telefonePrincAlterarPJFormattedTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonePrincAlterarPJFormattedTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefonePrinc = evt.getKeyChar();
+
+        if (!((telefonePrincAlterarPJFormattedTextField.getText().length() <= 10) && (telefonePrinc >= '0') && (telefonePrinc <= '9')
+                || (telefonePrinc == KeyEvent.VK_BACK_SPACE)
+                || (telefonePrinc == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefonePrincAlterarPJFormattedTextFieldKeyTyped
+
+    private void telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefoneOpcional = evt.getKeyChar();
+
+        if (!((telefoneOpcionalAlterarPJFormattedTextField.getText().length() <= 10) && (telefoneOpcional >= '0') && (telefoneOpcional <= '9')
+                || (telefoneOpcional == KeyEvent.VK_BACK_SPACE)
+                || (telefoneOpcional == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

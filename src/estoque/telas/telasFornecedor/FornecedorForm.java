@@ -8,6 +8,7 @@ package estoque.telas.telasFornecedor;
 import estoque.controladores.ControladorFornecedor;
 import estoque.modelos.Fornecedor;
 import estoque.util.Util;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
@@ -122,6 +123,18 @@ public class FornecedorForm extends javax.swing.JFrame {
 
     telefonePrincipalLabel.setText("Telefone Principal*");
 
+    telefonePrincipalTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            telefonePrincipalTextFieldKeyTyped(evt);
+        }
+    });
+
+    telefoneOpcionalTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+        public void keyTyped(java.awt.event.KeyEvent evt) {
+            telefoneOpcionalTextFieldKeyTyped(evt);
+        }
+    });
+
     telefoneOpcionalLabel.setText("Telefone Opcional");
 
     cepLabel.setText("Cep*");
@@ -217,9 +230,6 @@ public class FornecedorForm extends javax.swing.JFrame {
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 103, Short.MAX_VALUE)))))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(20, Short.MAX_VALUE))
-                .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(cepLabel)
@@ -234,9 +244,10 @@ public class FornecedorForm extends javax.swing.JFrame {
                         .addComponent(cidadeLabel)
                         .addComponent(responsaveisTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 219, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGap(0, 0, Short.MAX_VALUE))
-                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createSequentialGroup()
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(logradouroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cadastrarButton, javax.swing.GroupLayout.PREFERRED_SIZE, 175, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -399,6 +410,30 @@ public class FornecedorForm extends javax.swing.JFrame {
     private void razaoSocialTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_razaoSocialTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_razaoSocialTextFieldActionPerformed
+
+    private void telefonePrincipalTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonePrincipalTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefonePrinc = evt.getKeyChar();
+
+        if (!((telefonePrincipalTextField.getText().length() <= 10) && (telefonePrinc >= '0') && (telefonePrinc <= '9')
+                || (telefonePrinc == KeyEvent.VK_BACK_SPACE)
+                || (telefonePrinc == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefonePrincipalTextFieldKeyTyped
+
+    private void telefoneOpcionalTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefoneOpcionalTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefoneOpcional = evt.getKeyChar();
+
+        if (!((telefoneOpcionalTextField.getText().length() <= 10) && (telefoneOpcional >= '0') && (telefoneOpcional <= '9')
+                || (telefoneOpcional == KeyEvent.VK_BACK_SPACE)
+                || (telefoneOpcional == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefoneOpcionalTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

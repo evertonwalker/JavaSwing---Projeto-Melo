@@ -204,6 +204,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="telefonePrincAlterarPJFormattedTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telefonePrincAlterarPJFormattedTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
@@ -211,6 +214,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JFormattedTextField" name="telefoneOpcionalAlterarPJFormattedTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="cepAlterarPJLabel">
       <Properties>
@@ -268,6 +274,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="numeroAlterarPJTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="numeroAlterarPJTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="limparFormularioAlterarPJButton">
       <Properties>

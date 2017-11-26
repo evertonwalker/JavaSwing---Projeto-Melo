@@ -108,7 +108,7 @@ public class FornecedorDao implements FornecedorInterface {
 
     @Override
     public void atualizar(Fornecedor f, String oldCnpj) throws Exception {
-       
+
         Connection conn = conexao.conectarPrepareStatment();
 
         String sql = "Update FORNECEDOR  set cnpj = ?, nomeFantasia = ?, razaoSocial = ?,"
@@ -146,8 +146,8 @@ public class FornecedorDao implements FornecedorInterface {
 
     @Override
     public void remover(Fornecedor f) throws Exception {
-      
-         Connection conn = conexao.conectarPrepareStatment();
+
+        Connection conn = conexao.conectarPrepareStatment();
         String sql = "Delete from FORNECEDOR where cnpj = ?";
 
         try {
@@ -163,8 +163,42 @@ public class FornecedorDao implements FornecedorInterface {
             ex.getMessage();
 
         }
-        
-        
+
+    }
+
+    @Override
+    public boolean verificarCnpj(String cnpj) throws Exception {
+
+        boolean verificador = false;
+
+        ArrayList<Fornecedor> retorno = new ArrayList<>();
+
+        //abrindo a conexão
+        Connection conn = conexao.conectarPrepareStatment();
+        //instrução sql correspondente a seleção dos alunos
+        String sql = "SELECT *"
+                + " FROM FORNECEDOR where cnpj = ?";
+        try {
+
+            PreparedStatement stmt = conn.prepareStatement(sql);
+
+            stmt.setString(1, cnpj);
+
+            //executando a instrução sql
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()) {
+                Fornecedor f = new Fornecedor();
+                retorno.add(f);
+            }
+
+            if (!retorno.isEmpty()) {
+                verificador = true;
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+        return verificador;
     }
 
 }

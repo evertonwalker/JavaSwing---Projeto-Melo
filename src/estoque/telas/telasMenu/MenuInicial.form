@@ -141,7 +141,7 @@
                   <Component id="ListarClienteButton" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="listarClienteJuridicoButton" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="32" max="32767" attributes="0"/>
+                  <EmptySpace pref="44" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -213,7 +213,7 @@
                   <Component id="cadastrarClientButton1" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="ListarClienteButton1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="48" max="32767" attributes="0"/>
+                  <EmptySpace pref="60" max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -357,7 +357,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="cadatrarfFornecedor">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Cadastrar Ordem de Servi&#xe7;o"/>
+            <Property name="text" type="java.lang.String" value="Cadastrar Fornecedor"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cadatrarfFornecedorActionPerformed"/>
@@ -365,7 +365,7 @@
         </Component>
         <Component class="javax.swing.JButton" name="listarFornecedor">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Listar Ordens de Servi&#xe7;o"/>
+            <Property name="text" type="java.lang.String" value="Listar Fornecedores"/>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="listarFornecedorActionPerformed"/>

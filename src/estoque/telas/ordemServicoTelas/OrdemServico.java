@@ -11,6 +11,7 @@ import estoque.telas.telasMecanico.AdicionarMecanico;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.modelos.Mecanico;
+import java.awt.event.KeyEvent;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.GregorianCalendar;
@@ -198,6 +199,12 @@ public class OrdemServico extends javax.swing.JFrame {
         jButton2.setText("Remover Produto");
 
         marcaTextField.setEnabled(false);
+
+        PlacaTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                PlacaTextFieldKeyTyped(evt);
+            }
+        });
 
         anoTextField.setEnabled(false);
 
@@ -432,6 +439,19 @@ public class OrdemServico extends javax.swing.JFrame {
     private void modeloTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modeloTextFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_modeloTextFieldActionPerformed
+
+    private void PlacaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_PlacaTextFieldKeyTyped
+        // TODO add your handling code here:
+        char placa = evt.getKeyChar();
+
+        if (!((PlacaTextField.getText().length() <= 6) && ((placa >= '0') && (placa <= '9') || (placa >= 'a') && (placa <= 'z')
+                || (placa >= 'A') && (placa <= 'Z'))
+                || (placa == KeyEvent.VK_BACK_SPACE)
+                || (placa == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_PlacaTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

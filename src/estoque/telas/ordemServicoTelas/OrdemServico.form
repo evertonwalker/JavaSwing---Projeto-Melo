@@ -398,6 +398,9 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="PlacaTextField">
+      <Events>
+        <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="PlacaTextFieldKeyTyped"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="anoTextField">
       <Properties>

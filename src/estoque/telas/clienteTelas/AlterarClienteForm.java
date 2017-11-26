@@ -9,6 +9,7 @@ import estoque.controladores.ControladorClienteFisico;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.util.Util;
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 import org.json.JSONObject;
 
@@ -164,6 +165,18 @@ public class AlterarClienteForm extends javax.swing.JFrame {
 
         jLabel6.setText("Telefone Opcional");
 
+        telefonePrincipalTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telefonePrincipalTextFieldKeyTyped(evt);
+            }
+        });
+
+        telefoneOpcionalTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                telefoneOpcionalTextFieldKeyTyped(evt);
+            }
+        });
+
         jLabel7.setText("Cep");
 
         logradouroTextField.setEnabled(false);
@@ -171,6 +184,12 @@ public class AlterarClienteForm extends javax.swing.JFrame {
         cidadeTextField.setEnabled(false);
 
         bairroTextField.setEnabled(false);
+
+        numeroTextField.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                numeroTextFieldKeyTyped(evt);
+            }
+        });
 
         jLabel8.setText("Logradouro");
 
@@ -405,6 +424,42 @@ public class AlterarClienteForm extends javax.swing.JFrame {
     private void cpfFormattedTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cpfFormattedTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cpfFormattedTextField1ActionPerformed
+
+    private void telefonePrincipalTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefonePrincipalTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefonePrinc = evt.getKeyChar();
+
+        if (!((telefonePrincipalTextField.getText().length() <= 10) && (telefonePrinc >= '0') && (telefonePrinc <= '9')
+                || (telefonePrinc == KeyEvent.VK_BACK_SPACE)
+                || (telefonePrinc == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefonePrincipalTextFieldKeyTyped
+
+    private void telefoneOpcionalTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_telefoneOpcionalTextFieldKeyTyped
+        // TODO add your handling code here:
+        char telefoneOpcional = evt.getKeyChar();
+
+        if (!((telefoneOpcionalTextField.getText().length() <= 10) && (telefoneOpcional >= '0') && (telefoneOpcional <= '9')
+                || (telefoneOpcional == KeyEvent.VK_BACK_SPACE)
+                || (telefoneOpcional == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }
+    }//GEN-LAST:event_telefoneOpcionalTextFieldKeyTyped
+
+    private void numeroTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_numeroTextFieldKeyTyped
+        // TODO add your handling code here:
+        /*char numero = evt.getKeyChar();
+
+        if (!((numeroTextField.getText().length() <= 10) && (numero >= '0') && (numero <= '9')
+                || (numero == KeyEvent.VK_BACK_SPACE)
+                || (numero == KeyEvent.VK_DELETE))) {
+            getToolkit().beep();
+            evt.consume();
+        }*/
+    }//GEN-LAST:event_numeroTextFieldKeyTyped
 
     /**
      * @param args the command line arguments

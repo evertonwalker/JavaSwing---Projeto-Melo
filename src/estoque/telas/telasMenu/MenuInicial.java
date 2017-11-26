@@ -122,7 +122,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addComponent(ListarClienteButton)
                 .addGap(18, 18, 18)
                 .addComponent(listarClienteJuridicoButton)
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         jInternalFrame2.setVisible(true);
@@ -168,7 +168,7 @@ public class MenuInicial extends javax.swing.JFrame {
                 .addComponent(cadastrarClientButton1)
                 .addGap(18, 18, 18)
                 .addComponent(ListarClienteButton1)
-                .addContainerGap(48, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         jInternalFrame3.setVisible(true);
@@ -222,14 +222,14 @@ public class MenuInicial extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("Sessão Fornecedor");
 
-        cadatrarfFornecedor.setText("Cadastrar Ordem de Serviço");
+        cadatrarfFornecedor.setText("Cadastrar Fornecedor");
         cadatrarfFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadatrarfFornecedorActionPerformed(evt);
             }
         });
 
-        listarFornecedor.setText("Listar Ordens de Serviço");
+        listarFornecedor.setText("Listar Fornecedores");
         listarFornecedor.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 listarFornecedorActionPerformed(evt);

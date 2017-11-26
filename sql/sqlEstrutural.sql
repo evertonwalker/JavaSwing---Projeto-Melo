@@ -68,4 +68,4 @@ Create table PRODUTO ( id int identity primary key,
 						aplicacao varchar(1500));
 
 
-SELECT * FROM PRODUTO
+SELECT * FROM fornecedor

@@ -11,6 +11,7 @@ import estoque.telas.telasMecanico.AdicionarMecanico;
 import estoque.modelos.ClienteFisico;
 import estoque.modelos.ClientePessoaJuridica;
 import estoque.modelos.Mecanico;
+import estoque.telas.Produtos.AdicionarProduto;
 import java.awt.event.KeyEvent;
 import java.util.Calendar;
 import java.util.Date;
@@ -195,6 +196,11 @@ public class OrdemServico extends javax.swing.JFrame {
         jScrollPane1.setViewportView(jTable1);
 
         jButton1.setText("Adicionar Novo Produto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Remover Produto");
 
@@ -452,6 +458,12 @@ public class OrdemServico extends javax.swing.JFrame {
             evt.consume();
         }
     }//GEN-LAST:event_PlacaTextFieldKeyTyped
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        AdicionarProduto ap = new AdicionarProduto();
+        ap.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments

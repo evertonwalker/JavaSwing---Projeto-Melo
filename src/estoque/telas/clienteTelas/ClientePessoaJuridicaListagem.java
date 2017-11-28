@@ -69,6 +69,7 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
         filtroPessoaJuridicaTextField = new javax.swing.JTextField();
         alterarClientePJButton = new javax.swing.JButton();
         removerClientePJButton = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -128,6 +129,13 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Voltar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -138,10 +146,12 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(alterarClientePJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(44, 44, 44)
-                                .addComponent(removerClientePJButton))
+                                .addContainerGap()
+                                .addComponent(jButton1)
+                                .addGap(71, 71, 71)
+                                .addComponent(removerClientePJButton)
+                                .addGap(45, 45, 45)
+                                .addComponent(alterarClientePJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(20, 20, 20)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -167,7 +177,8 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(removerClientePJButton)
-                    .addComponent(alterarClientePJButton))
+                    .addComponent(alterarClientePJButton)
+                    .addComponent(jButton1))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -266,6 +277,11 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_filtroPessoaJuridicaTextFieldKeyPressed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -314,6 +330,7 @@ public class ClientePessoaJuridicaListagem extends javax.swing.JFrame {
     private javax.swing.JButton alterarClientePJButton;
     private javax.swing.JLabel filtroFantasiaLabel;
     private javax.swing.JTextField filtroPessoaJuridicaTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

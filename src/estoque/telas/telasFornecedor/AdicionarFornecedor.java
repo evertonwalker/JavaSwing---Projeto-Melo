@@ -6,12 +6,9 @@
 package estoque.telas.telasFornecedor;
 
 import estoque.controladores.ControladorFornecedor;
-import estoque.controladores.ControladorMecanico;
 import estoque.modelos.Fornecedor;
-import estoque.modelos.Mecanico;
-import estoque.telas.Produtos.AdicionarProduto;
+import estoque.telas.Produtos.AlterarProdutoForm;
 import estoque.telas.Produtos.ProdutoForm;
-import estoque.telas.ordemServicoTelas.OrdemServico;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -27,6 +24,8 @@ public class AdicionarFornecedor extends javax.swing.JFrame {
      */
     ArrayList<Fornecedor> listaFornecedorGlobal;
     ProdutoForm formPai;
+    AlterarProdutoForm apf;
+    String classeChamada;
 
     public AdicionarFornecedor() {
 
@@ -39,9 +38,19 @@ public class AdicionarFornecedor extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.formPai = formPai;
         listarFornecedor();
+        this.classeChamada = "ProdutoForm";
     }
 
-   public void listarFornecedor() {
+    public AdicionarFornecedor(AlterarProdutoForm alterarProdutoForm) {
+         initComponents();
+        this.setLocationRelativeTo(null);
+        this.apf = alterarProdutoForm;
+        listarFornecedor();
+        this.classeChamada = "AlterarProdutoForm";
+
+    }
+
+    public void listarFornecedor() {
         DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
         modelo.setColumnIdentifiers(new String[]{"Nome fantasia", "Email",
@@ -164,7 +173,7 @@ public class AdicionarFornecedor extends javax.swing.JFrame {
     private void filtroFornecedorKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_filtroFornecedorKeyPressed
         // TODO add your handling code here:
 
-         DefaultTableModel modelo = new DefaultTableModel();
+        DefaultTableModel modelo = new DefaultTableModel();
         //atribuindo as colunas da tabela
         modelo.setColumnIdentifiers(new String[]{"Nome fantasia", "Email",
             "Telefone Principal", "Telefone Opcional", " Contatos Responsáveis"});
@@ -193,10 +202,19 @@ public class AdicionarFornecedor extends javax.swing.JFrame {
         int index = fornecedorTable.getSelectedRow();
 
         if (index >= 0) {
+
             Fornecedor f = this.listaFornecedorGlobal.get(index);
-            formPai.receberFornecedor(f);
-            this.dispose();
-            formPai.setVisible(true);
+            if (this.classeChamada.equals("ProdutoForm")) {
+               
+                formPai.receberFornecedor(f);
+                this.dispose();
+                formPai.setVisible(true);
+            } else {
+                apf.receberFornecedor(f);
+                this.dispose();
+                apf.setVisible(true);
+                
+            }
 
         } else {
             JOptionPane.showMessageDialog(rootPane, "Selecione um Fornecedor para"
@@ -238,6 +256,102 @@ public class AdicionarFornecedor extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(AdicionarFornecedor.class
                     .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
         //</editor-fold>

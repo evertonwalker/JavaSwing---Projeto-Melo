@@ -130,6 +130,7 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
     responsaveisTextField = new javax.swing.JTextField();
     limparFormularioAlterarPJButton = new javax.swing.JButton();
     alterarPJButton = new javax.swing.JButton();
+    jButton1 = new javax.swing.JButton();
 
     setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -217,6 +218,13 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
         }
     });
 
+    jButton1.setText("Voltar");
+    jButton1.addActionListener(new java.awt.event.ActionListener() {
+        public void actionPerformed(java.awt.event.ActionEvent evt) {
+            jButton1ActionPerformed(evt);
+        }
+    });
+
     javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
     getContentPane().setLayout(layout);
     layout.setHorizontalGroup(
@@ -234,7 +242,6 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
                         .addComponent(jLabel3)
                         .addComponent(responsaveisTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addComponent(estadoAlterarPJLabel)
-                .addComponent(limparFormularioAlterarPJButton)
                 .addGroup(layout.createSequentialGroup()
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(telefonePrincAlterarPJLabel)
@@ -260,8 +267,13 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
                                 .addComponent(emailAlterarPJLabel)
                                 .addComponent(cnpjAlterarPJLabel))
                             .addGap(0, 0, Short.MAX_VALUE))))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(alterarPJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(limparFormularioAlterarPJButton)
+                        .addGap(47, 47, 47)
+                        .addComponent(alterarPJButton, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(logradouroAlterarPJTextField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)))
             .addGap(29, 29, 29))
         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -326,7 +338,8 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
             .addGap(18, 18, 18)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(limparFormularioAlterarPJButton)
-                .addComponent(alterarPJButton))
+                .addComponent(alterarPJButton)
+                .addComponent(jButton1))
             .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
     );
 
@@ -412,6 +425,11 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_telefoneOpcionalAlterarPJFormattedTextFieldKeyTyped
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -462,6 +480,7 @@ public class AlterarFornecedorForm extends javax.swing.JFrame {
     private javax.swing.JLabel emailAlterarPJLabel;
     private javax.swing.JLabel estadoAlterarPJLabel;
     private javax.swing.JTextField estadoAlterarPJTextField;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

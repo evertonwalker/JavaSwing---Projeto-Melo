@@ -9,6 +9,7 @@ import estoque.controladores.ControladorProduto;
 import estoque.modelos.Fornecedor;
 import estoque.modelos.Produto;
 import estoque.telas.telasFornecedor.AdicionarFornecedor;
+import estoque.telas.telasMenu.MenuInicial;
 import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
@@ -22,6 +23,7 @@ public class ProdutoForm extends javax.swing.JFrame {
     private float valorLucro;
     private float custoPeca;
     private float margemLucro;
+    private float precoVenda;
 
     /**
      * Creates new form ProdutoForm
@@ -29,14 +31,14 @@ public class ProdutoForm extends javax.swing.JFrame {
     public ProdutoForm() {
         initComponents();
         setLocationRelativeTo(null);
-
+        this.fornecedor = new Fornecedor();
     }
 
     public void receberFornecedor(Fornecedor f) {
         this.fornecedor = f;
         fornecedorField.setText(f.getNomeFantasia());
     }
-    
+
     private void limparCampos() {
         fornecedorField.setText("");
         referenciaTextField.setText("");
@@ -48,7 +50,7 @@ public class ProdutoForm extends javax.swing.JFrame {
         quantidadeEstoqueTextField.setText("");
         quantidadeMinimaTextField.setText("");
         aplicacaoTextField.setText("");
-        
+
     }
 
     /**
@@ -88,6 +90,7 @@ public class ProdutoForm extends javax.swing.JFrame {
         lucroCalculado = new javax.swing.JTextField();
         valorDeVenda = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
+        jToggleButton2 = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -178,6 +181,13 @@ public class ProdutoForm extends javax.swing.JFrame {
 
         jLabel9.setText("Valor da Venda");
 
+        jToggleButton2.setText("Voltar");
+        jToggleButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -188,13 +198,15 @@ public class ProdutoForm extends javax.swing.JFrame {
                 .addGap(180, 180, 180))
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel12)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jToggleButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton2))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel12)
                         .addGroup(layout.createSequentialGroup()
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addGroup(layout.createSequentialGroup()
@@ -229,8 +241,8 @@ public class ProdutoForm extends javax.swing.JFrame {
                                     .addComponent(lucroCalculado, javax.swing.GroupLayout.Alignment.LEADING))
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(referenciaTextField, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(unidadeComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 158, Short.MAX_VALUE)))))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(unidadeComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, 158, Short.MAX_VALUE))))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 593, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -282,7 +294,8 @@ public class ProdutoForm extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(jButton2)
+                    .addComponent(jToggleButton2))
                 .addContainerGap(20, Short.MAX_VALUE))
         );
 
@@ -299,16 +312,21 @@ public class ProdutoForm extends javax.swing.JFrame {
     private void margemLucroTextFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_margemLucroTextFieldFocusLost
         // TODO add your handling code here:
 
-        custoPeca = Float.parseFloat(precoCustoTextField.getText());
-        margemLucro = Float.parseFloat(margemLucroTextField.getText());
+        if (!precoCustoTextField.getText().equals("")
+                && !margemLucroTextField.getText().equals("")) {
+
+            custoPeca = Float.parseFloat(precoCustoTextField.getText());
+            margemLucro = Float.parseFloat(margemLucroTextField.getText());
+        }
 
         if (custoPeca != 0 && margemLucro != 0) {
             valorLucro = custoPeca * (margemLucro / 100);
             lucroCalculado.setText("R$: " + valorLucro);
-
-            valorDeVenda.setText("" + (valorLucro + custoPeca));
+            precoVenda = valorLucro + custoPeca;
+            valorDeVenda.setText("" + precoVenda);
         } else {
-            lucroCalculado.setText("Digite o custo e margem de lucro.");
+            lucroCalculado.setText("");
+            JOptionPane.showMessageDialog(this, "Preço custo ou margem de lucro, estão vazios");
         }
 
 
@@ -319,24 +337,23 @@ public class ProdutoForm extends javax.swing.JFrame {
         Produto p = new Produto();
 
         ControladorProduto cp = new ControladorProduto();
-
-        p.setFornecedor(fornecedor);
-        p.setReferencia(referenciaTextField.getText());
-        p.setDescricao(descricaoTextField.getText());
-        p.setUnidadeVolume(unidadeComboBox.getSelectedItem().toString());
-        p.setPrecoCusto(Float.parseFloat(precoCustoTextField.getText()));
-        p.setPrecoVenda(Float.parseFloat(valorDeVenda.getText()));
-        p.setMargemLucro(Float.parseFloat(margemLucroTextField.getText()));
-        p.setEstoqueAtual(Integer.parseInt(quantidadeEstoqueTextField.getText()));
-        p.setEstoqueMinimo(Integer.parseInt(quantidadeMinimaTextField.getText()));
-        p.setAplicacao(aplicacaoTextField.getText());
-
         try {
+            p.setFornecedor(this.fornecedor);
+            p.setReferencia(referenciaTextField.getText());
+            p.setDescricao(descricaoTextField.getText());
+            p.setUnidadeVolume(unidadeComboBox.getSelectedItem().toString());
+            p.setPrecoCusto(Float.parseFloat(precoCustoTextField.getText()));
+            p.setPrecoVenda(precoVenda);
+            p.setMargemLucro(Float.parseFloat(margemLucroTextField.getText()));
+            p.setEstoqueAtual(Integer.parseInt(quantidadeEstoqueTextField.getText()));
+            p.setEstoqueMinimo(Integer.parseInt(quantidadeMinimaTextField.getText()));
+            p.setAplicacao(aplicacaoTextField.getText());
+
             cp.cadastrarProduto(p);
             JOptionPane.showMessageDialog(rootPane, "Produto cadastrado com Sucesso");
             limparCampos();
         } catch (Exception e) {
-            JOptionPane.showMessageDialog(rootPane, "Produto não Cadastrado. Preencha todos os campos");
+            JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
 
 
@@ -346,13 +363,16 @@ public class ProdutoForm extends javax.swing.JFrame {
         // TODO add your handling code here:
 
         char precoCusto = evt.getKeyChar();
-
-        if (!((precoCustoTextField.getText().length() <= 9) && (precoCusto >= '0') && (precoCusto <= '9')
-                || (precoCusto == '.')
-                || (precoCusto == KeyEvent.VK_BACK_SPACE)
-                || (precoCusto == KeyEvent.VK_DELETE))) {
-            getToolkit().beep();
-            evt.consume();
+        try {
+            if (!((precoCustoTextField.getText().length() <= 9) && (precoCusto >= '0') && (precoCusto <= '9')
+                    || (precoCusto == '.')
+                    || (precoCusto == KeyEvent.VK_BACK_SPACE)
+                    || (precoCusto == KeyEvent.VK_DELETE))) {
+                getToolkit().beep();
+                evt.consume();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }//GEN-LAST:event_precoCustoTextFieldKeyTyped
@@ -360,25 +380,33 @@ public class ProdutoForm extends javax.swing.JFrame {
     private void margemLucroTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_margemLucroTextFieldKeyTyped
         // TODO add your handling code here:
         char margemLucroKey = evt.getKeyChar();
+        try {
 
-        if (!((margemLucroTextField.getText().length() <= 5) && (margemLucroKey >= '0') && (margemLucroKey <= '9')
-                || (margemLucroKey == '.')
-                || (margemLucroKey == KeyEvent.VK_BACK_SPACE)
-                || (margemLucroKey == KeyEvent.VK_DELETE))) {
-            getToolkit().beep();
-            evt.consume();
+            if (!((margemLucroTextField.getText().length() <= 5) && (margemLucroKey >= '0') && (margemLucroKey <= '9')
+                    || (margemLucroKey == '.')
+                    || (margemLucroKey == KeyEvent.VK_BACK_SPACE)
+                    || (margemLucroKey == KeyEvent.VK_DELETE))) {
+                getToolkit().beep();
+                evt.consume();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
+
     }//GEN-LAST:event_margemLucroTextFieldKeyTyped
 
     private void quantidadeEstoqueTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantidadeEstoqueTextFieldKeyTyped
         // TODO add your handling code here:
         char quatidadeEstoqueKey = evt.getKeyChar();
-
-        if (!((quantidadeEstoqueTextField.getText().length() <= 5) && (quatidadeEstoqueKey >= '0') && (quatidadeEstoqueKey <= '9')
-                || (quatidadeEstoqueKey == KeyEvent.VK_BACK_SPACE)
-                || (quatidadeEstoqueKey == KeyEvent.VK_DELETE))) {
-            getToolkit().beep();
-            evt.consume();
+        try {
+            if (!((quantidadeEstoqueTextField.getText().length() <= 5) && (quatidadeEstoqueKey >= '0') && (quatidadeEstoqueKey <= '9')
+                    || (quatidadeEstoqueKey == KeyEvent.VK_BACK_SPACE)
+                    || (quatidadeEstoqueKey == KeyEvent.VK_DELETE))) {
+                getToolkit().beep();
+                evt.consume();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
     }//GEN-LAST:event_quantidadeEstoqueTextFieldKeyTyped
@@ -386,12 +414,15 @@ public class ProdutoForm extends javax.swing.JFrame {
     private void quantidadeMinimaTextFieldKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_quantidadeMinimaTextFieldKeyTyped
         // TODO add your handling code here:
         char quatidadeMinimaKey = evt.getKeyChar();
-
-        if (!((quantidadeMinimaTextField.getText().length() <= 2) && (quatidadeMinimaKey >= '0') && (quatidadeMinimaKey <= '9')
-                || (quatidadeMinimaKey == KeyEvent.VK_BACK_SPACE)
-                || (quatidadeMinimaKey == KeyEvent.VK_DELETE))) {
-            getToolkit().beep();
-            evt.consume();
+        try {
+            if (!((quantidadeMinimaTextField.getText().length() <= 2) && (quatidadeMinimaKey >= '0') && (quatidadeMinimaKey <= '9')
+                    || (quatidadeMinimaKey == KeyEvent.VK_BACK_SPACE)
+                    || (quatidadeMinimaKey == KeyEvent.VK_DELETE))) {
+                getToolkit().beep();
+                evt.consume();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }//GEN-LAST:event_quantidadeMinimaTextFieldKeyTyped
 
@@ -399,6 +430,13 @@ public class ProdutoForm extends javax.swing.JFrame {
         // TODO add your handling code here:
         limparCampos();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jToggleButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton2ActionPerformed
+        // TODO add your handling code here:
+
+        this.dispose();
+
+    }//GEN-LAST:event_jToggleButton2ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -456,6 +494,7 @@ public class ProdutoForm extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
     private javax.swing.JTextField lucroCalculado;
     private javax.swing.JTextField margemLucroTextField;
     private javax.swing.JTextField precoCustoTextField;

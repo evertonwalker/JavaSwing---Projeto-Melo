@@ -11,6 +11,7 @@ package estoque.modelos;
  */
 public class Produto {
 
+    private int id;
     private Fornecedor fornecedor;
     private String referencia;
     private String descricao;
@@ -160,6 +161,20 @@ public class Produto {
      */
     public void setPrecoVenda(float precoVenda) {
         this.precoVenda = precoVenda;
+    }
+
+    /**
+     * @return the id
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(int id) {
+        this.id = id;
     }
 
 }

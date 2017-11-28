@@ -17,6 +17,12 @@ import java.util.logging.Logger;
  * @author FHC
  */
 public class ControladorMecanico implements MecanicoInterface {
+    
+    private MecanicoDao dao;
+    
+    public ControladorMecanico(){
+        this.dao = new MecanicoDao();
+    }
 
     @Override
     public void cadastrar(Mecanico mec) throws Exception {
@@ -31,8 +37,7 @@ public class ControladorMecanico implements MecanicoInterface {
             throw new Exception("O Cpf deverá conter 11 dígitos");
         }
 
-        boolean teste = verificarCpf(mec.getCpf());
-        if (teste == true) {
+        if (dao.verificarCpf(mec.getCpf())) {
             throw new Exception("Cpf do Mecânico já cadastrado");
         }
 
@@ -83,21 +88,6 @@ public class ControladorMecanico implements MecanicoInterface {
         MecanicoDao dao = new MecanicoDao();
         return dao.listarMecanico();
 
-    }
-
-    @Override
-    public boolean verificarCpf(String cpf) throws Exception {
-
-        boolean verificador = false;
-
-        MecanicoDao dao = new MecanicoDao();
-        try {
-            verificador = dao.verificarCpf(cpf);
-        } catch (Exception ex) {
-            ex.getMessage();
-        }
-
-        return verificador;
     }
 
     @Override

@@ -51,9 +51,9 @@ public class ControladorFornecedor implements FornecedorInterface {
             throw new Exception("Informe o nome do responsável pelo Fornecedor");
         }
 
-        /*if (dao.verificarCnpj(f.getCnpj())) {
-            throw new Exception("CNPJ do CLIENTE JURIDICO já cadastrado");
-        }*/
+        if (dao.verificarCnpj(f.getCnpj())) {
+            throw new Exception("CNPJ do Fornecedor já cadastrado");
+        }
         
         try {
             dao.cadastrarFornecedor(f);

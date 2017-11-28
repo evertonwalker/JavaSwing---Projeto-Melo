@@ -25,7 +25,7 @@ public class ControladorProduto implements ProdutoInterFace {
     @Override
     public void cadastrarProduto(Produto p) throws Exception {
 
-        if ("".equals(p.getFornecedor().getCnpj().trim())) {
+        if (p.getFornecedor().getCnpj() == null) {
             throw new Exception("Selecione o Fornecedor do Produto");
         }
 
@@ -107,12 +107,6 @@ public class ControladorProduto implements ProdutoInterFace {
             throw new Exception("Informe a margem de lucro do Produto em %");
         }
 
-        String estoqueAtual;
-        estoqueAtual = "" + p.getEstoqueAtual();
-        if (estoqueAtual.isEmpty()) {
-            throw new Exception("Informe esoque atual do Produto");
-        }
-
         String estoqueMinimo;
         estoqueMinimo = "" + p.getEstoqueMinimo();
         if (estoqueMinimo.isEmpty()) {
@@ -121,6 +115,12 @@ public class ControladorProduto implements ProdutoInterFace {
 
         if ("".equals(p.getAplicacao().trim())) {
             throw new Exception("Informe a aplicação do Produto");
+        }
+
+        try {
+            dao.atualizar(p);
+        } catch (Exception e) {
+            e.getMessage();
         }
 
     }

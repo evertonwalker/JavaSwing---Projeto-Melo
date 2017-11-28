@@ -22,8 +22,6 @@ public interface MecanicoInterface {
     
     public ArrayList<Mecanico> listarMecanico() throws Exception;
     
-    public boolean verificarCpf(String cpf) throws Exception;
-    
     public ArrayList<Mecanico> filtragem(String filtro) throws Exception;
     
 }
